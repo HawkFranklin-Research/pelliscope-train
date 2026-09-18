@@ -1,27 +1,96 @@
+primary_encoder: siglip2_so400m
+
+pagination:
+  conditions_per_page: 10
+  columns: 2
+
 style:
   font_family: DejaVu Sans
   dpi: 300
   background: "#FFFFFF"
   text: "#172033"
   grid: "#D9E1EA"
-  train: "#2D6CDF"
-  validation: "#2CA25F"
-  test: "#EF7C8E"
-  sensitivity: "#2E8B57"
-  specificity: "#F28E2B"
-  threshold_default: "#7B2CBF"
-  threshold_balanced: "#2CA25F"
-  reviewer_heatmap: plasma
+  train_loss: "#4682B4"
+  validation_loss: "#FFA500"
+  train_accuracy: "#2E8B57"
+  validation_accuracy: "#FF00FF"
+  individual_alpha: 0.35
+  uncertainty_alpha: 0.15
+  mean_linewidth: 2.5
+  train: "#611F53"
+  validation: "#CB1B4F"
+  test: "#F58860"
+  roc_micro: "#3F1B43"
+  roc_macro: "#841E5A"
+  pr_micro: "#2CA02C"
+  pr_macro: "#D62728"
+  sensitivity: "#1B9E77"
+  specificity: "#D95F02"
+  threshold_band_alpha: 0.20
+  threshold_default: "#8856A7"
+  threshold_default_text: "#5E3C99"
+  threshold_balanced: "#238B45"
+  threshold_balanced_text: "#006D2C"
+  operating_curve: "#9ECAE1"
+  youden_curve: "#2CA02C"
+  youden_point: "#D62728"
+  split_metric_train: "#1F78B4"
+  split_metric_validation: "#33A02C"
+  split_metric_test: "#FB9A99"
+  reviewer_heatmap: magma
   performance_heatmap: viridis
-  split_train: "#E6B84A"
-  split_validation: "#E98492"
-  split_test: "#6BAED6"
+  cohort_condition_palette: crest
+  anatomy_palette: Spectral
+  distribution_palette: viridis
+  weighted_distribution_palette: cubehelix
+  split_cases_train: "#FACC15"
+  split_cases_validation: "#FB7185"
+  split_cases_test: "#38BDF8"
+  split_images_train: "#FEF08A"
+  split_images_validation: "#FDA4AF"
+  split_images_test: "#BAE6FD"
+  split_label_text: "#0F172A"
+  gradability: "#76B7B2"
+  monk_skin_tone: "#EDC948"
+  image_count: "#4C78A8"
+  shot_close_up: "#8DD3C7"
+  shot_angle: "#FFFFB3"
+  shot_distance: "#BEBADA"
   baseline_panel: "#FBE4EC"
   mil_panel: "#E8E5FA"
+  class_curve_colors:
+    Allergic Contact Dermatitis: "#1F77B4"
+    Drug Rash: "#FF7F0E"
+    Eczema: "#2CA02C"
+    Folliculitis: "#D62728"
+    Herpes Zoster: "#9467BD"
+    Insect Bite: "#8C564B"
+    Irritant Contact Dermatitis: "#E377C2"
+    Psoriasis: "#7F7F7F"
+    Tinea: "#BCBD22"
+    Urticaria: "#17BECF"
+  closed_model_colors:
+    gemini-2.5-flash: "#86BE91"
+    gemini-2.5-flash-lite: "#68AF90"
+    gemini-2.5-pro: "#509E90"
+    gpt-5: "#3D8E8E"
+    gpt-5-mini: "#2A7D8C"
+    gpt-5-nano: "#1D6C8A"
+    grok-4-fast-non-reasoning: "#1F5985"
+    grok-4-fast-reasoning: "#27457C"
+  radar_colors:
+    DermAssist (10-run mean): "#000000"
+    gemini-2.5-flash: "#5DA5DA"
+    gemini-2.5-flash-lite: "#B2DF8A"
+    gemini-2.5-pro: "#80B1D3"
+    gpt-5: "#FB8072"
+    gpt-5-mini: "#FDB462"
+    gpt-5-nano: "#B3DE69"
+    grok-4-fast-reasoning: "#BC80BD"
+    grok-4-fast-non-reasoning: "#CCEBC5"
 
 outputs:
   format: png
   transparent: false
   main_width: 12
   supplementary_width: 14
-

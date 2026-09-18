@@ -9,6 +9,7 @@ import pandas as pd
 from hawk_derm.constants import slugify
 from hawk_derm.features.registry import load_encoder_registry
 from hawk_derm.config import load_yaml
+from hawk_derm.figures.plot_data import generate_mil_plot_data
 from hawk_derm.io import write_csv, write_json
 
 
@@ -122,6 +123,24 @@ def generate_tables(
     latency_files = sorted(table_dir.glob("inference_latency_*.csv"))
     if latency_files:
         outputs.append(write_csv(table_dir / "inference_latency_all_devices.csv", pd.concat([pd.read_csv(path) for path in latency_files], ignore_index=True)))
+
+    mil_config = load_yaml("configs/mil.yaml")
+    threshold_config = mil_config["thresholds"]
+    threshold_grid = np.arange(
+        float(threshold_config["grid_start"]),
+        float(threshold_config["grid_stop"]) + float(threshold_config["grid_step"]) / 2,
+        float(threshold_config["grid_step"]),
+    )
+    figure_config = load_yaml("configs/figures.yaml")
+    outputs.extend(
+        generate_mil_plot_data(
+            artifacts_dir,
+            plot_dir,
+            labels,
+            primary_encoder=str(figure_config.get("primary_encoder", "siglip2_so400m")),
+            threshold_grid=threshold_grid,
+        )
+    )
 
     write_json(table_dir / "table_generation_manifest.json", {"outputs": [str(path) for path in outputs], "complete": True})
     return outputs

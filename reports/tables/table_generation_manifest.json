@@ -11,6 +11,13 @@
     "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/encoder_classifier_heatmap.csv",
     "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/operating_points.csv",
     "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/operating_points.csv",
-    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/hyperparameter_trials.csv"
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/hyperparameter_trials.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/mil_history_long.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/mil_per_class_metrics_long.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/mil_roc_pr_curves.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/validation_threshold_curves.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/test_sensitivity_specificity_curves.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/threshold_accuracy_comparison.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/mil_split_per_class_metrics.csv"
   ]
 }

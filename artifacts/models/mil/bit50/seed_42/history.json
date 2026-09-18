@@ -4,12 +4,16 @@
   "history": [
     {
       "epoch": 1,
+      "train_accuracy": 0.4694736842105263,
       "train_loss": 1.2854785919189453,
+      "validation_accuracy": 0.72,
       "validation_loss": 1.651313066482544
     },
     {
       "epoch": 2,
+      "train_accuracy": 0.6863157894736842,
       "train_loss": 1.114131212234497,
+      "validation_accuracy": 0.6133333333333333,
       "validation_loss": 1.858681321144104
     }
   ]

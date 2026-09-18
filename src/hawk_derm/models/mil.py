@@ -112,10 +112,12 @@ def _epoch(
     device: torch.device,
     optimizer: torch.optim.Optimizer | None = None,
     gradient_clip_norm: float | None = None,
-) -> float:
+) -> tuple[float, float]:
     training = optimizer is not None
     model.train(training)
     losses = []
+    correct = 0
+    decisions = 0
     for bags, masks, labels, _ in loader:
         bags, masks, labels = bags.to(device), masks.to(device), labels.to(device)
         with torch.set_grad_enabled(training):
@@ -128,7 +130,11 @@ def _epoch(
                     nn.utils.clip_grad_norm_(model.parameters(), gradient_clip_norm)
                 optimizer.step()
         losses.append(float(loss.detach().cpu()))
-    return float(np.mean(losses)) if losses else float("nan")
+        correct += int(((logits >= 0) == labels.bool()).sum().detach().cpu())
+        decisions += int(labels.numel())
+    loss_value = float(np.mean(losses)) if losses else float("nan")
+    accuracy = correct / decisions if decisions else float("nan")
+    return loss_value, accuracy
 
 
 def train_mil(
@@ -160,9 +166,19 @@ def train_mil(
     patience = 0
     history = []
     for epoch in range(1, int(training["epochs"]) + 1):
-        train_loss = _epoch(model, train_loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm"))
-        validation_loss = _epoch(model, validation_loader, loss_function, target_device)
-        history.append({"epoch": epoch, "train_loss": train_loss, "validation_loss": validation_loss})
+        train_loss, train_accuracy = _epoch(
+            model, train_loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm")
+        )
+        validation_loss, validation_accuracy = _epoch(model, validation_loader, loss_function, target_device)
+        history.append(
+            {
+                "epoch": epoch,
+                "train_loss": train_loss,
+                "validation_loss": validation_loss,
+                "train_accuracy": train_accuracy,
+                "validation_accuracy": validation_accuracy,
+            }
+        )
         if validation_loss < best_loss:
             best_loss = validation_loss
             best_epoch = epoch
@@ -207,8 +223,8 @@ def train_mil_fixed(
     )
     history = []
     for epoch in range(1, epochs + 1):
-        loss = _epoch(model, loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm"))
-        history.append({"epoch": epoch, "train_loss": loss})
+        loss, accuracy = _epoch(model, loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm"))
+        history.append({"epoch": epoch, "train_loss": loss, "train_accuracy": accuracy})
     return TrainingResult(model=model, history=history, best_epoch=epochs)
 
 

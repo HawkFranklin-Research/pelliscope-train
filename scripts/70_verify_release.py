@@ -32,9 +32,16 @@ def main() -> None:
         reports / "figures" / "figure1_cohort_preprocessing.png",
         reports / "figures" / "graphical_abstract.png",
         reports / "figures" / "figure2_encoder_classifier_heatmap.png",
-        reports / "figures" / "figure3_mil_diagnostics.png",
-        reports / "figures" / "figure4_threshold_curves.png",
-        reports / "figures" / "figure6_operating_points.png",
+        # Figure families are emitted as independent panels/pages for the
+        # 25-class study. The old 10-class composite filenames are no longer
+        # release artifacts; final manuscript assembly remains separate.
+        reports / "figures" / "figure3a_learning_curves.png",
+        reports / "figures" / "figure3c_roc_pr_curves.png",
+        reports / "figures" / "figure4_threshold_curves_page_01.png",
+        reports / "figures" / "figure6a_operating_points_page_01.png",
+        reports / "figures" / "figure6b_split_metrics_page_01.png",
+        reports / "figures" / "figure5b_accuracy_comparison.png",
+        reports / "figures" / "figure_generation_manifest.json",
         reports / "statistics" / "comparison_grid_manifest.json",
         reports / "evaluations" / f"{args.primary_encoder}_final" / "target_positive_only_overall_metrics.csv",
         artifacts / "models" / "mil" / args.primary_encoder / "final_model" / "model.pt",
