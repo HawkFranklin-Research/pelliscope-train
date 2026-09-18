@@ -1,3 +1,5 @@
+# Frozen release snapshot recorded on 2026-09-18 from the model revisions
+# used by the successful integrated smoke run.
 encoders:
   resnet50:
     display_name: ResNet-50
@@ -17,28 +19,28 @@ encoders:
     display_name: BiT-50
     backend: transformers
     model_id: google/bit-50
-    revision: main
+    revision: 60f75d535bfe0a2a9d419f89f96e3c6c78bd0da9
     dimension: 2048
     default_batch_size: 16
   vit_base:
     display_name: ViT-Base
     backend: transformers
     model_id: google/vit-base-patch16-224-in21k
-    revision: main
+    revision: b4569560a39a0f1af58e3ddaf17facf20ab919b0
     dimension: 768
     default_batch_size: 24
   clip_vitb32:
     display_name: CLIP ViT-B/32
     backend: transformers
     model_id: openai/clip-vit-base-patch32
-    revision: main
+    revision: 3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268
     dimension: 512
     default_batch_size: 24
   derm_foundation:
     display_name: Derm Foundation
     backend: tensorflow_savedmodel
     model_id: google-derm-foundation
-    revision: release-provided
+    revision: a16a6ab4f87888948fe248136e697ed28146a1c6
     dimension: 6144
     default_batch_size: 16
     model_path: artifacts/external/google-derm-foundation
@@ -46,7 +48,6 @@ encoders:
     display_name: SigLIP2 SO400M
     backend: transformers
     model_id: google/siglip2-so400m-patch14-384
-    revision: main
+    revision: e8e487298228002f3d8a82e0cd5c8ea9c567f57f
     dimension: 1152
     default_batch_size: 2
-

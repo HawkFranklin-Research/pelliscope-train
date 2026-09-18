@@ -8,19 +8,19 @@
     "seed": 42
   },
   "config_sha256": "0c1f3cc7a90e4954d10c7525c0be86216bbf9229bb73ba3609bbee5158f21f74",
-  "ended_at": "2026-09-18T12:05:29.307565+00:00",
+  "ended_at": "2026-09-18T13:08:47.127500+00:00",
   "environment": {
     "cuda_available": true,
     "cuda_device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
     "executable": "/home/prime/miniconda3/bin/python",
     "hostname": "hawk-prime",
     "mps_available": false,
-    "pid": 83885,
+    "pid": 111378,
     "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
     "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:13:31) [GCC 14.3.0]",
     "torch": "2.11.0+cu130"
   },
-  "git_commit": "3b9d04201fff53734e9703c0a301eeb09ba4f252",
+  "git_commit": "f1e4b7cac0d763cf3bf1fb371dbe5f892c758dfe",
   "inputs": [
     {
       "exists": true,
@@ -49,9 +49,9 @@
       "size": 5600
     }
   ],
-  "run_id": "train_classical-20260918T173527-477f1b7d",
+  "run_id": "train_classical-20260918T183845-32366749",
   "run_mode": "smoke",
   "stage": "train_classical",
-  "started_at": "2026-09-18T12:05:27.428765+00:00",
+  "started_at": "2026-09-18T13:08:45.282047+00:00",
   "status": "complete"
 }

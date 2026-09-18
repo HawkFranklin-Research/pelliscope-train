@@ -1,0 +1,8 @@
+encoder,dimension,expected_dimension,row_count,dimension_matches
+resnet50,2048,2048,65,True
+inception_v3,2048,2048,65,True
+bit50,2048,2048,65,True
+vit_base,768,768,65,True
+clip_vitb32,512,512,65,True
+derm_foundation,6144,6144,65,True
+siglip2_so400m,1152,1152,65,True

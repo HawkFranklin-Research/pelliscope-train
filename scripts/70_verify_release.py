@@ -16,6 +16,8 @@ from hawk_derm.io import read_json, sha256_file, write_csv, write_json
 def main() -> None:
     parser = argparse.ArgumentParser(description="Verify release completeness without recomputing experiments.")
     parser.add_argument("--config", default="configs/study_25class.yaml")
+    parser.add_argument("--encoders", default=None, help="Comma-separated encoder keys expected in this release.")
+    parser.add_argument("--primary-encoder", default="siglip2_so400m")
     args = parser.parse_args()
     config = load_context(args.config)
     root = Path(config["repository_root"])
@@ -34,10 +36,17 @@ def main() -> None:
         reports / "figures" / "figure4_threshold_curves.png",
         reports / "figures" / "figure6_operating_points.png",
         reports / "statistics" / "comparison_grid_manifest.json",
-        reports / "evaluations" / "siglip2_so400m_final" / "target_positive_only_overall_metrics.csv",
-        artifacts / "models" / "mil" / "siglip2_so400m" / "final_model" / "model.pt",
+        reports / "evaluations" / f"{args.primary_encoder}_final" / "target_positive_only_overall_metrics.csv",
+        artifacts / "models" / "mil" / args.primary_encoder / "final_model" / "model.pt",
     ]
-    registry = load_encoder_registry()
+    full_registry = load_encoder_registry()
+    selected = [item.strip() for item in args.encoders.split(",") if item.strip()] if args.encoders else list(full_registry)
+    unknown = set(selected).difference(full_registry)
+    if unknown:
+        raise ValueError(f"Unknown encoder keys in --encoders: {sorted(unknown)}")
+    if args.primary_encoder not in selected:
+        raise ValueError("--primary-encoder must be included in --encoders")
+    registry = {encoder: full_registry[encoder] for encoder in selected}
     for encoder in registry:
         required.extend(
             [
@@ -109,7 +118,16 @@ def main() -> None:
     )
     if not complete:
         missing = frame.loc[~frame["exists"], "path"].tolist()
-        raise RuntimeError(f"Release is incomplete; missing {len(missing)} required artifacts")
+        failures = []
+        if missing:
+            failures.append(f"missing {len(missing)} required artifacts")
+        if not feature_dimensions_match:
+            failures.append("feature dimensions do not match the encoder registry")
+        if not feature_rows_match:
+            failures.append("feature banks do not contain identical row counts")
+        if not revisions_are_immutable:
+            failures.append(f"floating model revisions remain: {floating_revisions}")
+        raise RuntimeError("Release is incomplete: " + "; ".join(failures))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,66 @@
+Loading weights:   0%|          | 0/151 [00:00<?, ?it/s]Loading weights: 100%|██████████| 151/151 [00:00<00:00, 35721.37it/s]
+[transformers] [1mBitModel LOAD REPORT[0m from: google/bit-50
+Key                 | Status     |  | 
+--------------------+------------+--+-
+classifier.1.bias   | UNEXPECTED |  | 
+classifier.1.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 5521.84it/s]
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 30647.80it/s]
+[transformers] [1mCLIPVisionModelWithProjection LOAD REPORT[0m from: openai/clip-vit-base-patch32
+Key                                                          | Status     |  | 
+-------------------------------------------------------------+------------+--+-
+text_model.encoder.layers.{0...11}.layer_norm2.bias          | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.out_proj.bias   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc2.bias              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc1.bias              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.v_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc1.weight            | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.k_proj.weight   | UNEXPECTED |  | 
+text_model.final_layer_norm.bias                             | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.q_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.v_proj.bias     | UNEXPECTED |  | 
+text_model.embeddings.token_embedding.weight                 | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm2.weight        | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.k_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm1.bias          | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm1.weight        | UNEXPECTED |  | 
+text_model.embeddings.position_embedding.weight              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.out_proj.weight | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc2.weight            | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.q_proj.weight   | UNEXPECTED |  | 
+text_model.final_layer_norm.weight                           | UNEXPECTED |  | 
+text_projection.weight                                       | UNEXPECTED |  | 
+logit_scale                                                  | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789737015.662789  114137 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49406. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49407. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  72%|███████▏  | 637/888 [00:00<00:00, 6348.27it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5857.51it/s]
+Traceback (most recent call last):
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/70_verify_release.py", line 116, in <module>
+    main()
+    ~~~~^^
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/70_verify_release.py", line 112, in main
+    raise RuntimeError(f"Release is incomplete; missing {len(missing)} required artifacts")
+RuntimeError: Release is incomplete; missing 0 required artifacts
+Traceback (most recent call last):
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/run_pipeline.py", line 103, in <module>
+    main()
+    ~~~~^^
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/run_pipeline.py", line 99, in main
+    run("70_verify_release.py", *config_args, environment=environment)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/run_pipeline.py", line 17, in run
+    subprocess.run(command, cwd=REPOSITORY_ROOT, env=environment, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prime/miniconda3/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/prime/miniconda3/bin/python', '/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/70_verify_release.py', '--config', 'configs/study_25class.yaml']' returned non-zero exit status 1.

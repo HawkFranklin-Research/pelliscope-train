@@ -43,6 +43,15 @@ The full workflow intentionally overwrites validated smoke artifacts:
 python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode full
 ```
 
+To download the raw Hugging Face dataset first, add `--download-data`. To omit an encoder, add a comma-separated skip list. For example, this runs the remaining encoders and uses Derm Foundation as the primary model:
+
+```bash
+python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode full \
+  --download-data --skip-encoders siglip2_so400m --primary-encoder derm_foundation
+```
+
+Run a skipped-encoder experiment in a clean artifact directory or fresh VM so outputs from an earlier run are not mixed into its tables.
+
 The smoke and full commands are orchestration entry points. Individual jobs can be split between Hawk Prime and the MacBook using [jobs.yaml](coordination/jobs.yaml).
 
 ## Data and large artifacts

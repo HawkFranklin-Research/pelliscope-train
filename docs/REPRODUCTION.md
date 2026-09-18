@@ -11,7 +11,7 @@ pip install -r requirements-lock.txt
 pip install -e .
 ```
 
-Before running, replace floating model revisions in `configs/encoders.yaml` with immutable revisions and make the Derm Foundation model path available.
+Model revisions are pinned in `configs/encoders.yaml` to the release snapshot recorded on 2026-09-18. Make the Derm Foundation model path available before running.
 
 The included CPU container packages the public workflow. GPU and Apple MPS execution should use native environments with the corresponding PyTorch build.
 

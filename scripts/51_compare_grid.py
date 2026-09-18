@@ -42,6 +42,7 @@ def main() -> None:
     parser.add_argument("--config", default="configs/study_25class.yaml")
     parser.add_argument("--replicates", type=int, default=None)
     parser.add_argument("--seed", type=int, default=20260918)
+    parser.add_argument("--mil-encoders", default="siglip2_so400m,derm_foundation")
     args = parser.parse_args()
     config = load_context(args.config)
     artifacts = path_from(config, "artifacts_dir")
@@ -68,7 +69,8 @@ def main() -> None:
     baseline_path = Path(strongest["test_predictions"])
     baseline_name = f"{strongest['encoder']}+{strongest['classifier']}:case_mean"
     ensemble_paths: dict[str, Path] = {}
-    for encoder in ("siglip2_so400m", "derm_foundation"):
+    requested_mil_encoders = [item.strip() for item in args.mil_encoders.split(",") if item.strip()]
+    for encoder in requested_mil_encoders:
         seed_paths = sorted((artifacts / "models" / "mil" / encoder).glob("seed_*/test_predictions.csv"))
         if seed_paths:
             ensemble_paths[encoder] = ensemble_predictions(
