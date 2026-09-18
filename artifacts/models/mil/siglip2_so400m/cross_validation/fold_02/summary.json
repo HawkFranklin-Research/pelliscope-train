@@ -1,0 +1,7 @@
+{
+  "best_epoch": 1,
+  "complete": true,
+  "device": "cuda",
+  "encoder": "siglip2_so400m",
+  "seed": 44
+}

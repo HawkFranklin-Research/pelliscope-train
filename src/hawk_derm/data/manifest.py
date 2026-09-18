@@ -234,7 +234,25 @@ def select_smoke_cases(
     required = int(smoke_config.get("samples_per_class", 2))
     selected: set[str] = set()
     coverage = {column: 0 for column in label_columns}
-    ordered = cases.assign(_rarity=cases[label_columns].mul(1 / cases[label_columns].sum().clip(lower=1), axis=1).sum(axis=1))
+
+    # A smoke fixture must be executable with the images currently present on
+    # the machine. The full manifest deliberately retains missing-image rows so
+    # the audit can report them, but selecting those rows for a bounded smoke
+    # run makes every downstream extractor fail for an unrelated data-transfer
+    # reason. Restrict smoke candidates to cases whose retained bag images all
+    # exist, while preserving the complete cohort behavior in full mode.
+    retained = images[images["retained_for_bag"]].copy()
+    eligible = retained.groupby("case_id")["file_exists"].agg(["all", "size"])
+    eligible_ids = set(eligible.index[eligible["all"] & eligible["size"].gt(0)].astype(str))
+    eligible_cases = cases[cases["case_id"].astype(str).isin(eligible_ids)].copy()
+    if eligible_cases.empty:
+        raise ValueError("No cases with complete retained image bags are available for the smoke fixture")
+
+    ordered = eligible_cases.assign(
+        _rarity=eligible_cases[label_columns]
+        .mul(1 / eligible_cases[label_columns].sum().clip(lower=1), axis=1)
+        .sum(axis=1)
+    )
     ordered = ordered.sort_values(["_rarity", "case_id"], ascending=[False, True], kind="stable")
     while min(coverage.values(), default=required) < required:
         candidates = []
@@ -254,11 +272,16 @@ def select_smoke_cases(
             coverage[column] += int(row[column] > 0)
 
     zero_count = int(smoke_config.get("all_zero_cases", 5))
-    zero_ids = cases.loc[cases[label_columns].sum(axis=1).eq(0), "case_id"].astype(str).sort_values().head(zero_count)
+    zero_ids = (
+        eligible_cases.loc[eligible_cases[label_columns].sum(axis=1).eq(0), "case_id"]
+        .astype(str)
+        .sort_values()
+        .head(zero_count)
+    )
     selected.update(zero_ids)
 
     bag_target = int(smoke_config.get("cases_per_bag_length", 3))
-    bag_lengths = images.groupby("case_id").size().clip(upper=3)
+    bag_lengths = retained[retained["case_id"].astype(str).isin(eligible_ids)].groupby("case_id").size().clip(upper=3)
     for bag_length in (1, 2, 3):
         ids = bag_lengths[bag_lengths.eq(bag_length)].index.astype(str)
         selected.update(sorted(set(ids) - selected)[:bag_target])

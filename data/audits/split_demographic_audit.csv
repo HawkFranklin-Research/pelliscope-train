@@ -1,0 +1,122 @@
+field,category,split,cases
+image_paths,"[""dataset/images/-1887752443592481816.png"", ""dataset/images/-2538058922836253726.png"", ""dataset/images/-6801560168711488500.png""]",test,1
+image_paths,"[""dataset/images/-2010073807235552734.png"", ""dataset/images/-4139674123303543516.png""]",test,1
+image_paths,"[""dataset/images/-3580987760325194553.png"", ""dataset/images/-9171192236563730248.png"", ""dataset/images/5416495610526132137.png""]",test,1
+image_paths,"[""dataset/images/-561455762939806319.png"", ""dataset/images/2814079592430988241.png"", ""dataset/images/8961278410759832396.png""]",test,1
+image_paths,"[""dataset/images/-870319501963618397.png"", ""dataset/images/1909523155166770891.png"", ""dataset/images/2807590049883685266.png""]",test,1
+image_paths,"[""dataset/images/-8749027469505338475.png"", ""dataset/images/603415706167749543.png"", ""dataset/images/7314732324738780378.png""]",test,1
+image_paths,"[""dataset/images/-1519713654362297847.png"", ""dataset/images/1501184747950981148.png"", ""dataset/images/5638436494515280662.png""]",train,1
+image_paths,"[""dataset/images/-1973566697609953379.png"", ""dataset/images/-2790405936552777220.png"", ""dataset/images/-5729402204506919267.png""]",train,1
+image_paths,"[""dataset/images/-220649468572111832.png""]",train,1
+image_paths,"[""dataset/images/-279706990198364070.png"", ""dataset/images/3938616269154962290.png"", ""dataset/images/8763368682344373991.png""]",train,1
+image_paths,"[""dataset/images/-3205742176803893704.png""]",train,1
+image_paths,"[""dataset/images/-341324569907477536.png"", ""dataset/images/3927578437049943988.png""]",train,1
+image_paths,"[""dataset/images/-3575683440831198879.png"", ""dataset/images/6164754101533643044.png"", ""dataset/images/7125798012232703466.png""]",train,1
+image_paths,"[""dataset/images/-3799298995660217860.png"", ""dataset/images/-5881426422999442186.png"", ""dataset/images/5854025080806696361.png""]",train,1
+image_paths,"[""dataset/images/-391640499672655770.png"", ""dataset/images/3111012533630313649.png"", ""dataset/images/6085484382718117078.png""]",train,1
+image_paths,"[""dataset/images/-4027806997035329030.png""]",train,1
+image_paths,"[""dataset/images/-4326892319323394160.png"", ""dataset/images/9220825364228471548.png""]",train,1
+image_paths,"[""dataset/images/-4762289084741430925.png""]",train,1
+image_paths,"[""dataset/images/-5770661990085000188.png"", ""dataset/images/-8349802738790668557.png"", ""dataset/images/731742664166354327.png""]",train,1
+image_paths,"[""dataset/images/-624650480319720761.png"", ""dataset/images/-8949922789161037515.png"", ""dataset/images/9134455923379814497.png""]",train,1
+image_paths,"[""dataset/images/-6942912841265248602.png"", ""dataset/images/-815168034213335912.png"", ""dataset/images/8479707042238010445.png""]",train,1
+image_paths,"[""dataset/images/2919857728265265465.png""]",train,1
+image_paths,"[""dataset/images/3555413581650656128.png"", ""dataset/images/3687748662758014770.png"", ""dataset/images/6009089937639583499.png""]",train,1
+image_paths,"[""dataset/images/8406712750126834903.png""]",train,1
+image_paths,"[""dataset/images/8799338481763066353.png""]",train,1
+image_paths,"[""dataset/images/-217828380359571871.png"", ""dataset/images/-4055728304670056584.png""]",validation,1
+image_paths,"[""dataset/images/-5269458538164604429.png"", ""dataset/images/-6089238948494608895.png"", ""dataset/images/8607020515207878117.png""]",validation,1
+image_paths,"[""dataset/images/-7488721783507435350.png"", ""dataset/images/5053055464292650713.png""]",validation,1
+resolved_image_count,2,test,1
+resolved_image_count,3,test,5
+resolved_image_count,1,train,7
+resolved_image_count,2,train,2
+resolved_image_count,3,train,10
+resolved_image_count,2,validation,2
+resolved_image_count,3,validation,1
+fitzpatrick_skin_type,FST1,test,1
+fitzpatrick_skin_type,FST2,test,1
+fitzpatrick_skin_type,FST3,test,1
+fitzpatrick_skin_type,FST5,test,1
+fitzpatrick_skin_type,Missing,test,1
+fitzpatrick_skin_type,NONE_IDENTIFIED,test,1
+fitzpatrick_skin_type,FST1,train,2
+fitzpatrick_skin_type,FST2,train,4
+fitzpatrick_skin_type,FST3,train,1
+fitzpatrick_skin_type,FST4,train,2
+fitzpatrick_skin_type,FST5,train,1
+fitzpatrick_skin_type,Missing,train,8
+fitzpatrick_skin_type,NONE_IDENTIFIED,train,1
+fitzpatrick_skin_type,FST2,validation,2
+fitzpatrick_skin_type,Missing,validation,1
+monk_skin_tone_us,2.0,test,3
+monk_skin_tone_us,3.0,test,1
+monk_skin_tone_us,4.0,test,1
+monk_skin_tone_us,7.0,test,1
+monk_skin_tone_us,1.0,train,2
+monk_skin_tone_us,2.0,train,4
+monk_skin_tone_us,3.0,train,5
+monk_skin_tone_us,4.0,train,3
+monk_skin_tone_us,5.0,train,2
+monk_skin_tone_us,6.0,train,2
+monk_skin_tone_us,7.0,train,1
+monk_skin_tone_us,2.0,validation,2
+monk_skin_tone_us,4.0,validation,1
+monk_skin_tone_india,1.0,test,1
+monk_skin_tone_india,2.0,test,2
+monk_skin_tone_india,3.0,test,2
+monk_skin_tone_india,5.0,test,1
+monk_skin_tone_india,1.0,train,1
+monk_skin_tone_india,2.0,train,4
+monk_skin_tone_india,3.0,train,11
+monk_skin_tone_india,4.0,train,2
+monk_skin_tone_india,6.0,train,1
+monk_skin_tone_india,2.0,validation,3
+age_group,AGE_30_TO_39,test,2
+age_group,AGE_40_TO_49,test,2
+age_group,AGE_50_TO_59,test,1
+age_group,AGE_UNKNOWN,test,1
+age_group,AGE_18_TO_29,train,1
+age_group,AGE_40_TO_49,train,6
+age_group,AGE_50_TO_59,train,1
+age_group,AGE_UNKNOWN,train,11
+age_group,AGE_18_TO_29,validation,1
+age_group,AGE_50_TO_59,validation,1
+age_group,AGE_UNKNOWN,validation,1
+sex_at_birth,FEMALE,test,4
+sex_at_birth,MALE,test,1
+sex_at_birth,OTHER_OR_UNSPECIFIED,test,1
+sex_at_birth,FEMALE,train,6
+sex_at_birth,MALE,train,3
+sex_at_birth,OTHER_OR_UNSPECIFIED,train,10
+sex_at_birth,FEMALE,validation,1
+sex_at_birth,MALE,validation,1
+sex_at_birth,OTHER_OR_UNSPECIFIED,validation,1
+manifest_image_count,2,test,1
+manifest_image_count,3,test,5
+manifest_image_count,1,train,7
+manifest_image_count,2,train,2
+manifest_image_count,3,train,10
+manifest_image_count,2,validation,2
+manifest_image_count,3,validation,1
+existing_image_count,2,test,1
+existing_image_count,3,test,5
+existing_image_count,1,train,7
+existing_image_count,2,train,2
+existing_image_count,3,train,10
+existing_image_count,2,validation,2
+existing_image_count,3,validation,1
+retained_image_count,2,test,1
+retained_image_count,3,test,5
+retained_image_count,1,train,7
+retained_image_count,2,train,2
+retained_image_count,3,train,10
+retained_image_count,2,validation,2
+retained_image_count,3,validation,1
+image_count,2,test,1
+image_count,3,test,5
+image_count,1,train,7
+image_count,2,train,2
+image_count,3,train,10
+image_count,2,validation,2
+image_count,3,validation,1

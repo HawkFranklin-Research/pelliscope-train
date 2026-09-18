@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "outputs": [
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/figure1_cohort_preprocessing.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/mil_split_soft.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/condition_distributions.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/images_counts_shot_types.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/gradability_mst.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/graphical_abstract.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/figure2_encoder_classifier_heatmap.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/figure3_mil_diagnostics.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/figure4_threshold_curves.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/mil_sensitivity_specificity_curves_with_thresholds.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/mil_youden_j_curves.png",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/figures/figure6_operating_points.png"
+  ]
+}

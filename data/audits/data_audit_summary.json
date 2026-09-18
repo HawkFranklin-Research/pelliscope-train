@@ -1,0 +1,33 @@
+{
+  "all_zero_target_cases": 5,
+  "canonical_only_cases": 0,
+  "canonical_only_image_names": 0,
+  "case_count": 28,
+  "complete": true,
+  "cross_case_duplicate_hash_rows": 0,
+  "decoded_images": 65,
+  "duplicated_hash_rows": 0,
+  "duplicated_path_rows": 0,
+  "expectations_met": false,
+  "expected": {
+    "case_count": 5033,
+    "manifest_image_rows": 10407,
+    "unique_resolved_paths": 10379
+  },
+  "images_excluded_by_bag_limit": 0,
+  "manifest_image_rows": 65,
+  "matched_cases": 28,
+  "matched_image_names": 65,
+  "missing_or_unreadable_images": 0,
+  "multi_label_cases": 21,
+  "raw_metadata_cases": 3061,
+  "raw_metadata_image_rows": 6517,
+  "raw_metadata_only_cases": 3033,
+  "raw_metadata_only_image_names": 6440,
+  "raw_metadata_unique_files": 6505,
+  "retained_image_rows": 65,
+  "single_label_cases": 2,
+  "total_positive_labels": 84,
+  "unique_decoded_hashes": 65,
+  "unique_resolved_paths": 65
+}

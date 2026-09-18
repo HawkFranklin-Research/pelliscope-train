@@ -8,6 +8,7 @@ from _common import load_context, load_manifests, parse_seeds
 from hawk_derm.config import load_yaml, path_from
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.models.experiments import run_repeated_mil
+from hawk_derm.provenance import RunRecorder
 
 
 def main() -> None:
@@ -25,18 +26,22 @@ def main() -> None:
     mode = config["study"]["run_mode"]
     seeds = parse_seeds(args.seeds) if args.seeds else list(config[mode]["seeds"])
     cases, _, splits = load_manifests(config)
-    bank = load_feature_bank(path_from(config, "artifacts_dir") / "features" / args.encoder / "feature_bank.npz")
-    run_repeated_mil(
-        bank,
-        cases,
-        splits,
-        config["labels"],
-        mil,
-        path_from(config, "artifacts_dir") / "models" / "mil" / args.encoder,
-        seeds=seeds,
-        device=args.device,
-        max_images=int(config["study"]["max_images_per_case"]),
-    )
+    bank_path = path_from(config, "artifacts_dir") / "features" / args.encoder / "feature_bank.npz"
+    bank = load_feature_bank(bank_path)
+    output_dir = path_from(config, "artifacts_dir") / "models" / "mil" / args.encoder
+    with RunRecorder("repeat_mil", vars(args), output_dir, inputs=[bank_path, path_from(config, "split_manifest")]) as run:
+        run_repeated_mil(
+            bank,
+            cases,
+            splits,
+            config["labels"],
+            mil,
+            output_dir,
+            seeds=seeds,
+            device=args.device,
+            max_images=int(config["study"]["max_images_per_case"]),
+        )
+        run.complete([output_dir / "repeated_metrics_long.csv", output_dir / "repeated_metrics_summary.csv"])
 
 
 if __name__ == "__main__":

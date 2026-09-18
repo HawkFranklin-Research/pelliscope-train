@@ -1,0 +1,8 @@
+{
+  "aggregation": "mean",
+  "classifier": "svm_linear",
+  "complete": true,
+  "encoder": "resnet50",
+  "model_count": 25,
+  "seed": 42
+}

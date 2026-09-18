@@ -1,0 +1,33 @@
+{
+  "case_count": 28,
+  "complete": true,
+  "image_row_count": 65,
+  "labels": [
+    "Eczema",
+    "Allergic Contact Dermatitis",
+    "Insect Bite",
+    "Urticaria",
+    "Psoriasis",
+    "Folliculitis",
+    "Irritant Contact Dermatitis",
+    "Tinea",
+    "Herpes Zoster",
+    "Drug Rash",
+    "Herpes Simplex",
+    "Impetigo",
+    "Acute Dermatitis NOS",
+    "Hypersensitivity",
+    "Acne",
+    "Pigmented Purpuric Eruption",
+    "Leukocytoclastic Vasculitis",
+    "Lichen Planus Lichenoid Eruption",
+    "Pityriasis Rosea",
+    "Viral Exanthem",
+    "Lichen Simplex Chronicus",
+    "Stasis Dermatitis",
+    "Keratosis Pilaris",
+    "CD - Contact Dermatitis",
+    "Scabies"
+  ],
+  "run_mode": "smoke"
+}

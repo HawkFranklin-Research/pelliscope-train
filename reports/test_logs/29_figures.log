@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/61_generate_figures.py", line 22, in <module>
+    main()
+    ~~~~^^
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/scripts/61_generate_figures.py", line 18, in main
+    generate_figures(cases, images, path_from(config, "reports_dir"), path_from(config, "artifacts_dir"), load_yaml("configs/figures.yaml"))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/src/hawk_derm/figures/manuscript.py", line 395, in generate_figures
+    outputs.append(operating_points(pd.read_csv(operating_path), figure_dir / "figure6_operating_points.png", style, split_metrics))
+                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/src/hawk_derm/figures/manuscript.py", line 204, in operating_points
+    summary.T.plot(kind="bar", ax=axes[1, 0], color=[style["train"], style["validation"], style["test"]][: len(summary)])
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prime/miniconda3/lib/python3.13/site-packages/pandas/plotting/_core.py", line 1030, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prime/miniconda3/lib/python3.13/site-packages/pandas/plotting/_matplotlib/__init__.py", line 71, in plot
+    plot_obj.generate()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/home/prime/miniconda3/lib/python3.13/site-packages/pandas/plotting/_matplotlib/core.py", line 499, in generate
+    self._compute_plot_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/prime/miniconda3/lib/python3.13/site-packages/pandas/plotting/_matplotlib/core.py", line 698, in _compute_plot_data
+    raise TypeError("no numeric data to plot")
+TypeError: no numeric data to plot

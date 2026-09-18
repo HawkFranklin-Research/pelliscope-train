@@ -39,7 +39,10 @@ where = ["src"]
 line-length = 120
 target-version = "py311"
 
+[tool.ruff.lint]
+select = ["E", "F"]
+ignore = ["E501"]
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-

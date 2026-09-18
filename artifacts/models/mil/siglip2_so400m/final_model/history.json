@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.3214153051376343
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.161260962486267
+    }
+  ]
+}

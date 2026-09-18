@@ -1,0 +1,13 @@
+case_exists True
+image_exists True
+case_shape (28, 50)
+image_shape (67, 9)
+case_columns ['case_id', 'is_eczema', 'is_allergic_contact_dermatitis', 'is_insect_bite', 'is_urticaria', 'is_psoriasis', 'is_folliculitis', 'is_irritant_contact_dermatitis', 'is_tinea', 'is_herpes_zoster', 'is_drug_rash', 'is_herpes_simplex', 'is_impetigo', 'is_acute_dermatitis_nos', 'is_hypersensitivity', 'is_acne', 'is_pigmented_purpuric_eruption', 'is_leukocytoclastic_vasculitis', 'is_lichen_planus_lichenoid_eruption', 'is_pityriasis_rosea', 'is_viral_exanthem', 'is_lichen_simplex_chronicus', 'is_stasis_dermatitis', 'is_keratosis_pilaris', 'is_cd_contact_dermatitis', 'is_scabies', 'target_label_count', 'target_positive', 'primary_consensus_diagnosis', 'image_paths', 'bag_length', 'resolved_image_count', 'binary_label', 'binary_label_mask', 'binary_policy_reason', 'all_disease_labels', 'is_cd_-_contact_dermatitis', 'fitzpatrick_skin_type', 'monk_skin_tone_us', 'monk_skin_tone_india', 'age_group', 'sex_at_birth', 'primary_diagnosis', 'symptoms_itching', 'symptoms_pain', 'condition_duration', 'manifest_image_count', 'existing_image_count', 'retained_image_count', 'run_mode']
+image_columns ['case_id', 'image_id', 'image_order', 'source_image_path', 'resolved_image_path', 'file_exists', 'bag_slot', 'retained_for_bag', 'run_mode']
+case_id_duplicates 0
+metadata data/manifests/case_manifest.metadata.json {'case_count': 28, 'complete': True, 'image_row_count': 67, 'labels': ['Eczema', 'Allergic Contact Dermatitis', 'Insect Bite', 'Urticaria', 'Psoriasis', 'Folliculitis', 'Irritant Contact Dermatitis', 'Tinea', 'Herpes Zoster', 'Drug Rash', 'Herpes Simplex', 'Impetigo', 'Acute Dermatitis NOS', 'Hypersensitivity', 'Acne', 'Pigmented Purpuric Eruption', 'Leukocytoclastic Vasculitis', 'Lichen Planus Lichenoid Eruption', 'Pityriasis Rosea', 'Viral Exanthem', 'Lichen Simplex Chronicus', 'Stasis Dermatitis', 'Keratosis Pilaris', 'CD - Contact Dermatitis', 'Scabies'], 'run_mode': 'smoke'}
+locked_label_columns_missing []
+zero_support_labels {}
+all_zero_cases 5
+bag_lengths {1: 6, 2: 5, 3: 17}
+run_modes {'smoke': 28}

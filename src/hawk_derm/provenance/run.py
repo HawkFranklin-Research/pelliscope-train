@@ -75,6 +75,7 @@ class RunRecorder:
             "run_id": self.run_id,
             "stage": self.stage,
             "status": "running",
+            "run_mode": os.getenv("HAWK_DERM_RUN_MODE", "full"),
             "started_at": self.started_at,
             "git_commit": git_commit(),
             "config": self.config,

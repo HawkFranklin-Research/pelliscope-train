@@ -5,7 +5,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from hawk_derm.constants import slugify
 from hawk_derm.evaluation.metrics import safe_auc
 from hawk_derm.evaluation.predictions import align_prediction_frames, arrays_from_prediction_frame
 from hawk_derm.io import write_csv, write_json

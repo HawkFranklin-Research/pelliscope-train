@@ -1,0 +1,2526 @@
+label,threshold,sensitivity,specificity,balanced_accuracy,youden_j,f1,tp,fp,tn,fn,selected
+Eczema,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.43,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.44,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.45,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.46,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Eczema,0.47000000000000003,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0,True
+Eczema,0.48,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0,False
+Eczema,0.49,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0,False
+Eczema,0.5,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.51,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.52,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.53,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.54,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Eczema,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.43,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.44,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.45,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.46,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.47000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.48,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.49,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.5,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.51,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.52,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Allergic Contact Dermatitis,0.53,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0,False
+Allergic Contact Dermatitis,0.54,1.0,1.0,1.0,1.0,1.0,1,0,2,0,True
+Allergic Contact Dermatitis,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Allergic Contact Dermatitis,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.43,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.44,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.45,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.46,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.47000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.48,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.49,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.5,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.51,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.52,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.53,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.54,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.55,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.56,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.5700000000000001,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Insect Bite,0.58,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,True
+Insect Bite,0.59,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,False
+Insect Bite,0.6,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,False
+Insect Bite,0.61,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Insect Bite,0.62,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Insect Bite,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Insect Bite,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Urticaria,0.0,,0.0,0.0,,,0,3,0,0,True
+Urticaria,0.01,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.02,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.03,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.04,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.05,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.06,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.07,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.08,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.09,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.1,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.11,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.12,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.13,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.14,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.15,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.16,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.17,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.18,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.19,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.2,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.21,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.22,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.23,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.24,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.25,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.26,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.27,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.28,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.29,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.3,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.31,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.32,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.33,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.34,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.36,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.37,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.38,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.39,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.4,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.42,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.43,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.44,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.45,,0.0,0.0,,,0,3,0,0,False
+Urticaria,0.46,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Urticaria,0.47000000000000003,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.48,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.49,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.5,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.51,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.52,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.53,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.54,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.55,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.56,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.58,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.59,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.6,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.61,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.62,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.63,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.64,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.65,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.66,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.67,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.68,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.71,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.72,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.73,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.74,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.75,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.76,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.77,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.78,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.79,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.8,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.81,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.84,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.85,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.86,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.87,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.88,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.89,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.9,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.91,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.92,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.93,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.96,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.97,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.98,,1.0,1.0,,,0,0,3,0,False
+Urticaria,0.99,,1.0,1.0,,,0,0,3,0,False
+Urticaria,1.0,,1.0,1.0,,,0,0,3,0,False
+Psoriasis,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.43,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.44,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.45,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.46,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.47000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.48,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.49,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.5,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.51,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.52,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.53,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.54,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Psoriasis,0.55,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0,True
+Psoriasis,0.56,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0,False
+Psoriasis,0.5700000000000001,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Psoriasis,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Psoriasis,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Folliculitis,0.0,,0.0,0.0,,,0,3,0,0,True
+Folliculitis,0.01,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.02,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.03,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.04,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.05,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.06,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.07,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.08,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.09,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.1,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.11,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.12,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.13,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.14,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.15,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.16,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.17,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.18,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.19,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.2,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.21,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.22,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.23,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.24,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.25,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.26,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.27,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.28,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.29,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.3,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.31,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.32,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.33,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.34,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.36,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.37,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.38,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.39,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.4,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.42,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.43,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.44,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.45,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.46,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.48,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.49,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.5,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.51,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.52,,0.0,0.0,,,0,3,0,0,False
+Folliculitis,0.53,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Folliculitis,0.54,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Folliculitis,0.55,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Folliculitis,0.56,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Folliculitis,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.58,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.59,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.6,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.61,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.62,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.63,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.64,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.65,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.66,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.67,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.68,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.71,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.72,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.73,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.74,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.75,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.76,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.77,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.78,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.79,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.8,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.81,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.84,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.85,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.86,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.87,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.88,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.89,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.9,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.91,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.92,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.93,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.96,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.97,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.98,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,0.99,,1.0,1.0,,,0,0,3,0,False
+Folliculitis,1.0,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.0,,0.0,0.0,,,0,3,0,0,True
+Irritant Contact Dermatitis,0.01,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.02,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.03,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.04,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.05,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.06,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.07,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.08,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.09,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.1,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.11,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.12,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.13,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.14,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.15,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.16,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.17,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.18,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.19,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.2,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.21,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.22,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.23,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.24,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.25,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.26,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.27,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.28,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.29,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.3,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.31,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.32,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.33,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.34,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.36,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.37,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.38,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.39,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.4,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.42,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.43,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.44,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.45,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.46,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.48,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.49,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.5,,0.0,0.0,,,0,3,0,0,False
+Irritant Contact Dermatitis,0.51,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Irritant Contact Dermatitis,0.52,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Irritant Contact Dermatitis,0.53,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.54,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.55,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.56,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.58,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.59,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.6,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.61,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.62,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.63,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.64,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.65,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.66,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.67,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.68,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.71,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.72,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.73,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.74,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.75,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.76,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.77,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.78,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.79,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.8,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.81,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.84,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.85,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.86,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.87,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.88,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.89,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.9,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.91,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.92,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.93,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.96,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.97,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.98,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,0.99,,1.0,1.0,,,0,0,3,0,False
+Irritant Contact Dermatitis,1.0,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.0,,0.0,0.0,,,0,3,0,0,True
+Tinea,0.01,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.02,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.03,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.04,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.05,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.06,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.07,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.08,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.09,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.1,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.11,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.12,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.13,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.14,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.15,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.16,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.17,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.18,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.19,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.2,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.21,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.22,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.23,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.24,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.25,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.26,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.27,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.28,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.29,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.3,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.31,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.32,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.33,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.34,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.36,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.37,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.38,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.39,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.4,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.42,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.43,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.44,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.45,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.46,,0.0,0.0,,,0,3,0,0,False
+Tinea,0.47000000000000003,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Tinea,0.48,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Tinea,0.49,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Tinea,0.5,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.51,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.52,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.53,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.54,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.55,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.56,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.58,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.59,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.6,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.61,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.62,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.63,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.64,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.65,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.66,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.67,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.68,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.71,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.72,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.73,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.74,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.75,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.76,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.77,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.78,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.79,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.8,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.81,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.84,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.85,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.86,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.87,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.88,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.89,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.9,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.91,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.92,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.93,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.96,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.97,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.98,,1.0,1.0,,,0,0,3,0,False
+Tinea,0.99,,1.0,1.0,,,0,0,3,0,False
+Tinea,1.0,,1.0,1.0,,,0,0,3,0,False
+Herpes Zoster,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.43,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.44,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.45,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.46,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.47000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.48,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Herpes Zoster,0.49,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,True
+Herpes Zoster,0.5,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,False
+Herpes Zoster,0.51,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.52,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.53,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.54,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Herpes Zoster,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Drug Rash,0.0,,0.0,0.0,,,0,3,0,0,True
+Drug Rash,0.01,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.02,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.03,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.04,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.05,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.06,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.07,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.08,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.09,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.1,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.11,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.12,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.13,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.14,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.15,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.16,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.17,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.18,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.19,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.2,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.21,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.22,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.23,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.24,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.25,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.26,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.27,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.28,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.29,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.3,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.31,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.32,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.33,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.34,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.36,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.37,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.38,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.39,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.4,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.42,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.43,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.44,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.45,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.46,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.48,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.49,,0.0,0.0,,,0,3,0,0,False
+Drug Rash,0.5,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Drug Rash,0.51,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.52,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.53,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.54,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.55,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.56,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.58,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.59,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.6,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.61,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.62,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.63,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.64,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.65,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.66,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.67,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.68,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.71,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.72,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.73,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.74,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.75,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.76,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.77,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.78,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.79,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.8,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.81,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.84,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.85,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.86,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.87,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.88,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.89,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.9,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.91,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.92,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.93,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.96,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.97,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.98,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,0.99,,1.0,1.0,,,0,0,3,0,False
+Drug Rash,1.0,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.0,,0.0,0.0,,,0,3,0,0,True
+Herpes Simplex,0.01,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.02,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.03,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.04,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.05,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.06,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.07,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.08,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.09,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.1,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.11,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.12,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.13,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.14,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.15,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.16,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.17,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.18,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.19,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.2,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.21,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.22,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.23,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.24,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.25,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.26,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.27,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.28,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.29,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.3,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.31,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.32,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.33,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.34,,0.0,0.0,,,0,3,0,0,False
+Herpes Simplex,0.35000000000000003,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Herpes Simplex,0.36,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Herpes Simplex,0.37,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Herpes Simplex,0.38,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Herpes Simplex,0.39,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Herpes Simplex,0.4,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Herpes Simplex,0.41000000000000003,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Herpes Simplex,0.42,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.43,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.44,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.45,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.46,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.47000000000000003,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.48,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.49,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.5,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.51,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.52,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.53,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.54,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.55,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.56,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.58,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.59,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.6,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.61,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.62,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.63,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.64,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.65,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.66,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.67,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.68,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.71,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.72,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.73,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.74,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.75,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.76,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.77,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.78,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.79,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.8,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.81,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.84,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.85,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.86,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.87,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.88,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.89,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.9,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.91,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.92,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.93,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.96,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.97,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.98,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,0.99,,1.0,1.0,,,0,0,3,0,False
+Herpes Simplex,1.0,,1.0,1.0,,,0,0,3,0,False
+Impetigo,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Impetigo,0.38,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,True
+Impetigo,0.39,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,False
+Impetigo,0.4,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.41000000000000003,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.42,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.43,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.44,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.45,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.46,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.47000000000000003,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.48,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.49,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.5,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.51,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.52,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.53,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.54,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Impetigo,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acute Dermatitis NOS,0.0,,0.0,0.0,,,0,3,0,0,True
+Acute Dermatitis NOS,0.01,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.02,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.03,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.04,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.05,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.06,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.07,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.08,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.09,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.1,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.11,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.12,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.13,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.14,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.15,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.16,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.17,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.18,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.19,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.2,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.21,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.22,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.23,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.24,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.25,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.26,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.27,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.28,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.29,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.3,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.31,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.32,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.33,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.34,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.36,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.37,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.38,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.39,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.4,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.42,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.43,,0.0,0.0,,,0,3,0,0,False
+Acute Dermatitis NOS,0.44,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Acute Dermatitis NOS,0.45,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Acute Dermatitis NOS,0.46,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Acute Dermatitis NOS,0.47000000000000003,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Acute Dermatitis NOS,0.48,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.49,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.5,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.51,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.52,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.53,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.54,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.55,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.56,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.58,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.59,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.6,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.61,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.62,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.63,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.64,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.65,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.66,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.67,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.68,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.71,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.72,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.73,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.74,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.75,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.76,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.77,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.78,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.79,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.8,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.81,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.84,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.85,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.86,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.87,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.88,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.89,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.9,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.91,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.92,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.93,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.96,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.97,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.98,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,0.99,,1.0,1.0,,,0,0,3,0,False
+Acute Dermatitis NOS,1.0,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.0,,0.0,0.0,,,0,3,0,0,True
+Hypersensitivity,0.01,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.02,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.03,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.04,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.05,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.06,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.07,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.08,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.09,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.1,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.11,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.12,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.13,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.14,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.15,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.16,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.17,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.18,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.19,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.2,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.21,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.22,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.23,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.24,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.25,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.26,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.27,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.28,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.29,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.3,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.31,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.32,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.33,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.34,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.36,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.37,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.38,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.39,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.4,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.42,,0.0,0.0,,,0,3,0,0,False
+Hypersensitivity,0.43,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Hypersensitivity,0.44,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Hypersensitivity,0.45,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.46,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.47000000000000003,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.48,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.49,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.5,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.51,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.52,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.53,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.54,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.55,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.56,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.58,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.59,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.6,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.61,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.62,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.63,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.64,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.65,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.66,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.67,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.68,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.71,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.72,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.73,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.74,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.75,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.76,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.77,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.78,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.79,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.8,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.81,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.84,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.85,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.86,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.87,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.88,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.89,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.9,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.91,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.92,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.93,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.96,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.97,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.98,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,0.99,,1.0,1.0,,,0,0,3,0,False
+Hypersensitivity,1.0,,1.0,1.0,,,0,0,3,0,False
+Acne,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Acne,0.41000000000000003,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,True
+Acne,0.42,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Acne,0.43,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Acne,0.44,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Acne,0.45,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Acne,0.46,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.47000000000000003,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.48,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.49,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.5,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.51,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.52,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.53,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.54,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Acne,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Pigmented Purpuric Eruption,0.0,,0.0,0.0,,,0,3,0,0,True
+Pigmented Purpuric Eruption,0.01,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.02,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.03,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.04,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.05,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.06,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.07,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.08,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.09,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.1,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.11,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.12,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.13,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.14,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.15,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.16,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.17,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.18,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.19,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.2,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.21,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.22,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.23,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.24,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.25,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.26,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.27,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.28,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.29,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.3,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.31,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.32,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.33,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.34,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.36,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.37,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.38,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.39,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.4,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.42,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.43,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.44,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.45,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.46,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.48,,0.0,0.0,,,0,3,0,0,False
+Pigmented Purpuric Eruption,0.49,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Pigmented Purpuric Eruption,0.5,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pigmented Purpuric Eruption,0.51,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pigmented Purpuric Eruption,0.52,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pigmented Purpuric Eruption,0.53,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pigmented Purpuric Eruption,0.54,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.55,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.56,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.58,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.59,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.6,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.61,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.62,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.63,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.64,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.65,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.66,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.67,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.68,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.71,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.72,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.73,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.74,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.75,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.76,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.77,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.78,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.79,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.8,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.81,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.84,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.85,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.86,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.87,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.88,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.89,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.9,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.91,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.92,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.93,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.96,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.97,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.98,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,0.99,,1.0,1.0,,,0,0,3,0,False
+Pigmented Purpuric Eruption,1.0,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.0,,0.0,0.0,,,0,3,0,0,True
+Leukocytoclastic Vasculitis,0.01,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.02,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.03,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.04,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.05,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.06,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.07,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.08,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.09,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.1,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.11,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.12,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.13,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.14,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.15,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.16,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.17,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.18,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.19,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.2,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.21,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.22,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.23,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.24,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.25,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.26,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.27,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.28,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.29,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.3,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.31,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.32,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.33,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.34,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.36,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.37,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.38,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.39,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.4,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.42,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.43,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.44,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.45,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.46,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Leukocytoclastic Vasculitis,0.48,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Leukocytoclastic Vasculitis,0.49,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Leukocytoclastic Vasculitis,0.5,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Leukocytoclastic Vasculitis,0.51,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Leukocytoclastic Vasculitis,0.52,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Leukocytoclastic Vasculitis,0.53,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.54,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.55,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.56,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.58,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.59,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.6,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.61,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.62,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.63,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.64,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.65,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.66,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.67,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.68,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.71,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.72,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.73,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.74,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.75,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.76,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.77,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.78,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.79,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.8,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.81,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.84,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.85,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.86,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.87,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.88,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.89,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.9,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.91,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.92,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.93,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.96,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.97,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.98,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,0.99,,1.0,1.0,,,0,0,3,0,False
+Leukocytoclastic Vasculitis,1.0,,1.0,1.0,,,0,0,3,0,False
+Lichen Planus Lichenoid Eruption,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.43,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.44,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.45,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.46,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Planus Lichenoid Eruption,0.47000000000000003,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,True
+Lichen Planus Lichenoid Eruption,0.48,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,False
+Lichen Planus Lichenoid Eruption,0.49,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Lichen Planus Lichenoid Eruption,0.5,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Lichen Planus Lichenoid Eruption,0.51,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.52,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.53,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.54,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Planus Lichenoid Eruption,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Pityriasis Rosea,0.0,,0.0,0.0,,,0,3,0,0,True
+Pityriasis Rosea,0.01,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.02,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.03,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.04,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.05,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.06,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.07,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.08,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.09,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.1,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.11,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.12,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.13,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.14,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.15,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.16,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.17,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.18,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.19,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.2,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.21,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.22,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.23,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.24,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.25,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.26,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.27,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.28,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.29,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.3,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.31,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.32,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.33,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.34,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.36,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.37,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.38,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.39,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.4,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.42,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.43,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.44,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.45,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.46,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Pityriasis Rosea,0.48,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pityriasis Rosea,0.49,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pityriasis Rosea,0.5,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pityriasis Rosea,0.51,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Pityriasis Rosea,0.52,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.53,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.54,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.55,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.56,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.58,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.59,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.6,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.61,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.62,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.63,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.64,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.65,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.66,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.67,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.68,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.71,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.72,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.73,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.74,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.75,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.76,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.77,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.78,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.79,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.8,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.81,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.84,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.85,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.86,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.87,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.88,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.89,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.9,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.91,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.92,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.93,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.96,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.97,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.98,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,0.99,,1.0,1.0,,,0,0,3,0,False
+Pityriasis Rosea,1.0,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.0,,0.0,0.0,,,0,3,0,0,True
+Viral Exanthem,0.01,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.02,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.03,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.04,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.05,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.06,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.07,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.08,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.09,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.1,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.11,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.12,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.13,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.14,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.15,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.16,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.17,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.18,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.19,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.2,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.21,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.22,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.23,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.24,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.25,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.26,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.27,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.28,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.29,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.3,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.31,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.32,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.33,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.34,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.36,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.37,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.38,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.39,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.4,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.42,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.43,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.44,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.45,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.46,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.48,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.49,,0.0,0.0,,,0,3,0,0,False
+Viral Exanthem,0.5,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Viral Exanthem,0.51,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Viral Exanthem,0.52,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Viral Exanthem,0.53,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Viral Exanthem,0.54,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.55,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.56,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.58,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.59,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.6,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.61,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.62,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.63,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.64,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.65,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.66,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.67,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.68,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.71,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.72,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.73,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.74,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.75,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.76,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.77,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.78,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.79,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.8,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.81,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.84,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.85,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.86,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.87,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.88,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.89,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.9,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.91,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.92,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.93,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.96,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.97,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.98,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,0.99,,1.0,1.0,,,0,0,3,0,False
+Viral Exanthem,1.0,,1.0,1.0,,,0,0,3,0,False
+Lichen Simplex Chronicus,0.0,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.01,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.02,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.03,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.04,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.05,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.06,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.07,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.08,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.09,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.1,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.11,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.12,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.13,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.14,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.15,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.16,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.17,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.18,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.19,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.2,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.21,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.22,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.23,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.24,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.25,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.26,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.27,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.28,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.29,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.3,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.31,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.32,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.33,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.34,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.35000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.36,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.37,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.38,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.39,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.4,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.41000000000000003,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.42,1.0,0.0,0.5,0.0,0.5,1,2,0,0,False
+Lichen Simplex Chronicus,0.43,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,True
+Lichen Simplex Chronicus,0.44,0.0,0.0,0.0,-1.0,0.0,0,2,0,1,False
+Lichen Simplex Chronicus,0.45,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Lichen Simplex Chronicus,0.46,0.0,0.5,0.25,-0.5,0.0,0,1,1,1,False
+Lichen Simplex Chronicus,0.47000000000000003,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.48,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.49,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.5,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.51,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.52,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.53,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.54,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.55,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.56,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.5700000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.58,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.59,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.6,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.61,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.62,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.63,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.64,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.65,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.66,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.67,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.68,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.6900000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.7000000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.71,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.72,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.73,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.74,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.75,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.76,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.77,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.78,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.79,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.8,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.81,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.8200000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.8300000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.84,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.85,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.86,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.87,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.88,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.89,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.9,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.91,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.92,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.93,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.9400000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.9500000000000001,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.96,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.97,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.98,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,0.99,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Lichen Simplex Chronicus,1.0,0.0,1.0,0.5,0.0,0.0,0,0,2,1,False
+Stasis Dermatitis,0.0,,0.0,0.0,,,0,3,0,0,True
+Stasis Dermatitis,0.01,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.02,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.03,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.04,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.05,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.06,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.07,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.08,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.09,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.1,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.11,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.12,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.13,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.14,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.15,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.16,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.17,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.18,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.19,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.2,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.21,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.22,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.23,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.24,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.25,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.26,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.27,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.28,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.29,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.3,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.31,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.32,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.33,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.34,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.36,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.37,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.38,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.39,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.4,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.42,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.43,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.44,,0.0,0.0,,,0,3,0,0,False
+Stasis Dermatitis,0.45,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Stasis Dermatitis,0.46,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Stasis Dermatitis,0.47000000000000003,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Stasis Dermatitis,0.48,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.49,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.5,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.51,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.52,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.53,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.54,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.55,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.56,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.58,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.59,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.6,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.61,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.62,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.63,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.64,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.65,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.66,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.67,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.68,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.71,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.72,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.73,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.74,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.75,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.76,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.77,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.78,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.79,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.8,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.81,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.84,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.85,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.86,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.87,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.88,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.89,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.9,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.91,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.92,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.93,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.96,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.97,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.98,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,0.99,,1.0,1.0,,,0,0,3,0,False
+Stasis Dermatitis,1.0,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.0,,0.0,0.0,,,0,3,0,0,True
+Keratosis Pilaris,0.01,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.02,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.03,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.04,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.05,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.06,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.07,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.08,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.09,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.1,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.11,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.12,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.13,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.14,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.15,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.16,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.17,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.18,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.19,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.2,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.21,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.22,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.23,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.24,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.25,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.26,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.27,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.28,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.29,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.3,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.31,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.32,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.33,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.34,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.36,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.37,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.38,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.39,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.4,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.42,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.43,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.44,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.45,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.46,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.48,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.49,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.5,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.51,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.52,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.53,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.54,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.55,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.56,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.5700000000000001,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.58,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.59,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.6,,0.0,0.0,,,0,3,0,0,False
+Keratosis Pilaris,0.61,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Keratosis Pilaris,0.62,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Keratosis Pilaris,0.63,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Keratosis Pilaris,0.64,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Keratosis Pilaris,0.65,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Keratosis Pilaris,0.66,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.67,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.68,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.71,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.72,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.73,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.74,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.75,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.76,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.77,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.78,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.79,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.8,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.81,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.84,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.85,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.86,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.87,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.88,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.89,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.9,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.91,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.92,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.93,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.96,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.97,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.98,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,0.99,,1.0,1.0,,,0,0,3,0,False
+Keratosis Pilaris,1.0,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.0,,0.0,0.0,,,0,3,0,0,True
+CD - Contact Dermatitis,0.01,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.02,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.03,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.04,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.05,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.06,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.07,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.08,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.09,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.1,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.11,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.12,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.13,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.14,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.15,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.16,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.17,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.18,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.19,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.2,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.21,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.22,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.23,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.24,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.25,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.26,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.27,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.28,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.29,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.3,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.31,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.32,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.33,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.34,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.36,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.37,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.38,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.39,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.4,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.42,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.43,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.44,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.45,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.46,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.47000000000000003,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.48,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.49,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.5,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.51,,0.0,0.0,,,0,3,0,0,False
+CD - Contact Dermatitis,0.52,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+CD - Contact Dermatitis,0.53,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+CD - Contact Dermatitis,0.54,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.55,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.56,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.58,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.59,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.6,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.61,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.62,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.63,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.64,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.65,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.66,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.67,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.68,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.71,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.72,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.73,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.74,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.75,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.76,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.77,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.78,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.79,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.8,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.81,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.84,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.85,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.86,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.87,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.88,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.89,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.9,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.91,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.92,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.93,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.96,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.97,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.98,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,0.99,,1.0,1.0,,,0,0,3,0,False
+CD - Contact Dermatitis,1.0,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.0,,0.0,0.0,,,0,3,0,0,True
+Scabies,0.01,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.02,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.03,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.04,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.05,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.06,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.07,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.08,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.09,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.1,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.11,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.12,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.13,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.14,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.15,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.16,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.17,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.18,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.19,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.2,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.21,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.22,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.23,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.24,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.25,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.26,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.27,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.28,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.29,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.3,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.31,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.32,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.33,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.34,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.35000000000000003,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.36,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.37,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.38,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.39,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.4,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.41000000000000003,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.42,,0.0,0.0,,,0,3,0,0,False
+Scabies,0.43,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Scabies,0.44,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Scabies,0.45,,0.3333333333333333,0.3333333333333333,,,0,2,1,0,False
+Scabies,0.46,,0.6666666666666666,0.6666666666666666,,,0,1,2,0,False
+Scabies,0.47000000000000003,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.48,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.49,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.5,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.51,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.52,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.53,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.54,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.55,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.56,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.5700000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.58,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.59,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.6,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.61,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.62,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.63,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.64,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.65,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.66,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.67,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.68,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.6900000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.7000000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.71,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.72,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.73,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.74,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.75,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.76,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.77,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.78,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.79,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.8,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.81,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.8200000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.8300000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.84,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.85,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.86,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.87,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.88,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.89,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.9,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.91,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.92,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.93,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.9400000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.9500000000000001,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.96,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.97,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.98,,1.0,1.0,,,0,0,3,0,False
+Scabies,0.99,,1.0,1.0,,,0,0,3,0,False
+Scabies,1.0,,1.0,1.0,,,0,0,3,0,False

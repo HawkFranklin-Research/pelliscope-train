@@ -1,0 +1,12 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789732494.183190   69495 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1789732502.994959   69579 service.cc:153] XLA service 0x79fd6c061c70 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1789732502.994976   69579 service.cc:161]   StreamExecutor [0]: Host, Default Version (Driver: 0.0.0; Runtime: 0.0.0; Toolkit: 0.0.0; DNN: 0.0.0)
+I0000 00:00:1789732503.370411   69579 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1789732504.727781   69579 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+W0000 00:00:1789732504.736578   69579 cpu_allocator_impl.cc:82] Allocation of 3372908544 exceeds 10% of free system memory.
+W0000 00:00:1789732537.178811   69583 cpu_allocator_impl.cc:82] Allocation of 3372908544 exceeds 10% of free system memory.
+W0000 00:00:1789732569.520164   69584 cpu_allocator_impl.cc:82] Allocation of 3372908544 exceeds 10% of free system memory.
+W0000 00:00:1789732599.797187   69585 cpu_allocator_impl.cc:82] Allocation of 3372908544 exceeds 10% of free system memory.
+W0000 00:00:1789732627.411582   69582 cpu_allocator_impl.cc:82] Allocation of 1639240704 exceeds 10% of free system memory.

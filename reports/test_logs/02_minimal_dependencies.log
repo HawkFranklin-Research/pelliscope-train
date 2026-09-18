@@ -1,0 +1,15 @@
+Collecting iterative-stratification
+  Using cached iterative_stratification-0.1.9-py3-none-any.whl.metadata (1.3 kB)
+Collecting ruff
+  Downloading ruff-0.16.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+Requirement already satisfied: numpy in /home/prime/miniconda3/lib/python3.13/site-packages (from iterative-stratification) (2.4.6)
+Requirement already satisfied: scipy in /home/prime/miniconda3/lib/python3.13/site-packages (from iterative-stratification) (1.16.3)
+Requirement already satisfied: scikit-learn in /home/prime/miniconda3/lib/python3.13/site-packages (from iterative-stratification) (1.7.2)
+Requirement already satisfied: joblib>=1.2.0 in /home/prime/miniconda3/lib/python3.13/site-packages (from scikit-learn->iterative-stratification) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /home/prime/miniconda3/lib/python3.13/site-packages (from scikit-learn->iterative-stratification) (3.6.0)
+Using cached iterative_stratification-0.1.9-py3-none-any.whl (8.5 kB)
+Downloading ruff-0.16.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.3/10.3 MB 21.1 MB/s  0:00:00
+Installing collected packages: ruff, iterative-stratification
+
+Successfully installed iterative-stratification-0.1.9 ruff-0.16.8

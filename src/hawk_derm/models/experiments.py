@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import itertools
 from copy import deepcopy
 from pathlib import Path
 from typing import Any

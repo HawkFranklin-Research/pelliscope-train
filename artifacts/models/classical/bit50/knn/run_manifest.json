@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "config": {
+    "aggregation": "mean",
+    "classifier": "knn",
+    "config": "configs/study_25class.yaml",
+    "encoder": "bit50",
+    "seed": 42
+  },
+  "config_sha256": "5718da9f4dfa864229dfd0d84b4df7eebd72b31904ff220cb639420d41efbd5b",
+  "ended_at": "2026-09-18T12:05:26.052650+00:00",
+  "environment": {
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "executable": "/home/prime/miniconda3/bin/python",
+    "hostname": "hawk-prime",
+    "mps_available": false,
+    "pid": 83829,
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:13:31) [GCC 14.3.0]",
+    "torch": "2.11.0+cu130"
+  },
+  "git_commit": "3b9d04201fff53734e9703c0a301eeb09ba4f252",
+  "inputs": [
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/features/bit50/feature_bank.npz",
+      "sha256": "112f4f0dec2cddb4fe2070d7bafaec89adb611eab744f9fd358a31fb4d39b5f3",
+      "size": 483808
+    },
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/data/splits/split_manifest_v1.csv",
+      "sha256": "247d6a71a26e4e89dfb09cb54d78fba8e3c4a604da5d4f23913223af3487a8f6",
+      "size": 958
+    }
+  ],
+  "outputs": [
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/bit50/knn/overall_metrics.csv",
+      "sha256": "e3f4ea1820d5a981bd7609f274506ee1767e48a816d833a1d31ce2a710d2e3ab",
+      "size": 642
+    },
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/bit50/knn/test_case_predictions.csv",
+      "sha256": "2fc9ce64b11e3dcacca70d61b808ba53c7d853433bd24ca866e6bff64bb37483",
+      "size": 4715
+    }
+  ],
+  "run_id": "train_classical-20260918T173523-6e178b58",
+  "run_mode": "smoke",
+  "stage": "train_classical",
+  "started_at": "2026-09-18T12:05:23.346013+00:00",
+  "status": "complete"
+}

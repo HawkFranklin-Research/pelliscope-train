@@ -83,6 +83,11 @@ def _transformers_components(spec: EncoderSpec, device: torch.device) -> tuple[C
                 features = output.pooler_output
             else:
                 features = output.last_hidden_state[:, 0]
+        # Hugging Face BiT returns pooled features as (N, C, 1, 1), while
+        # ViT/CLIP/SigLIP return (N, C). Normalize singleton spatial outputs to
+        # the common two-dimensional feature-bank schema.
+        if features.ndim > 2 and int(np.prod(features.shape[1:])) == spec.dimension:
+            features = features.reshape(features.shape[0], spec.dimension)
         return features.detach().float().cpu().numpy().astype(np.float32)
 
     return encode, f"{spec.model_id}@{spec.revision}"
@@ -93,6 +98,15 @@ def _derm_foundation_components(spec: EncoderSpec) -> tuple[Callable[[list[Image
         import tensorflow as tf
     except ImportError as error:
         raise RuntimeError("Install the derm-foundation optional dependencies to use this encoder") from error
+    # The official Derm Foundation SavedModel contains a StableHLO module
+    # compiled for CPU. If TensorFlow sees a CUDA device it otherwise places
+    # the signature on GPU and fails with "platform CUDA ... required [CPU]".
+    # Hide TensorFlow GPUs before loading the model; PyTorch encoder jobs run in
+    # separate processes and remain free to use CUDA.
+    try:
+        tf.config.set_visible_devices([], "GPU")
+    except RuntimeError as error:
+        raise RuntimeError("Derm Foundation requires TensorFlow CPU placement before GPU initialization") from error
     model_path = Path(spec.model_path or "")
     if not model_path.exists():
         raise FileNotFoundError(f"Derm Foundation SavedModel not found: {model_path}")
@@ -178,6 +192,7 @@ def extract_feature_bank(
             continue
         embeddings.append(np.load(shard, allow_pickle=False)["embedding"].astype(np.float32))
         metadata.append(row)
+    write_csv(output_path.parent / f"{spec.key}_extraction_failures.csv", pd.DataFrame(failures))
     if not embeddings:
         raise RuntimeError(f"No features were produced for {spec.key}")
     hashes = [str(row.get("sha256", "")) or sha256_file(row["resolved_image_path"]) for row in metadata]
@@ -202,9 +217,8 @@ def extract_feature_bank(
             "resolved_revision": resolved_revision,
             "dimension": spec.dimension,
             "dtype": "float32",
-            "device": str(torch_device) if spec.backend != "tensorflow_savedmodel" else "tensorflow-default",
+            "device": str(torch_device) if spec.backend != "tensorflow_savedmodel" else "tensorflow-cpu",
             "failure_count": len(failures),
         },
     )
-    write_csv(output_path.parent / f"{spec.key}_extraction_failures.csv", pd.DataFrame(failures))
     return bank

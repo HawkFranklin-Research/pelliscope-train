@@ -1,0 +1,8 @@
+{
+  "complete": true,
+  "first_model": "derm_foundation+MIL",
+  "paired_case_count": 6,
+  "replicates": 100,
+  "second_model": "derm_foundation+logistic:case_mean",
+  "seed": 20260918
+}

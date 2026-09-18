@@ -1,0 +1,8 @@
+{
+  "aggregation": "mean",
+  "classifier": "logistic",
+  "complete": true,
+  "encoder": "derm_foundation",
+  "model_count": 25,
+  "seed": 42
+}

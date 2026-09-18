@@ -14,6 +14,7 @@ artifacts/models/**/*.pt
 artifacts/models/**/*.pth
 artifacts/models/**/*.joblib
 artifacts/checkpoints/
+artifacts/external/
 artifacts/**/*.npz
 artifacts/**/*.pt
 artifacts/**/*.pth

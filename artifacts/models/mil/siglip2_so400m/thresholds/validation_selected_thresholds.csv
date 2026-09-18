@@ -1,0 +1,26 @@
+label,threshold,sensitivity,specificity,balanced_accuracy,youden_j,f1,tp,fp,tn,fn
+Eczema,0.54,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0
+Allergic Contact Dermatitis,0.5,0.0,0.5,0.25,-0.5,0.0,0,1,1,1
+Insect Bite,0.53,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0
+Urticaria,0.0,,0.0,0.0,,,0,3,0,0
+Psoriasis,0.52,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0
+Folliculitis,0.0,,0.0,0.0,,,0,3,0,0
+Irritant Contact Dermatitis,0.0,,0.0,0.0,,,0,3,0,0
+Tinea,0.0,,0.0,0.0,,,0,3,0,0
+Herpes Zoster,0.47000000000000003,0.0,0.0,0.0,-1.0,0.0,0,2,0,1
+Drug Rash,0.0,,0.0,0.0,,,0,3,0,0
+Herpes Simplex,0.0,,0.0,0.0,,,0,3,0,0
+Impetigo,0.47000000000000003,0.0,0.0,0.0,-1.0,0.0,0,2,0,1
+Acute Dermatitis NOS,0.0,,0.0,0.0,,,0,3,0,0
+Hypersensitivity,0.0,,0.0,0.0,,,0,3,0,0
+Acne,0.47000000000000003,1.0,1.0,1.0,1.0,1.0,1,0,2,0
+Pigmented Purpuric Eruption,0.0,,0.0,0.0,,,0,3,0,0
+Leukocytoclastic Vasculitis,0.0,,0.0,0.0,,,0,3,0,0
+Lichen Planus Lichenoid Eruption,0.47000000000000003,1.0,1.0,1.0,1.0,1.0,1,0,2,0
+Pityriasis Rosea,0.0,,0.0,0.0,,,0,3,0,0
+Viral Exanthem,0.0,,0.0,0.0,,,0,3,0,0
+Lichen Simplex Chronicus,0.51,1.0,0.5,0.75,0.5,0.6666666666666666,1,1,1,0
+Stasis Dermatitis,0.0,,0.0,0.0,,,0,3,0,0
+Keratosis Pilaris,0.0,,0.0,0.0,,,0,3,0,0
+CD - Contact Dermatitis,0.0,,0.0,0.0,,,0,3,0,0
+Scabies,0.0,,0.0,0.0,,,0,3,0,0

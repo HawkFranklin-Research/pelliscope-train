@@ -1,0 +1,8 @@
+{
+  "aggregation": "mean",
+  "classifier": "logistic",
+  "complete": true,
+  "encoder": "siglip2_so400m",
+  "model_count": 25,
+  "seed": 42
+}

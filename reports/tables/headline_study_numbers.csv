@@ -1,0 +1,2 @@
+cases,image_rows,unique_resolved_paths,target_conditions,all_zero_target_cases,single_label_cases,multi_label_cases,median_images_per_case
+28,65,65,25,5,2,21,3.0

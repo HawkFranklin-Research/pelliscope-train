@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "device": "cuda",
+  "dimension": 2048,
+  "dtype": "float32",
+  "encoder": "bit50",
+  "failure_count": 0,
+  "model_id": "google/bit-50",
+  "requested_revision": "main",
+  "resolved_revision": "google/bit-50@main",
+  "row_count": 65
+}

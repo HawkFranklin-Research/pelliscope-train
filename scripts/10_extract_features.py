@@ -6,14 +6,14 @@ from pathlib import Path
 
 import pandas as pd
 
-from _common import REPOSITORY_ROOT, load_context
+from _common import load_context
 
 from hawk_derm.config import path_from
 from hawk_derm.features.bank import import_legacy_casebag, save_feature_bank
 from hawk_derm.features.extractors import extract_feature_bank
 from hawk_derm.features.registry import load_encoder_registry
-from hawk_derm.provenance import RunRecorder
 from hawk_derm.io import read_json, sha256_file
+from hawk_derm.provenance import RunRecorder
 
 
 def main() -> None:

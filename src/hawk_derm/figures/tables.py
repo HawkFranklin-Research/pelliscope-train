@@ -9,7 +9,7 @@ import pandas as pd
 from hawk_derm.constants import slugify
 from hawk_derm.features.registry import load_encoder_registry
 from hawk_derm.config import load_yaml
-from hawk_derm.io import read_json, write_csv, write_json
+from hawk_derm.io import write_csv, write_json
 
 
 def generate_tables(
@@ -104,7 +104,7 @@ def generate_tables(
         threshold_tables = []
         for path in threshold_files:
             frame = pd.read_csv(path)
-            frame.insert(0, "encoder", path.parents[2].name)
+            frame.insert(0, "encoder", path.parents[1].name)
             threshold_tables.append(frame)
         operating = pd.concat(threshold_tables, ignore_index=True)
         outputs.append(write_csv(table_dir / "operating_points.csv", operating))
@@ -115,7 +115,7 @@ def generate_tables(
         trials = []
         for path in tuning_files:
             frame = pd.read_csv(path)
-            frame.insert(0, "encoder", path.parents[2].name)
+            frame.insert(0, "encoder", path.parents[1].name)
             trials.append(frame)
         outputs.append(write_csv(table_dir / "hyperparameter_trials.csv", pd.concat(trials, ignore_index=True)))
 

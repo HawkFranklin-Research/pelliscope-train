@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "outputs": [
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/headline_study_numbers.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/cohort_sizes_by_split.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/split_composition.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/class_imbalance_diagnostics.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/condition_support.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/encoder_registry.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/all_model_metrics.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/encoder_classifier_heatmap.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/operating_points.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/plot_data/operating_points.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/reports/tables/hyperparameter_trials.csv"
+  ]
+}

@@ -1,0 +1,1 @@
+case_id,image_id,image_order,source_image_path,resolved_image_path,file_exists,bag_slot,retained_for_bag,run_mode,sha256,byte_size,width,height,decode_ok,error,image_mode

@@ -1,0 +1,7 @@
+{
+  "best_epoch": 1,
+  "complete": true,
+  "device": "cuda",
+  "encoder": "clip_vitb32",
+  "seed": 43
+}

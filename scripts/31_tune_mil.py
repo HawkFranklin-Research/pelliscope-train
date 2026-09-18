@@ -8,6 +8,7 @@ from _common import load_context, load_manifests
 from hawk_derm.config import load_yaml, path_from
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.models.experiments import run_mil_search
+from hawk_derm.provenance import RunRecorder
 
 
 def main() -> None:
@@ -25,19 +26,23 @@ def main() -> None:
         mil["training"]["epochs"] = args.epochs
     trials = args.trials or int(mil["search"]["trials"])
     cases, _, splits = load_manifests(config)
-    bank = load_feature_bank(path_from(config, "artifacts_dir") / "features" / args.encoder / "feature_bank.npz")
-    run_mil_search(
-        bank,
-        cases,
-        splits,
-        config["labels"],
-        mil,
-        path_from(config, "artifacts_dir") / "models" / "mil" / args.encoder / "tuning",
-        trials=trials,
-        seed=args.seed,
-        device=args.device,
-        max_images=int(config["study"]["max_images_per_case"]),
-    )
+    bank_path = path_from(config, "artifacts_dir") / "features" / args.encoder / "feature_bank.npz"
+    bank = load_feature_bank(bank_path)
+    output_dir = path_from(config, "artifacts_dir") / "models" / "mil" / args.encoder / "tuning"
+    with RunRecorder("tune_mil", vars(args), output_dir, inputs=[bank_path, path_from(config, "split_manifest")]) as run:
+        run_mil_search(
+            bank,
+            cases,
+            splits,
+            config["labels"],
+            mil,
+            output_dir,
+            trials=trials,
+            seed=args.seed,
+            device=args.device,
+            max_images=int(config["study"]["max_images_per_case"]),
+        )
+        run.complete([output_dir / "trials.csv"])
 
 
 if __name__ == "__main__":

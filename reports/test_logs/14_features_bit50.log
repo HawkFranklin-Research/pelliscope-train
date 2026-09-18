@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/151 [00:00<?, ?it/s]Loading weights: 100%|██████████| 151/151 [00:00<00:00, 33206.10it/s]
+[transformers] [1mBitModel LOAD REPORT[0m from: google/bit-50
+Key                 | Status     |  | 
+--------------------+------------+--+-
+classifier.1.bias   | UNEXPECTED |  | 
+classifier.1.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.

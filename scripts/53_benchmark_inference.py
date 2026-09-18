@@ -11,7 +11,7 @@ import torch
 
 from _common import load_context, load_manifests
 
-from hawk_derm.config import load_yaml, path_from
+from hawk_derm.config import path_from
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.io import write_csv, write_json
 from hawk_derm.models.experiments import choose_device, prepare_bag_data, subset_dataset

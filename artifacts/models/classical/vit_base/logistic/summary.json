@@ -1,0 +1,8 @@
+{
+  "aggregation": "mean",
+  "classifier": "logistic",
+  "complete": true,
+  "encoder": "vit_base",
+  "model_count": 25,
+  "seed": 42
+}

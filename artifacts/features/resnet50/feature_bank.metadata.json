@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "device": "cuda",
+  "dimension": 2048,
+  "dtype": "float32",
+  "encoder": "resnet50",
+  "failure_count": 0,
+  "model_id": "resnet50",
+  "requested_revision": "IMAGENET1K_V2",
+  "resolved_revision": "ResNet50_Weights.IMAGENET1K_V2",
+  "row_count": 65
+}

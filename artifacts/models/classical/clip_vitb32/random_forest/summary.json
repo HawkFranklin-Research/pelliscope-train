@@ -1,0 +1,8 @@
+{
+  "aggregation": "mean",
+  "classifier": "random_forest",
+  "complete": true,
+  "encoder": "clip_vitb32",
+  "model_count": 25,
+  "seed": 42
+}

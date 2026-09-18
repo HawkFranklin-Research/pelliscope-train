@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "config": {
+    "aggregation": "mean",
+    "classifier": "random_forest",
+    "config": "configs/study_25class.yaml",
+    "encoder": "clip_vitb32",
+    "seed": 42
+  },
+  "config_sha256": "430c8a241800b7b070d609bd3e8e946083d6d443f1a889de0306efa2626e6f6f",
+  "ended_at": "2026-09-18T12:06:18.067471+00:00",
+  "environment": {
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "executable": "/home/prime/miniconda3/bin/python",
+    "hostname": "hawk-prime",
+    "mps_available": false,
+    "pid": 85220,
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:13:31) [GCC 14.3.0]",
+    "torch": "2.11.0+cu130"
+  },
+  "git_commit": "3b9d04201fff53734e9703c0a301eeb09ba4f252",
+  "inputs": [
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/features/clip_vitb32/feature_bank.npz",
+      "sha256": "edc501093954b2d1d8898d9912c40e63fb5a2050a1b04f644b61fec53c4f4d26",
+      "size": 131733
+    },
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/data/splits/split_manifest_v1.csv",
+      "sha256": "247d6a71a26e4e89dfb09cb54d78fba8e3c4a604da5d4f23913223af3487a8f6",
+      "size": 958
+    }
+  ],
+  "outputs": [
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/clip_vitb32/random_forest/overall_metrics.csv",
+      "sha256": "27fa796c2a39c411a976c9284c4ce6a86a404fd89f8bf5ddd9ae8ecc9d600ad7",
+      "size": 668
+    },
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/clip_vitb32/random_forest/test_case_predictions.csv",
+      "sha256": "11f11e4fd0f7ae13a67be7d8081fed67f8660e40fd57bd84698b86a8c5b68b2f",
+      "size": 5495
+    }
+  ],
+  "run_id": "train_classical-20260918T173607-05c871e7",
+  "run_mode": "smoke",
+  "stage": "train_classical",
+  "started_at": "2026-09-18T12:06:07.473690+00:00",
+  "status": "complete"
+}

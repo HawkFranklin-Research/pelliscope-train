@@ -31,20 +31,33 @@ class GatedAttentionMIL(nn.Module):
         instance_dim: int = 768,
         attention_dim: int = 256,
         shared_dim: int = 384,
+        instance_layers: int = 1,
+        shared_layers: int = 1,
         dropout: float = 0.25,
     ) -> None:
         super().__init__()
-        self.instance = nn.Sequential(nn.Linear(input_dim, instance_dim), nn.LayerNorm(instance_dim), nn.GELU(), nn.Dropout(dropout))
+        if instance_layers < 1:
+            raise ValueError("instance_layers must be at least 1")
+        if shared_layers < 0:
+            raise ValueError("shared_layers cannot be negative")
+        instance_modules: list[nn.Module] = []
+        current_dim = input_dim
+        for _ in range(instance_layers):
+            instance_modules.extend(
+                [nn.Linear(current_dim, instance_dim), nn.LayerNorm(instance_dim), nn.GELU(), nn.Dropout(dropout)]
+            )
+            current_dim = instance_dim
+        self.instance = nn.Sequential(*instance_modules)
         self.attention_tanh = nn.Linear(instance_dim, attention_dim)
         self.attention_sigmoid = nn.Linear(instance_dim, attention_dim)
         self.attention_score = nn.Linear(attention_dim, 1)
-        self.classifier = nn.Sequential(
-            nn.LayerNorm(instance_dim),
-            nn.Linear(instance_dim, shared_dim),
-            nn.GELU(),
-            nn.Dropout(dropout),
-            nn.Linear(shared_dim, class_count),
-        )
+        classifier_modules: list[nn.Module] = [nn.LayerNorm(instance_dim)]
+        current_dim = instance_dim
+        for _ in range(shared_layers):
+            classifier_modules.extend([nn.Linear(current_dim, shared_dim), nn.GELU(), nn.Dropout(dropout)])
+            current_dim = shared_dim
+        classifier_modules.append(nn.Linear(current_dim, class_count))
+        self.classifier = nn.Sequential(*classifier_modules)
 
     def forward(self, bags: torch.Tensor, masks: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         instances = self.instance(bags)

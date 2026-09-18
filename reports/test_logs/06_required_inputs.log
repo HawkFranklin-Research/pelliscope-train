@@ -1,0 +1,4 @@
+OK	/home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images/metadata.csv
+OK	/home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/outputs/diff_25class_dataset.parquet
+OK	/home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/section-b/data_extraction/outputs/section_b_case_manifest.csv
+OK	/home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/section-b/data_extraction/outputs/section_b_image_manifest.csv

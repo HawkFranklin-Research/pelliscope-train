@@ -1,0 +1,5 @@
+{
+  "complete": true,
+  "predictions": "artifacts/models/mil/siglip2_so400m/final_model/test_predictions.csv",
+  "thresholds": "artifacts/models/mil/siglip2_so400m/thresholds/validation_selected_thresholds.csv"
+}

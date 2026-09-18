@@ -1,0 +1,8 @@
+{
+  "aggregation": "mean",
+  "classifier": "gradient_boosting",
+  "complete": true,
+  "encoder": "bit50",
+  "model_count": 25,
+  "seed": 42
+}

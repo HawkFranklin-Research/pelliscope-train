@@ -1,0 +1,14 @@
+resnet50 shape (65, 2048) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True
+inception_v3 shape (65, 2048) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True
+bit50 shape (65, 2048) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True
+vit_base shape (65, 768) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True
+clip_vitb32 shape (65, 512) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True
+derm_foundation shape (65, 6144) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True
+siglip2_so400m shape (65, 1152) dtype float32 finite True failures 0 run_mode smoke status complete
+ membership_matches True

@@ -1,0 +1,8 @@
+resnet50 checked
+inception_v3 checked
+bit50 checked
+vit_base checked
+clip_vitb32 checked
+derm_foundation checked
+siglip2_so400m checked
+problems []

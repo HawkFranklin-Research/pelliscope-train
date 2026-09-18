@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "device": "cuda",
+  "dimension": 1152,
+  "dtype": "float32",
+  "encoder": "siglip2_so400m",
+  "failure_count": 0,
+  "model_id": "google/siglip2-so400m-patch14-384",
+  "requested_revision": "main",
+  "resolved_revision": "google/siglip2-so400m-patch14-384@main",
+  "row_count": 65
+}

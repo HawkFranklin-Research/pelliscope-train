@@ -1,0 +1,16 @@
+{
+  "best_epoch": 1,
+  "complete": true,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.2927602529525757,
+      "validation_loss": 1.9217770099639893
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.1115899085998535,
+      "validation_loss": 2.0632896423339844
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+comparison,metric,difference,ci_lower,ci_upper,bootstrap_p,paired_permutation_p,replicates
+derm_foundation+MIL - derm_foundation+logistic:case_mean,macro_roc_auc,-0.05833333333333324,-0.2933440170940171,0.04589646464646473,0.33663366336633666,0.5148514851485149,100
+derm_foundation+MIL - derm_foundation+logistic:case_mean,macro_pr_auc,-0.022222222222222143,-0.22509615384615378,0.06222222222222207,0.4752475247524752,0.8118811881188119,100

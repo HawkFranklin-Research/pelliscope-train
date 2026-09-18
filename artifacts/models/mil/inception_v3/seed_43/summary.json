@@ -1,0 +1,7 @@
+{
+  "best_epoch": 1,
+  "complete": true,
+  "device": "cuda",
+  "encoder": "inception_v3",
+  "seed": 43
+}

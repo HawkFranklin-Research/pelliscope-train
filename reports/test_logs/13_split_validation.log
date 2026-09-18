@@ -1,0 +1,8 @@
+split_shape (28, 4)
+split_counts {'train': 19, 'test': 6, 'validation': 3}
+duplicates 0
+case_set_match True
+cross_split_hashes 0
+sha256 data/manifests/case_manifest.csv 67a19b05d00963e4a42afd7414e0ee5fbbbed1a8a0442870f76fc8fcff37ea49
+sha256 data/splits/split_manifest_v1.csv 247d6a71a26e4e89dfb09cb54d78fba8e3c4a604da5d4f23913223af3487a8f6
+split_files ['split_manifest_v1.csv', 'split_manifest_v1.metadata.json']

@@ -1,0 +1,26 @@
+label,total_cases,train_cases,validation_cases,test_cases,train_images,effective_number_weight
+Eczema,10,7,1,2,26,0.20204125866860834
+Allergic Contact Dermatitis,5,3,1,1,13,0.47048800071306596
+Insect Bite,4,1,1,2,11,1.4100530086250578
+Urticaria,3,2,0,1,8,0.7053791939094937
+Psoriasis,5,3,1,1,13,0.47048800071306596
+Folliculitis,3,2,0,1,9,0.7053791939094937
+Irritant Contact Dermatitis,3,2,0,1,6,0.7053791939094937
+Tinea,2,1,0,1,5,1.4100530086250578
+Herpes Zoster,3,2,1,0,7,0.7053791939094937
+Drug Rash,6,4,0,2,17,0.35304246289641045
+Herpes Simplex,2,1,0,1,6,1.4100530086250578
+Impetigo,3,1,1,1,7,1.4100530086250578
+Acute Dermatitis NOS,4,3,0,1,11,0.47048800071306596
+Hypersensitivity,2,1,0,1,5,1.4100530086250578
+Acne,2,1,1,0,6,1.4100530086250578
+Pigmented Purpuric Eruption,2,1,0,1,6,1.4100530086250578
+Leukocytoclastic Vasculitis,3,1,0,2,9,1.4100530086250578
+Lichen Planus Lichenoid Eruption,4,3,1,0,11,0.47048800071306596
+Pityriasis Rosea,2,1,0,1,6,1.4100530086250578
+Viral Exanthem,3,2,0,1,9,0.7053791939094937
+Lichen Simplex Chronicus,2,1,1,0,6,1.4100530086250578
+Stasis Dermatitis,2,1,0,1,6,1.4100530086250578
+Keratosis Pilaris,2,1,0,1,6,1.4100530086250578
+CD - Contact Dermatitis,2,1,0,1,5,1.4100530086250578
+Scabies,3,2,0,1,7,0.7053791939094937

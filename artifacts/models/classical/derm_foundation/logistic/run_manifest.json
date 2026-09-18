@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "config": {
+    "aggregation": "mean",
+    "classifier": "logistic",
+    "config": "configs/study_25class.yaml",
+    "encoder": "derm_foundation",
+    "seed": 42
+  },
+  "config_sha256": "0db37e7a0f3dd95ce2c18282b0aae4285f2196a1c2265fac2711eb3944830c89",
+  "ended_at": "2026-09-18T12:06:34.538527+00:00",
+  "environment": {
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "executable": "/home/prime/miniconda3/bin/python",
+    "hostname": "hawk-prime",
+    "mps_available": false,
+    "pid": 86365,
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:13:31) [GCC 14.3.0]",
+    "torch": "2.11.0+cu130"
+  },
+  "git_commit": "3b9d04201fff53734e9703c0a301eeb09ba4f252",
+  "inputs": [
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/features/derm_foundation/feature_bank.npz",
+      "sha256": "61ba18b40cad628c3c1f31ae019c30d912e1db0c0a3523892301bb1c3515be06",
+      "size": 1027546
+    },
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/data/splits/split_manifest_v1.csv",
+      "sha256": "247d6a71a26e4e89dfb09cb54d78fba8e3c4a604da5d4f23913223af3487a8f6",
+      "size": 958
+    }
+  ],
+  "outputs": [
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/derm_foundation/logistic/overall_metrics.csv",
+      "sha256": "b4ccb0f595e1063296a5abee66806bac819a5361af4aebaf8060de5fe6401d8c",
+      "size": 785
+    },
+    {
+      "exists": true,
+      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/derm_foundation/logistic/test_case_predictions.csv",
+      "sha256": "3ad468fb118f775f0fcbb8dc75756573c83df790e59de4519aa6e9f332ab8e05",
+      "size": 5704
+    }
+  ],
+  "run_id": "train_classical-20260918T173632-f8ca8cf9",
+  "run_mode": "smoke",
+  "stage": "train_classical",
+  "started_at": "2026-09-18T12:06:32.067920+00:00",
+  "status": "complete"
+}

@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "device": "tensorflow-cpu",
+  "dimension": 6144,
+  "dtype": "float32",
+  "encoder": "derm_foundation",
+  "failure_count": 0,
+  "model_id": "google-derm-foundation",
+  "requested_revision": "release-provided",
+  "resolved_revision": "artifacts/external/google-derm-foundation",
+  "row_count": 65
+}

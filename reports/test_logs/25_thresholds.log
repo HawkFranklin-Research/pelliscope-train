@@ -1,0 +1,14 @@
+START resnet50
+PASS resnet50
+START inception_v3
+PASS inception_v3
+START bit50
+PASS bit50
+START vit_base
+PASS vit_base
+START clip_vitb32
+PASS clip_vitb32
+START derm_foundation
+PASS derm_foundation
+START siglip2_so400m
+PASS siglip2_so400m

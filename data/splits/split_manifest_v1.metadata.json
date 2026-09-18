@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "counts": {
+    "test": 6,
+    "train": 19,
+    "validation": 3
+  },
+  "fractions": {
+    "test": 0.15,
+    "train": 0.7,
+    "validation": 0.15
+  },
+  "seed": 42,
+  "split_version": "v1"
+}

@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "device": "cuda",
+  "dimension": 512,
+  "dtype": "float32",
+  "encoder": "clip_vitb32",
+  "failure_count": 0,
+  "model_id": "openai/clip-vit-base-patch32",
+  "requested_revision": "main",
+  "resolved_revision": "openai/clip-vit-base-patch32@main",
+  "row_count": 65
+}
