@@ -6,7 +6,7 @@
   "encoder": "vit_base",
   "failure_count": 0,
   "model_id": "google/vit-base-patch16-224-in21k",
-  "requested_revision": "main",
-  "resolved_revision": "google/vit-base-patch16-224-in21k@main",
+  "requested_revision": "b4569560a39a0f1af58e3ddaf17facf20ab919b0",
+  "resolved_revision": "google/vit-base-patch16-224-in21k@b4569560a39a0f1af58e3ddaf17facf20ab919b0",
   "row_count": 65
 }

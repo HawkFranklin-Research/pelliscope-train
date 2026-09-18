@@ -6,7 +6,7 @@
   "encoder": "siglip2_so400m",
   "failure_count": 0,
   "model_id": "google/siglip2-so400m-patch14-384",
-  "requested_revision": "main",
-  "resolved_revision": "google/siglip2-so400m-patch14-384@main",
+  "requested_revision": "e8e487298228002f3d8a82e0cd5c8ea9c567f57f",
+  "resolved_revision": "google/siglip2-so400m-patch14-384@e8e487298228002f3d8a82e0cd5c8ea9c567f57f",
   "row_count": 65
 }

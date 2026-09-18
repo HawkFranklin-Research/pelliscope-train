@@ -6,7 +6,7 @@
   "encoder": "bit50",
   "failure_count": 0,
   "model_id": "google/bit-50",
-  "requested_revision": "main",
-  "resolved_revision": "google/bit-50@main",
+  "requested_revision": "60f75d535bfe0a2a9d419f89f96e3c6c78bd0da9",
+  "resolved_revision": "google/bit-50@60f75d535bfe0a2a9d419f89f96e3c6c78bd0da9",
   "row_count": 65
 }

@@ -8,25 +8,25 @@
     "seed": 42
   },
   "config_sha256": "0c1f3cc7a90e4954d10c7525c0be86216bbf9229bb73ba3609bbee5158f21f74",
-  "ended_at": "2026-09-18T13:08:47.127500+00:00",
+  "ended_at": "2026-09-18T13:33:23.394859+00:00",
   "environment": {
     "cuda_available": true,
     "cuda_device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
     "executable": "/home/prime/miniconda3/bin/python",
     "hostname": "hawk-prime",
     "mps_available": false,
-    "pid": 111378,
+    "pid": 126145,
     "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
     "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:13:31) [GCC 14.3.0]",
     "torch": "2.11.0+cu130"
   },
-  "git_commit": "f1e4b7cac0d763cf3bf1fb371dbe5f892c758dfe",
+  "git_commit": "2d4fe8b2f4bde4aa352bdf6e1e3ccb814d9a5689",
   "inputs": [
     {
       "exists": true,
       "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/features/vit_base/feature_bank.npz",
-      "sha256": "c845bb466c79403bd002462f4ea1c735dfaacb832bcb4246f620e31a01ef67c1",
-      "size": 193389
+      "sha256": "4de25da294e58c273f01caec65ba86f922e2a46cad268107388521d8a7560789",
+      "size": 193431
     },
     {
       "exists": true,
@@ -49,9 +49,9 @@
       "size": 5600
     }
   ],
-  "run_id": "train_classical-20260918T183845-32366749",
+  "run_id": "train_classical-20260918T190321-3b929372",
   "run_mode": "smoke",
   "stage": "train_classical",
-  "started_at": "2026-09-18T13:08:45.282047+00:00",
+  "started_at": "2026-09-18T13:33:21.546652+00:00",
   "status": "complete"
 }
