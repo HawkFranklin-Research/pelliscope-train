@@ -1,0 +1,211 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any
+
+import numpy as np
+import torch
+from torch import nn
+from torch.utils.data import DataLoader, Dataset
+
+
+class BagDataset(Dataset):
+    def __init__(self, bags: np.ndarray, masks: np.ndarray, labels: np.ndarray, case_ids: np.ndarray) -> None:
+        self.bags = torch.as_tensor(bags, dtype=torch.float32)
+        self.masks = torch.as_tensor(masks, dtype=torch.bool)
+        self.labels = torch.as_tensor(labels, dtype=torch.float32)
+        self.case_ids = np.asarray(case_ids).astype(str)
+
+    def __len__(self) -> int:
+        return len(self.bags)
+
+    def __getitem__(self, index: int) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, str]:
+        return self.bags[index], self.masks[index], self.labels[index], self.case_ids[index]
+
+
+class GatedAttentionMIL(nn.Module):
+    def __init__(
+        self,
+        input_dim: int,
+        class_count: int,
+        instance_dim: int = 768,
+        attention_dim: int = 256,
+        shared_dim: int = 384,
+        dropout: float = 0.25,
+    ) -> None:
+        super().__init__()
+        self.instance = nn.Sequential(nn.Linear(input_dim, instance_dim), nn.LayerNorm(instance_dim), nn.GELU(), nn.Dropout(dropout))
+        self.attention_tanh = nn.Linear(instance_dim, attention_dim)
+        self.attention_sigmoid = nn.Linear(instance_dim, attention_dim)
+        self.attention_score = nn.Linear(attention_dim, 1)
+        self.classifier = nn.Sequential(
+            nn.LayerNorm(instance_dim),
+            nn.Linear(instance_dim, shared_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(shared_dim, class_count),
+        )
+
+    def forward(self, bags: torch.Tensor, masks: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        instances = self.instance(bags)
+        gated = torch.tanh(self.attention_tanh(instances)) * torch.sigmoid(self.attention_sigmoid(instances))
+        scores = self.attention_score(gated).squeeze(-1).masked_fill(~masks, torch.finfo(instances.dtype).min)
+        attention = torch.softmax(scores, dim=1)
+        attention = torch.where(masks, attention, torch.zeros_like(attention))
+        attention = attention / attention.sum(dim=1, keepdim=True).clamp_min(1e-12)
+        pooled = torch.sum(instances * attention.unsqueeze(-1), dim=1)
+        return self.classifier(pooled), attention
+
+
+def effective_number_weights(labels: np.ndarray, beta: float) -> torch.Tensor:
+    counts = np.asarray(labels).sum(axis=0).clip(min=1)
+    weights = (1 - beta) / (1 - np.power(beta, counts))
+    weights = weights / weights.mean()
+    return torch.as_tensor(weights, dtype=torch.float32)
+
+
+class MultilabelLoss(nn.Module):
+    def __init__(self, labels: np.ndarray, kind: str, beta: float = 0.999, gamma: float = 2.0) -> None:
+        super().__init__()
+        self.kind = kind
+        self.gamma = gamma
+        self.register_buffer("class_weights", effective_number_weights(labels, beta))
+        positives = np.asarray(labels).sum(axis=0)
+        negatives = len(labels) - positives
+        self.register_buffer("positive_weights", torch.as_tensor(negatives / np.clip(positives, 1, None), dtype=torch.float32))
+
+    def forward(self, logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
+        loss = nn.functional.binary_cross_entropy_with_logits(logits, targets, pos_weight=self.positive_weights, reduction="none")
+        if "focal" in self.kind:
+            probability = torch.sigmoid(logits)
+            p_t = probability * targets + (1 - probability) * (1 - targets)
+            loss = loss * (1 - p_t).pow(self.gamma)
+        if "class_balanced" in self.kind:
+            loss = loss * self.class_weights.unsqueeze(0)
+        return loss.mean()
+
+
+@dataclass
+class TrainingResult:
+    model: GatedAttentionMIL
+    history: list[dict[str, float]]
+    best_epoch: int
+
+
+def _epoch(
+    model: GatedAttentionMIL,
+    loader: DataLoader,
+    loss_function: nn.Module,
+    device: torch.device,
+    optimizer: torch.optim.Optimizer | None = None,
+    gradient_clip_norm: float | None = None,
+) -> float:
+    training = optimizer is not None
+    model.train(training)
+    losses = []
+    for bags, masks, labels, _ in loader:
+        bags, masks, labels = bags.to(device), masks.to(device), labels.to(device)
+        with torch.set_grad_enabled(training):
+            logits, _ = model(bags, masks)
+            loss = loss_function(logits, labels)
+            if training:
+                optimizer.zero_grad(set_to_none=True)
+                loss.backward()
+                if gradient_clip_norm:
+                    nn.utils.clip_grad_norm_(model.parameters(), gradient_clip_norm)
+                optimizer.step()
+        losses.append(float(loss.detach().cpu()))
+    return float(np.mean(losses)) if losses else float("nan")
+
+
+def train_mil(
+    train_data: BagDataset,
+    validation_data: BagDataset,
+    input_dim: int,
+    class_count: int,
+    architecture: dict[str, Any],
+    training: dict[str, Any],
+    *,
+    device: str,
+    seed: int,
+) -> TrainingResult:
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    target_device = torch.device(device)
+    model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture).to(target_device)
+    loss_function = MultilabelLoss(
+        train_data.labels.numpy(), training.get("loss", "class_balanced"), training.get("class_balanced_beta", 0.999)
+    ).to(target_device)
+    optimizer = torch.optim.AdamW(
+        model.parameters(), lr=float(training["learning_rate"]), weight_decay=float(training["weight_decay"])
+    )
+    train_loader = DataLoader(train_data, batch_size=int(training["batch_size"]), shuffle=True, num_workers=int(training.get("num_workers", 0)))
+    validation_loader = DataLoader(validation_data, batch_size=int(training["batch_size"]), shuffle=False, num_workers=int(training.get("num_workers", 0)))
+    best_state = None
+    best_loss = float("inf")
+    best_epoch = 0
+    patience = 0
+    history = []
+    for epoch in range(1, int(training["epochs"]) + 1):
+        train_loss = _epoch(model, train_loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm"))
+        validation_loss = _epoch(model, validation_loader, loss_function, target_device)
+        history.append({"epoch": epoch, "train_loss": train_loss, "validation_loss": validation_loss})
+        if validation_loss < best_loss:
+            best_loss = validation_loss
+            best_epoch = epoch
+            best_state = {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
+            patience = 0
+        else:
+            patience += 1
+        if patience >= int(training.get("early_stopping_patience", 8)):
+            break
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    return TrainingResult(model=model, history=history, best_epoch=best_epoch)
+
+
+def train_mil_fixed(
+    train_data: BagDataset,
+    input_dim: int,
+    class_count: int,
+    architecture: dict[str, Any],
+    training: dict[str, Any],
+    *,
+    device: str,
+    seed: int,
+    epochs: int,
+) -> TrainingResult:
+    """Fit a frozen final model for a prespecified number of epochs."""
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    target_device = torch.device(device)
+    model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture).to(target_device)
+    loss_function = MultilabelLoss(
+        train_data.labels.numpy(), training.get("loss", "class_balanced"), training.get("class_balanced_beta", 0.999)
+    ).to(target_device)
+    optimizer = torch.optim.AdamW(
+        model.parameters(), lr=float(training["learning_rate"]), weight_decay=float(training["weight_decay"])
+    )
+    loader = DataLoader(
+        train_data,
+        batch_size=int(training["batch_size"]),
+        shuffle=True,
+        num_workers=int(training.get("num_workers", 0)),
+    )
+    history = []
+    for epoch in range(1, epochs + 1):
+        loss = _epoch(model, loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm"))
+        history.append({"epoch": epoch, "train_loss": loss})
+    return TrainingResult(model=model, history=history, best_epoch=epochs)
+
+
+def predict_mil(model: GatedAttentionMIL, data: BagDataset, *, device: str, batch_size: int = 128) -> tuple[np.ndarray, np.ndarray]:
+    target_device = torch.device(device)
+    model.to(target_device).eval()
+    probabilities, attentions = [], []
+    for bags, masks, _, _ in DataLoader(data, batch_size=batch_size, shuffle=False):
+        with torch.inference_mode():
+            logits, attention = model(bags.to(target_device), masks.to(target_device))
+        probabilities.append(torch.sigmoid(logits).cpu().numpy())
+        attentions.append(attention.cpu().numpy())
+    return np.concatenate(probabilities), np.concatenate(attentions)

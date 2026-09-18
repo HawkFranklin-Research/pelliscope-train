@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Large or regenerable artifacts
+artifacts/features/**/*.npz
+artifacts/features/**/*_shards/
+artifacts/models/**/*.pt
+artifacts/models/**/*.pth
+artifacts/models/**/*.joblib
+artifacts/checkpoints/
+artifacts/**/*.npz
+artifacts/**/*.pt
+artifacts/**/*.pth
+artifacts/**/*.joblib
+data/raw/
+
+# Keep manifests, predictions, metrics, plot data, receipts, and documentation.
+!artifacts/**/raw_predictions/
+!artifacts/**/raw_predictions/*.csv
+!artifacts/**/metrics/
+!artifacts/**/metrics/*.csv
+!artifacts/**/metrics/*.json
+!artifacts/**/*.metadata.json
+!artifacts/**/*.upload-receipt.json

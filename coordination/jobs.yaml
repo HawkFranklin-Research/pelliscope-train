@@ -1,0 +1,100 @@
+jobs:
+  - id: data-manifest
+    owner: hawk-prime
+    status: pending
+    prerequisites: []
+    output: data/manifests/case_manifest.csv
+  - id: fixed-split
+    owner: hawk-prime
+    status: pending
+    prerequisites: [data-manifest]
+    output: data/splits/split_manifest_v1.csv
+  - id: features-resnet50
+    owner: hawk-prime
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/resnet50/feature_bank.npz
+  - id: features-inception-v3
+    owner: hawk-prime
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/inception_v3/feature_bank.npz
+  - id: features-bit50
+    owner: hawk-prime
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/bit50/feature_bank.npz
+  - id: features-vit-base
+    owner: hawk-prime
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/vit_base/feature_bank.npz
+  - id: features-clip-vitb32
+    owner: hawk-prime
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/clip_vitb32/feature_bank.npz
+  - id: features-siglip2-so400m
+    owner: macbook
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/siglip2_so400m/feature_bank.npz
+  - id: features-derm-foundation
+    owner: macbook
+    status: pending
+    prerequisites: [fixed-split]
+    output: artifacts/features/derm_foundation/feature_bank.npz
+  - id: classical-grid
+    owner: hawk-prime
+    status: pending
+    prerequisites:
+      - features-resnet50
+      - features-inception-v3
+      - features-bit50
+      - features-vit-base
+      - features-clip-vitb32
+      - features-siglip2-so400m
+      - features-derm-foundation
+    output: artifacts/models/classical
+  - id: mil-seeds-hawk-prime
+    owner: hawk-prime
+    status: pending
+    prerequisites: [fixed-split]
+    assignment: whole seed runs explicitly listed before execution
+    output: artifacts/models/mil
+  - id: mil-seeds-macbook
+    owner: macbook
+    status: pending
+    prerequisites: [fixed-split]
+    assignment: whole seed runs explicitly listed before execution
+    output: artifacts/models/mil
+  - id: siglip2-tuning
+    owner: hawk-prime
+    status: pending
+    prerequisites: [features-siglip2-so400m]
+    output: artifacts/models/mil/siglip2_so400m/tuning
+  - id: siglip2-cross-validation
+    owner: macbook
+    status: pending
+    prerequisites: [features-siglip2-so400m]
+    output: artifacts/models/mil/siglip2_so400m/cross_validation
+  - id: paired-statistics
+    owner: hawk-prime
+    status: pending
+    prerequisites: [classical-grid, mil-seeds-hawk-prime, mil-seeds-macbook]
+    output: reports/statistics
+  - id: tables-and-figures
+    owner: hawk-prime
+    status: pending
+    prerequisites: [paired-statistics]
+    output: reports
+  - id: m4-latency
+    owner: macbook
+    status: pending
+    prerequisites: [siglip2-tuning]
+    output: reports/tables/inference_latency_darwin_siglip2_so400m.csv
+  - id: release-verification
+    owner: hawk-prime
+    status: pending
+    prerequisites: [tables-and-figures, m4-latency]
+    output: reports/run_manifests/release_verification.json

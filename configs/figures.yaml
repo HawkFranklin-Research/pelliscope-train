@@ -1,0 +1,27 @@
+style:
+  font_family: DejaVu Sans
+  dpi: 300
+  background: "#FFFFFF"
+  text: "#172033"
+  grid: "#D9E1EA"
+  train: "#2D6CDF"
+  validation: "#2CA25F"
+  test: "#EF7C8E"
+  sensitivity: "#2E8B57"
+  specificity: "#F28E2B"
+  threshold_default: "#7B2CBF"
+  threshold_balanced: "#2CA25F"
+  reviewer_heatmap: plasma
+  performance_heatmap: viridis
+  split_train: "#E6B84A"
+  split_validation: "#E98492"
+  split_test: "#6BAED6"
+  baseline_panel: "#FBE4EC"
+  mil_panel: "#E8E5FA"
+
+outputs:
+  format: png
+  transparent: false
+  main_width: 12
+  supplementary_width: 14
+

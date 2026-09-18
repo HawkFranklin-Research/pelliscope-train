@@ -1,0 +1,35 @@
+classifiers:
+  logistic:
+    display_name: Logistic Regression
+    scale: true
+    params:
+      class_weight: balanced
+      max_iter: 3000
+      solver: liblinear
+  svm_linear:
+    display_name: Linear SVM
+    scale: true
+    params:
+      class_weight: balanced
+      calibration_folds: 3
+  random_forest:
+    display_name: Random Forest
+    scale: false
+    params:
+      n_estimators: 300
+      class_weight: balanced
+      n_jobs: -1
+  gradient_boosting:
+    display_name: Gradient Boosting
+    scale: false
+    params:
+      n_estimators: 100
+      learning_rate: 0.1
+      max_depth: 3
+  knn:
+    display_name: k-NN
+    scale: true
+    params:
+      n_neighbors: 5
+      weights: distance
+

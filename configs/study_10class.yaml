@@ -1,0 +1,25 @@
+study:
+  name: aiim_submitted_10class
+  version: 1
+  max_images_per_case: 3
+  canonical_case_count: 2336
+  canonical_image_rows: 5041
+
+labels:
+  - Eczema
+  - Allergic Contact Dermatitis
+  - Insect Bite
+  - Urticaria
+  - Psoriasis
+  - Folliculitis
+  - Irritant Contact Dermatitis
+  - Tinea
+  - Herpes Zoster
+  - Drug Rash
+
+split:
+  seed: 42
+  train_fraction: 0.60
+  validation_fraction: 0.20
+  test_fraction: 0.20
+

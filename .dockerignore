@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+*.pyc
+artifacts/features
+artifacts/models
+artifacts/checkpoints
+data/raw
+reports

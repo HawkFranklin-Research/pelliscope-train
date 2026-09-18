@@ -1,0 +1,52 @@
+encoders:
+  resnet50:
+    display_name: ResNet-50
+    backend: torchvision
+    model_id: resnet50
+    revision: IMAGENET1K_V2
+    dimension: 2048
+    default_batch_size: 32
+  inception_v3:
+    display_name: Inception-v3
+    backend: torchvision
+    model_id: inception_v3
+    revision: IMAGENET1K_V1
+    dimension: 2048
+    default_batch_size: 24
+  bit50:
+    display_name: BiT-50
+    backend: transformers
+    model_id: google/bit-50
+    revision: main
+    dimension: 2048
+    default_batch_size: 16
+  vit_base:
+    display_name: ViT-Base
+    backend: transformers
+    model_id: google/vit-base-patch16-224-in21k
+    revision: main
+    dimension: 768
+    default_batch_size: 24
+  clip_vitb32:
+    display_name: CLIP ViT-B/32
+    backend: transformers
+    model_id: openai/clip-vit-base-patch32
+    revision: main
+    dimension: 512
+    default_batch_size: 24
+  derm_foundation:
+    display_name: Derm Foundation
+    backend: tensorflow_savedmodel
+    model_id: google-derm-foundation
+    revision: release-provided
+    dimension: 6144
+    default_batch_size: 16
+    model_path: artifacts/external/google-derm-foundation
+  siglip2_so400m:
+    display_name: SigLIP2 SO400M
+    backend: transformers
+    model_id: google/siglip2-so400m-patch14-384
+    revision: main
+    dimension: 1152
+    default_batch_size: 2
+

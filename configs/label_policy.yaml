@@ -1,0 +1,15 @@
+version: 1
+source_policy: sep26_exact_multilabel_columns
+positive_rule: a case is positive when its September canonical is_<label_slug> value is greater than zero
+negative_rule: a case is negative for a target when the corresponding canonical value is zero
+all_zero_policy: retain_in_primary_and_flag_for_target_positive_sensitivity_analysis
+unknown_policy: diagnoses outside the 25 targets do not create an additional output class
+normalization:
+  trim_whitespace: true
+  case_insensitive_matching: true
+  punctuation_slug_rule: replace non-alphanumeric runs with underscore
+  merge_synonyms: false
+exclusions:
+  - No malignant-lesion target is added unless it is explicitly present in the locked 25-label list.
+  - Non-target diagnoses are preserved in source metadata but map to zero across the 25 target columns.
+  - Missing images never cause silent case relabeling.

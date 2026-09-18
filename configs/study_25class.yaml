@@ -1,0 +1,78 @@
+study:
+  name: aiim_25class
+  version: 1
+  run_mode: full
+  max_images_per_case: 3
+  canonical_case_count: 5033
+  expected_manifest_image_rows: 10407
+  expected_unique_pngs: 10379
+  expected_siglip2_embeddings: 10406
+  retain_all_zero_cases: true
+  target_positive_sensitivity_analysis: true
+
+paths:
+  raw_dataset_root: /home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images
+  raw_images_dir: /home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images/images
+  raw_metadata_csv: /home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images/metadata.csv
+  legacy_25class_parquet: /home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/outputs/diff_25class_dataset.parquet
+  legacy_case_manifest: /home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/section-b/data_extraction/outputs/section_b_case_manifest.csv
+  legacy_image_manifest: /home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/section-b/data_extraction/outputs/section_b_image_manifest.csv
+  case_manifest: data/manifests/case_manifest.csv
+  image_manifest: data/manifests/image_manifest.csv
+  split_manifest: data/splits/split_manifest_v1.csv
+  audit_dir: data/audits
+  artifacts_dir: artifacts
+  reports_dir: reports
+
+labels:
+  - Eczema
+  - Allergic Contact Dermatitis
+  - Insect Bite
+  - Urticaria
+  - Psoriasis
+  - Folliculitis
+  - Irritant Contact Dermatitis
+  - Tinea
+  - Herpes Zoster
+  - Drug Rash
+  - Herpes Simplex
+  - Impetigo
+  - Acute Dermatitis NOS
+  - Hypersensitivity
+  - Acne
+  - Pigmented Purpuric Eruption
+  - Leukocytoclastic Vasculitis
+  - Lichen Planus Lichenoid Eruption
+  - Pityriasis Rosea
+  - Viral Exanthem
+  - Lichen Simplex Chronicus
+  - Stasis Dermatitis
+  - Keratosis Pilaris
+  - CD - Contact Dermatitis
+  - Scabies
+
+split:
+  seed: 42
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+  iterative_multilabel: true
+
+smoke:
+  samples_per_class: 2
+  all_zero_cases: 5
+  cases_per_bag_length: 3
+  epochs: 2
+  trials: 1
+  folds: 2
+  seeds: [42, 43]
+  bootstrap_replicates: 100
+
+full:
+  seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+  bootstrap_replicates: 10000
+
+huggingface:
+  feature_dataset_repo: HawkFranklin-Research/SCIN-Dermatology-25Class-Features
+  repo_type: dataset
+  private: true

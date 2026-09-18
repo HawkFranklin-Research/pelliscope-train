@@ -1,0 +1,36 @@
+architecture:
+  instance_dim: 768
+  attention_dim: 256
+  shared_dim: 384
+  instance_layers: 1
+  shared_layers: 1
+  dropout: 0.25
+
+training:
+  epochs: 30
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 8
+  gradient_clip_norm: 5.0
+  loss: class_balanced
+  class_balanced_beta: 0.999
+  use_positive_weights: true
+  num_workers: 0
+
+search:
+  trials: 12
+  learning_rate: [0.00001, 0.003]
+  weight_decay: [0.000001, 0.001]
+  dropout: [0.0, 0.15, 0.25, 0.4]
+  instance_dim: [256, 512, 768]
+  attention_dim: [64, 128, 256]
+  shared_dim: [128, 256, 384]
+  loss: [bce, class_balanced, focal, class_balanced_focal]
+
+thresholds:
+  rule: balance
+  grid_start: 0.0
+  grid_stop: 1.0
+  grid_step: 0.01
+
