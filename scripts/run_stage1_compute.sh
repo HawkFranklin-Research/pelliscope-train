@@ -30,7 +30,6 @@ rm -f reports/production_logs/STAGE1_SUCCESS.flag reports/production_logs/STAGE1
 if python3 scripts/run_pipeline.py \
     --config configs/study_25class.yaml \
     --run-mode full \
-    --download-data \
     --primary-encoder siglip2_so400m \
     --device cpu 2>&1 | tee -a "$LOG_FILE"; then
 
