@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any, Callable
 
@@ -35,7 +36,9 @@ def load_rgb(path: str | Path) -> Image.Image:
         return image.convert("RGB").copy()
 
 
-def _torchvision_components(spec: EncoderSpec, device: torch.device) -> tuple[Callable[[list[Image.Image]], np.ndarray], str]:
+def _torchvision_components(
+    spec: EncoderSpec, device: torch.device, workers: int
+) -> tuple[Callable[[list[Image.Image]], np.ndarray], str]:
     import torchvision.models as models
 
     if spec.key == "resnet50":
@@ -52,7 +55,9 @@ def _torchvision_components(spec: EncoderSpec, device: torch.device) -> tuple[Ca
     model.to(device).eval()
 
     def encode(images: list[Image.Image]) -> np.ndarray:
-        batch = torch.stack([transform(image) for image in images]).to(device)
+        with ThreadPoolExecutor(max_workers=min(workers, len(images))) as pool:
+            transformed = list(pool.map(transform, images))
+        batch = torch.stack(transformed).to(device)
         with torch.inference_mode():
             output = model(batch)
             if isinstance(output, tuple):
@@ -93,7 +98,9 @@ def _transformers_components(spec: EncoderSpec, device: torch.device) -> tuple[C
     return encode, f"{spec.model_id}@{spec.revision}"
 
 
-def _derm_foundation_components(spec: EncoderSpec) -> tuple[Callable[[list[Image.Image]], np.ndarray], str]:
+def _derm_foundation_components(
+    spec: EncoderSpec, workers: int
+) -> tuple[Callable[[list[Image.Image]], np.ndarray], str]:
     try:
         import tensorflow as tf
     except ImportError as error:
@@ -107,6 +114,8 @@ def _derm_foundation_components(spec: EncoderSpec) -> tuple[Callable[[list[Image
         tf.config.set_visible_devices([], "GPU")
     except RuntimeError as error:
         raise RuntimeError("Derm Foundation requires TensorFlow CPU placement before GPU initialization") from error
+    tf.config.threading.set_intra_op_parallelism_threads(workers)
+    tf.config.threading.set_inter_op_parallelism_threads(min(4, workers))
     model_path = Path(spec.model_path or "")
     if not model_path.exists():
         raise FileNotFoundError(f"Derm Foundation SavedModel not found: {model_path}")
@@ -125,7 +134,9 @@ def _derm_foundation_components(spec: EncoderSpec) -> tuple[Callable[[list[Image
         return example.SerializeToString()
 
     def encode(images: list[Image.Image]) -> np.ndarray:
-        batch = tf.constant([serialize(image) for image in images])
+        with ThreadPoolExecutor(max_workers=min(workers, len(images))) as pool:
+            serialized = list(pool.map(serialize, images))
+        batch = tf.constant(serialized)
         output = signature(**{input_name: batch})
         tensor = output.get("embedding", next(iter(output.values())))
         return np.asarray(tensor, dtype=np.float32)
@@ -140,6 +151,7 @@ def extract_feature_bank(
     *,
     device: str = "auto",
     batch_size: int | None = None,
+    workers: int = 1,
     force: bool = False,
 ) -> FeatureBank:
     output_path = Path(output_path)
@@ -147,11 +159,11 @@ def extract_feature_bank(
     shard_dir.mkdir(parents=True, exist_ok=True)
     torch_device = resolve_device(device)
     if spec.backend == "torchvision":
-        encode, resolved_revision = _torchvision_components(spec, torch_device)
+        encode, resolved_revision = _torchvision_components(spec, torch_device, workers)
     elif spec.backend == "transformers":
         encode, resolved_revision = _transformers_components(spec, torch_device)
     elif spec.backend == "tensorflow_savedmodel":
-        encode, resolved_revision = _derm_foundation_components(spec)
+        encode, resolved_revision = _derm_foundation_components(spec, workers)
     else:
         raise ValueError(f"Unsupported encoder backend: {spec.backend}")
 
@@ -165,33 +177,53 @@ def extract_feature_bank(
             pending.append((row, shard))
 
     size = int(batch_size or spec.default_batch_size)
+    def load_pending(item: tuple[pd.Series, Path]) -> tuple[pd.Series, Path, Image.Image | None, str | None]:
+        row, shard = item
+        try:
+            return row, shard, load_rgb(row["resolved_image_path"]), None
+        except Exception as error:  # image failures belong in the extraction ledger
+            return row, shard, None, repr(error)
+
+    def save_shard(item: tuple[pd.Series, Path, Image.Image, np.ndarray]) -> None:
+        _, shard, _, feature = item
+        np.savez_compressed(shard, embedding=feature.astype(np.float32))
+
+    def load_shard(item: tuple[pd.Series, Path]) -> tuple[pd.Series, np.ndarray] | None:
+        row, shard = item
+        if not shard.is_file():
+            return None
+        return row, np.load(shard, allow_pickle=False)["embedding"].astype(np.float32)
+
+    decode_pool = ThreadPoolExecutor(max_workers=max(1, workers))
     for start in range(0, len(pending), size):
         loaded: list[tuple[pd.Series, Path, Image.Image]] = []
-        for row, shard in pending[start : start + size]:
-            try:
-                loaded.append((row, shard, load_rgb(row["resolved_image_path"])))
-            except Exception as error:
-                failures.append({"case_id": row["case_id"], "image_id": row["image_id"], "error": repr(error)})
+        for row, shard, image, error in decode_pool.map(load_pending, pending[start : start + size]):
+            if error is not None or image is None:
+                failures.append({"case_id": row["case_id"], "image_id": row["image_id"], "error": error})
+            else:
+                loaded.append((row, shard, image))
         if not loaded:
             continue
         try:
             features = encode([item[2] for item in loaded])
             if features.ndim != 2 or features.shape[1] != spec.dimension:
                 raise ValueError(f"Expected (*, {spec.dimension}) embeddings, received {features.shape}")
-            for (row, shard, _), feature in zip(loaded, features, strict=True):
-                np.savez_compressed(shard, embedding=feature.astype(np.float32))
+            list(decode_pool.map(save_shard, [(*item, feature) for item, feature in zip(loaded, features, strict=True)]))
         except Exception as error:
             for row, _, _ in loaded:
                 failures.append({"case_id": row["case_id"], "image_id": row["image_id"], "error": repr(error)})
-
     embeddings: list[np.ndarray] = []
     metadata: list[pd.Series] = []
-    for _, row in frame.iterrows():
-        shard = shard_dir / shard_name(str(row["image_id"]), str(row["resolved_image_path"]))
-        if not shard.is_file():
-            continue
-        embeddings.append(np.load(shard, allow_pickle=False)["embedding"].astype(np.float32))
-        metadata.append(row)
+    shard_items = [
+        (row, shard_dir / shard_name(str(row["image_id"]), str(row["resolved_image_path"])))
+        for _, row in frame.iterrows()
+    ]
+    for loaded_shard in decode_pool.map(load_shard, shard_items):
+        if loaded_shard is not None:
+            row, embedding = loaded_shard
+            metadata.append(row)
+            embeddings.append(embedding)
+    decode_pool.shutdown()
     write_csv(output_path.parent / f"{spec.key}_extraction_failures.csv", pd.DataFrame(failures))
     if not embeddings:
         raise RuntimeError(f"No features were produced for {spec.key}")
@@ -218,6 +250,7 @@ def extract_feature_bank(
             "dimension": spec.dimension,
             "dtype": "float32",
             "device": str(torch_device) if spec.backend != "tensorflow_savedmodel" else "tensorflow-cpu",
+            "workers": workers,
             "failure_count": len(failures),
         },
     )

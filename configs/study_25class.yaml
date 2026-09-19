@@ -14,9 +14,9 @@ paths:
   raw_dataset_root: /home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images
   raw_images_dir: /home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images/images
   raw_metadata_csv: /home/prime/Documents/github/derm-paper-codebases/SCIN-Dermatology-Raw-Images/metadata.csv
-  legacy_25class_parquet: /home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/outputs/diff_25class_dataset.parquet
-  legacy_case_manifest: /home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/section-b/data_extraction/outputs/section_b_case_manifest.csv
-  legacy_image_manifest: /home/prime/Documents/github/derm-paper-codebases/derm-train-sep26/jul26/section-b/data_extraction/outputs/section_b_image_manifest.csv
+  legacy_25class_parquet: data/canonical/diff_25class_dataset.parquet
+  legacy_case_manifest: data/canonical/section_b_case_manifest.csv
+  legacy_image_manifest: data/canonical/section_b_image_manifest.csv
   case_manifest: data/manifests/case_manifest.csv
   image_manifest: data/manifests/image_manifest.csv
   split_manifest: data/splits/split_manifest_v1.csv

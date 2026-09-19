@@ -13,6 +13,7 @@ from typing import Any
 
 from hawk_derm.config import REPOSITORY_ROOT
 from hawk_derm.io import append_csv_row, canonical_json, sha256_file, write_json
+from hawk_derm.runtime import available_cpu_count, resolve_cpu_workers
 
 
 def utc_now() -> str:
@@ -35,6 +36,8 @@ def environment_summary() -> dict[str, Any]:
         "python": sys.version,
         "executable": sys.executable,
         "pid": os.getpid(),
+        "available_cpu_count": available_cpu_count(),
+        "configured_cpu_workers": resolve_cpu_workers(),
     }
     try:
         import torch

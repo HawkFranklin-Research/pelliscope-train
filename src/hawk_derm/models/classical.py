@@ -7,6 +7,7 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
+from joblib import Parallel, delayed, parallel_config
 from sklearn.base import BaseEstimator
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
@@ -32,24 +33,58 @@ class ConstantProbability:
         return np.column_stack([1 - positive, positive])
 
 
-def make_estimator(name: str, config: dict[str, Any], seed: int) -> BaseEstimator:
+def make_estimator(name: str, config: dict[str, Any], seed: int, workers: int = 1) -> BaseEstimator:
     params = dict(config.get("params", {}))
     if name == "logistic":
         estimator: BaseEstimator = LogisticRegression(random_state=seed, **params)
     elif name == "svm_linear":
         folds = int(params.pop("calibration_folds", 3))
-        estimator = CalibratedClassifierCV(LinearSVC(random_state=seed, **params), cv=folds, method="sigmoid")
+        estimator = CalibratedClassifierCV(
+            LinearSVC(random_state=seed, **params), cv=folds, method="sigmoid", n_jobs=workers
+        )
     elif name == "random_forest":
+        if int(params.get("n_jobs", -1)) == -1:
+            params["n_jobs"] = workers
         estimator = RandomForestClassifier(random_state=seed, **params)
     elif name == "gradient_boosting":
         estimator = GradientBoostingClassifier(random_state=seed, **params)
     elif name == "knn":
+        params.setdefault("n_jobs", workers)
         estimator = KNeighborsClassifier(**params)
     else:
         raise ValueError(f"Unknown classifier: {name}")
     if config.get("scale", False):
         return Pipeline([("scale", StandardScaler()), ("model", estimator)])
     return estimator
+
+
+def _fit_label_model(
+    index: int,
+    classifier_name: str,
+    classifier_config: dict[str, Any],
+    embeddings: np.ndarray,
+    image_truth: np.ndarray,
+    train_mask: np.ndarray,
+    seed: int,
+    estimator_workers: int,
+) -> Any:
+    target = image_truth[train_mask, index]
+    if np.unique(target).size < 2:
+        return ConstantProbability(float(target.mean()))
+    effective_config = dict(classifier_config)
+    effective_config["params"] = dict(classifier_config.get("params", {}))
+    if classifier_name == "svm_linear" and np.bincount(target).min() < int(
+        effective_config["params"].get("calibration_folds", 3)
+    ):
+        effective_config["params"]["calibration_folds"] = int(np.bincount(target).min())
+        if effective_config["params"]["calibration_folds"] < 2:
+            model: Any = LogisticRegression(class_weight="balanced", max_iter=3000, random_state=seed + index)
+        else:
+            model = make_estimator(classifier_name, effective_config, seed + index, estimator_workers)
+    else:
+        model = make_estimator(classifier_name, effective_config, seed + index, estimator_workers)
+    model.fit(embeddings[train_mask], target)
+    return model
 
 
 def _positive_probability(model: Any, features: np.ndarray) -> np.ndarray:
@@ -88,6 +123,7 @@ def run_classical_experiment(
     *,
     seed: int = 42,
     aggregation: str = "mean",
+    workers: int = 1,
 ) -> dict[str, Any]:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -98,24 +134,41 @@ def run_classical_experiment(
         [case_lookup.loc[str(case_id), [f"is_{slugify(label)}" for label in labels]].to_numpy(dtype=np.uint8) for case_id in bank.case_ids]
     )
     train_mask = image_splits == "train"
-    models: list[Any] = []
-    for index, label in enumerate(labels):
-        target = image_truth[train_mask, index]
-        if np.unique(target).size < 2:
-            model: Any = ConstantProbability(float(target.mean()))
-        else:
-            effective_config = dict(classifier_config)
-            effective_config["params"] = dict(classifier_config.get("params", {}))
-            if classifier_name == "svm_linear" and np.bincount(target).min() < int(effective_config["params"].get("calibration_folds", 3)):
-                effective_config["params"]["calibration_folds"] = int(np.bincount(target).min())
-                if effective_config["params"]["calibration_folds"] < 2:
-                    model = LogisticRegression(class_weight="balanced", max_iter=3000, random_state=seed + index)
-                else:
-                    model = make_estimator(classifier_name, effective_config, seed + index)
-            else:
-                model = make_estimator(classifier_name, effective_config, seed + index)
-            model.fit(bank.embeddings[train_mask], target)
-        models.append(model)
+    # Forests already parallelize each tree ensemble internally. k-NN fitting is
+    # only data storage and uses its worker budget during prediction. The three
+    # otherwise serial estimator families parallelize the 25 one-vs-rest label
+    # fits within this single top-level model configuration.
+    parallel_labels = classifier_name in {"logistic", "svm_linear", "gradient_boosting"} and workers > 1
+    if parallel_labels:
+        label_workers = min(workers, len(labels))
+        with parallel_config(backend="loky", inner_max_num_threads=1):
+            models = Parallel(n_jobs=label_workers, max_nbytes="10M", mmap_mode="r")(
+                delayed(_fit_label_model)(
+                    index,
+                    classifier_name,
+                    classifier_config,
+                    bank.embeddings,
+                    image_truth,
+                    train_mask,
+                    seed,
+                    1,
+                )
+                for index in range(len(labels))
+            )
+    else:
+        models = [
+            _fit_label_model(
+                index,
+                classifier_name,
+                classifier_config,
+                bank.embeddings,
+                image_truth,
+                train_mask,
+                seed,
+                workers,
+            )
+            for index in range(len(labels))
+        ]
     joblib.dump(models, output_dir / "model.joblib")
 
     all_probabilities = np.column_stack([_positive_probability(model, bank.embeddings) for model in models])
@@ -162,6 +215,8 @@ def run_classical_experiment(
         "seed": seed,
         "aggregation": aggregation,
         "model_count": len(models),
+        "cpu_workers": workers,
+        "parallel_strategy": "one_vs_rest_labels" if parallel_labels else "estimator_internal",
         "complete": True,
     }
     write_json(output_dir / "summary.json", summary)

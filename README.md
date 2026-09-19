@@ -76,6 +76,12 @@ Run a skipped-encoder experiment in a clean artifact directory or fresh VM so ou
 
 The smoke and full commands are orchestration entry points. Individual jobs can be split between Hawk Prime and the MacBook using [jobs.yaml](coordination/jobs.yaml).
 
+To test CPU allocation with a randomly selected encoder/model pair without modifying experiment artifacts:
+
+```bash
+python scripts/90_test_cpu_scaling.py
+```
+
 ## Data and large artifacts
 
 Raw images, feature banks, checkpoints, and bulk predictions are not committed to Git. Their locations, checksums, and Hugging Face revisions are recorded in [ARTIFACT_INDEX.csv](coordination/ARTIFACT_INDEX.csv). Small manifests, split assignments, metrics, plot data, and run metadata remain versioned.
@@ -89,6 +95,7 @@ Raw images, feature banks, checkpoints, and bulk predictions are not committed t
 - [Full reproduction guide](docs/REPRODUCTION.md)
 - [Citation ledger](docs/CITATION_LEDGER.md)
 - [Manuscript output map](docs/MANUSCRIPT_OUTPUT_MAP.md)
+- [Production deployment and CPU execution](DEPLOYMENT-manual.md)
 
 ## Script inventory
 

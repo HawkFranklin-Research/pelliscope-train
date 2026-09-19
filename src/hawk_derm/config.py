@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import os
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -34,6 +35,17 @@ def deep_merge(base: Mapping[str, Any], overlay: Mapping[str, Any]) -> dict[str,
 def load_study_config(path: str | Path = "configs/study_25class.yaml") -> dict[str, Any]:
     config = load_yaml(path)
     config["repository_root"] = str(REPOSITORY_ROOT)
+    paths = config.setdefault("paths", {})
+    raw_root_override = os.getenv("HAWK_DERM_RAW_DATA_ROOT")
+    if raw_root_override:
+        raw_root = Path(raw_root_override).expanduser()
+        paths["raw_dataset_root"] = str(raw_root)
+        paths["raw_images_dir"] = str(raw_root / "images")
+        paths["raw_metadata_csv"] = str(raw_root / "metadata.csv")
+    for key in list(paths):
+        override = os.getenv(f"HAWK_DERM_PATH_{key.upper()}")
+        if override:
+            paths[key] = override
     return config
 
 

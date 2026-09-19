@@ -13,9 +13,11 @@ if str(SOURCE_ROOT) not in sys.path:
     sys.path.insert(0, str(SOURCE_ROOT))
 
 from hawk_derm.config import load_study_config, path_from  # noqa: E402
+from hawk_derm.runtime import configure_process  # noqa: E402
 
 
 def load_context(config_path: str, run_mode: str | None = None) -> dict[str, Any]:
+    configure_process()
     config = load_study_config(config_path)
     selected_mode = run_mode or os.getenv("HAWK_DERM_RUN_MODE")
     if selected_mode:

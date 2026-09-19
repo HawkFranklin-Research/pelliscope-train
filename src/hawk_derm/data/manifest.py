@@ -89,6 +89,28 @@ def build_manifests(config: dict[str, Any], run_mode: str = "full") -> tuple[pd.
     parquet_path = path_from(config, "legacy_25class_parquet")
     legacy_cases_path = path_from(config, "legacy_case_manifest")
     legacy_images_path = path_from(config, "legacy_image_manifest")
+    required = [parquet_path, legacy_cases_path, legacy_images_path]
+    missing_sources = [str(path) for path in required if not path.is_file()]
+    if missing_sources:
+        raise FileNotFoundError(
+            "The September 25-class cohort sources are required before manifest construction. "
+            f"Missing: {missing_sources}. Configure HAWK_DERM_PATH_LEGACY_25CLASS_PARQUET, "
+            "HAWK_DERM_PATH_LEGACY_CASE_MANIFEST, and HAWK_DERM_PATH_LEGACY_IMAGE_MANIFEST on a deployment VM."
+        )
+    if run_mode == "full":
+        raw_images_dir = path_from(config, "raw_images_dir")
+        available_pngs = (
+            sum(1 for path in raw_images_dir.rglob("*") if path.is_file() and path.suffix.lower() == ".png")
+            if raw_images_dir.is_dir()
+            else 0
+        )
+        expected_pngs = int(config["study"]["expected_unique_pngs"])
+        if available_pngs < expected_pngs:
+            raise FileNotFoundError(
+                f"Full 25-class construction requires at least {expected_pngs:,} canonical PNG files, but only "
+                f"{available_pngs:,} were found under {raw_images_dir}. The smaller public raw-image snapshot is "
+                "insufficient for the canonical 5,033-case experiment."
+            )
     source = pd.read_parquet(parquet_path)
     case_id_column = _first_column(source, CASE_ID_CANDIDATES)
     if case_id_column is None:

@@ -9,6 +9,7 @@ from hawk_derm.config import load_yaml, path_from
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.models.classical import run_classical_experiment
 from hawk_derm.provenance import RunRecorder
+from hawk_derm.runtime import resolve_cpu_workers
 
 
 def main() -> None:
@@ -18,8 +19,10 @@ def main() -> None:
     parser.add_argument("--classifier", required=True)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--aggregation", choices=["mean", "max"], default="mean")
+    parser.add_argument("--workers", type=int, default=None, help="CPU budget for this classifier configuration.")
     args = parser.parse_args()
     config = load_context(args.config)
+    workers = resolve_cpu_workers(args.workers)
     classifiers = load_yaml("configs/classifiers.yaml")["classifiers"]
     if args.classifier not in classifiers:
         raise ValueError(f"Unknown classifier: {args.classifier}")
@@ -29,7 +32,16 @@ def main() -> None:
     output_dir = path_from(config, "artifacts_dir") / "models" / "classical" / args.encoder / args.classifier
     with RunRecorder("train_classical", vars(args), output_dir, inputs=[bank_path, path_from(config, "split_manifest")]) as run:
         run_classical_experiment(
-            bank, cases, splits, config["labels"], args.classifier, classifiers[args.classifier], output_dir, seed=args.seed, aggregation=args.aggregation
+            bank,
+            cases,
+            splits,
+            config["labels"],
+            args.classifier,
+            classifiers[args.classifier],
+            output_dir,
+            seed=args.seed,
+            aggregation=args.aggregation,
+            workers=workers,
         )
         run.complete([output_dir / "overall_metrics.csv", output_dir / "test_case_predictions.csv"])
 

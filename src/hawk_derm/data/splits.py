@@ -73,6 +73,7 @@ def freeze_splits(config: dict[str, Any], cases: pd.DataFrame, images: pd.DataFr
     write_json(
         output.with_suffix(".metadata.json"),
         {
+            "run_mode": config["study"]["run_mode"],
             "split_version": "v1",
             "seed": seed,
             "fractions": {"train": train_fraction, "validation": validation_fraction, "test": test_fraction},

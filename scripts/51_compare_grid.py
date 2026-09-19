@@ -13,6 +13,7 @@ from hawk_derm.config import path_from
 from hawk_derm.evaluation.predictions import arrays_from_prediction_frame, prediction_frame, save_predictions
 from hawk_derm.io import write_csv, write_json
 from hawk_derm.statistics.comparison import compare_prediction_files
+from hawk_derm.runtime import resolve_cpu_workers
 
 
 def ensemble_predictions(paths: list[Path], labels: list[str], model_name: str, output: Path) -> Path:
@@ -43,8 +44,10 @@ def main() -> None:
     parser.add_argument("--replicates", type=int, default=None)
     parser.add_argument("--seed", type=int, default=20260918)
     parser.add_argument("--mil-encoders", default="siglip2_so400m,derm_foundation")
+    parser.add_argument("--workers", type=int, default=None, help="CPU budget for bootstrap and permutation tests.")
     args = parser.parse_args()
     config = load_context(args.config)
+    workers = resolve_cpu_workers(args.workers)
     artifacts = path_from(config, "artifacts_dir")
     output = path_from(config, "reports_dir") / "statistics"
     output.mkdir(parents=True, exist_ok=True)
@@ -93,6 +96,7 @@ def main() -> None:
             seed=args.seed,
             first_name=f"{encoder}+MIL",
             second_name=baseline_name,
+            workers=workers,
         )
         comparisons.append(name)
     if {"siglip2_so400m", "derm_foundation"}.issubset(ensemble_paths):
@@ -106,6 +110,7 @@ def main() -> None:
             seed=args.seed + 1,
             first_name="SigLIP2+MIL",
             second_name="Derm Foundation+MIL",
+            workers=workers,
         )
         comparisons.append(name)
     write_json(

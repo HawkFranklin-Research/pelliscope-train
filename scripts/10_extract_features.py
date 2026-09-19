@@ -14,6 +14,7 @@ from hawk_derm.features.extractors import extract_feature_bank
 from hawk_derm.features.registry import load_encoder_registry
 from hawk_derm.io import read_json, sha256_file
 from hawk_derm.provenance import RunRecorder
+from hawk_derm.runtime import resolve_cpu_workers
 
 
 def main() -> None:
@@ -22,12 +23,14 @@ def main() -> None:
     parser.add_argument("--encoder", required=True)
     parser.add_argument("--device", default="auto")
     parser.add_argument("--batch-size", type=int, default=None)
+    parser.add_argument("--workers", type=int, default=None, help="Parallel image decode/preprocessing workers.")
     parser.add_argument("--max-images", type=int, default=None)
     parser.add_argument("--import-bank", type=Path, default=None)
     parser.add_argument("--import-metadata", type=Path, default=None)
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
     config = load_context(args.config)
+    workers = resolve_cpu_workers(args.workers)
     registry = load_encoder_registry()
     if args.encoder not in registry:
         raise ValueError(f"Unknown encoder {args.encoder!r}; choose from {sorted(registry)}")
@@ -80,7 +83,15 @@ def main() -> None:
                 },
             )
         else:
-            extract_feature_bank(spec, images, output, device=args.device, batch_size=args.batch_size, force=args.force)
+            extract_feature_bank(
+                spec,
+                images,
+                output,
+                device=args.device,
+                batch_size=args.batch_size,
+                workers=workers,
+                force=args.force,
+            )
         run.complete([output, output.with_suffix(".metadata.json")], run_mode=config["study"]["run_mode"])
 
 

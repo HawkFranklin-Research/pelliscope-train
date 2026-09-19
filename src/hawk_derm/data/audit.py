@@ -106,6 +106,7 @@ def audit_dataset(
 
     labels = [column for column in case_manifest.columns if column.startswith("is_")]
     summary = {
+        "run_mode": config["study"]["run_mode"],
         "case_count": int(case_manifest["case_id"].nunique()),
         "manifest_image_rows": int(len(image_manifest)),
         "unique_resolved_paths": int(image_audit["resolved_image_path"].nunique()),

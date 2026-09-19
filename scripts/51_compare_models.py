@@ -7,6 +7,7 @@ from pathlib import Path
 from _common import load_context
 
 from hawk_derm.statistics.comparison import compare_prediction_files
+from hawk_derm.runtime import resolve_cpu_workers
 
 
 def main() -> None:
@@ -16,11 +17,13 @@ def main() -> None:
     parser.add_argument("--second", type=Path, required=True)
     parser.add_argument("--first-name", required=True)
     parser.add_argument("--second-name", required=True)
+    parser.add_argument("--workers", type=int, default=None)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--replicates", type=int, default=None)
     parser.add_argument("--seed", type=int, default=20260918)
     args = parser.parse_args()
     config = load_context(args.config)
+    workers = resolve_cpu_workers(args.workers)
     run_mode = config["study"]["run_mode"]
     replicates = args.replicates or int(config[run_mode]["bootstrap_replicates"])
     compare_prediction_files(
@@ -32,6 +35,7 @@ def main() -> None:
         seed=args.seed,
         first_name=args.first_name,
         second_name=args.second_name,
+        workers=workers,
     )
 
 
