@@ -5,7 +5,7 @@ study:
   max_images_per_case: 3
   canonical_case_count: 5033
   expected_manifest_image_rows: 10407
-  expected_unique_pngs: 10379
+  expected_unique_pngs: 10380
   expected_siglip2_embeddings: 10406
   retain_all_zero_cases: true
   target_positive_sensitivity_analysis: true
