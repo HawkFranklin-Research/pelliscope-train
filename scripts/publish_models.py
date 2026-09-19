@@ -8,7 +8,6 @@ import tempfile
 from _common import load_context
 
 from hawk_derm.config import path_from
-from hawk_derm.io import sha256_file, write_json
 
 
 def create_public_model_card(output_dir: Path) -> None:
