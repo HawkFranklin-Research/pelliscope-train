@@ -76,10 +76,67 @@ Run a skipped-encoder experiment in a clean artifact directory or fresh VM so ou
 
 The smoke and full commands are orchestration entry points. Individual jobs can be split between Hawk Prime and the MacBook using [jobs.yaml](coordination/jobs.yaml).
 
-To test CPU allocation with a randomly selected encoder/model pair without modifying experiment artifacts:
+### Multi-core CPU scaling test architecture
+
+To verify that parallel CPU allocation and process scaling work as expected across all logical cores without modifying experiment artifacts:
 
 ```bash
 python scripts/90_test_cpu_scaling.py
+```
+
+#### How the test works:
+1. **Automated selection**: Randomly samples a classifier (`logistic`, `svm_linear`, `random_forest`, `gradient_boosting`, `knn`, or `mil`) and an available feature bank (e.g., `inception_v3`, `resnet50`, etc.) using a deterministic seed.
+2. **Dynamic process monitoring**: Uses Linux `/proc/<pid>/stat` and `/proc/<pid>/task/<tid>/stat` sampling to inspect:
+   - Complete parent-child process trees and thread execution ticks.
+   - Aggregate CPU utilization percentages (`SC_CLK_TCK`).
+   - Peak and mean `equivalent_busy_cores`.
+   - The exact mathematical union of logical CPUs executing threads (`observed_logical_cpus`).
+3. **Dual-budget comparison**: Runs two passes:
+   - `requested_workers = -1` (auto-detect all available logical cores via `os.cpu_count()`).
+   - `requested_workers = 32` (explicit worker cap).
+4. **Cloud VM verification**:
+   - Tested live on Google Cloud `c2d-highcpu-32` (32 vCPUs, 64 GB RAM):
+   - Both passes observed all 32 logical cores (`CPUs 0 through 31`).
+   - Peak equivalent busy cores reached **27.94 cores** with clean exit code `0`.
+   - Output report is written to `reports/test_logs/cpu_scaling_<timestamp>.json`.
+
+### Decoupled heavy encoder vs downstream ML execution
+
+The pipeline supports stage-level decoupling using `--stage-filter`, allowing high-core cloud VMs to process only the compute-heavy foundation models while leaving downstream tabular models to smaller machines:
+
+#### Stage 1: High-core VM (Compute heavy foundation encoders only)
+Run raw image extraction across all 7 foundation encoders on the high-core VM and store `.npz` feature banks on persistent disk:
+```bash
+python scripts/run_pipeline.py \
+  --config configs/study_25class.yaml \
+  --run-mode full \
+  --stage-filter features \
+  --cpu-workers 32 \
+  --download-workers 32 \
+  --resume \
+  2>&1 | tee reports/stage1_features.log
+```
+The encoders processed in this phase include:
+- **SigLIP2** (`siglip2_so400m`)
+- **Google Derm Foundation** (`derm_foundation`)
+- **ViT-Base** (`vit_base`)
+- **ResNet-50** (`resnet50`)
+- **CLIP** (`clip_vitb32`)
+- **BiT-50** (`bit50`)
+- **Inception-v3** (`inception_v3`)
+
+Once finished, publish or sync the `.npz` files (located in `artifacts/features/`).
+
+#### Stage 2: Lightweight downstream ML (Any machine or smaller VM)
+With frozen feature banks present, downstream classical models (Logistic Regression, Linear SVM, Random Forest, Gradient Boosting, k-NN) and gated-attention MIL train in minutes without requiring raw images or heavy neural backbones:
+```bash
+python scripts/run_pipeline.py \
+  --config configs/study_25class.yaml \
+  --run-mode full \
+  --stage-filter classical,mil,tuning,cross_val,eval,stats,tables,figures \
+  --cpu-workers 16 \
+  --resume \
+  2>&1 | tee reports/stage2_models.log
 ```
 
 ## Data and large artifacts
