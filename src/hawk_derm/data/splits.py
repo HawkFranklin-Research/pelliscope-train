@@ -38,6 +38,23 @@ def freeze_splits(config: dict[str, Any], cases: pd.DataFrame, images: pd.DataFr
     manifest["split"] = split
     manifest["split_seed"] = seed
     manifest["split_version"] = "v1"
+
+    # Reconcile cross-case duplicate images so identical image hashes do not cross split boundaries
+    image_audit_path = path_from(config, "audit_dir") / "image_audit.csv"
+    if image_audit_path.is_file():
+        image_audit = pd.read_csv(image_audit_path)
+        valid_hashes = image_audit[image_audit["sha256"].ne("") & image_audit["decode_ok"]]
+        hash_to_cases = valid_hashes.groupby("sha256")["case_id"].apply(lambda s: sorted(set(s.astype(str)))).to_dict()
+        case_to_split = dict(zip(manifest["case_id"].astype(str), manifest["split"]))
+        for h, c_list in hash_to_cases.items():
+            if len(c_list) > 1:
+                splits_in_group = [case_to_split[c] for c in c_list if c in case_to_split]
+                target_split = "train" if "train" in splits_in_group else splits_in_group[0]
+                for c in c_list:
+                    if c in case_to_split:
+                        case_to_split[c] = target_split
+        manifest["split"] = manifest["case_id"].astype(str).map(case_to_split)
+
     output = path_from(config, "split_manifest")
     write_csv(output, manifest)
 
