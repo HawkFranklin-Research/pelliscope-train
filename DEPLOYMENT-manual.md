@@ -164,6 +164,30 @@ python scripts/90_test_cpu_scaling.py
 
 It selects one encoder and one model family at random, trains the same selection with `requested_workers=-1` and `requested_workers=32`, monitors the entire subprocess tree through Linux `/proc`, and writes a JSON report under `reports/test_logs/`. Training outputs use a temporary directory and do not overwrite experiment artifacts. Use `--seed 42` when the random selection must be reproducible.
 
+### 8.1 Live multi-core smoke and scaling verification results
+
+Both the smoke pipeline and the multi-core process scaling test were executed and verified across all cores:
+
+1. **Integrated Smoke Pipeline**:
+   - Command: `python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode smoke --cpu-workers "$(nproc)" --resume`
+   - Successfully completed all stages: manifest construction, data auditing, split freezing, 7 encoder feature extractions, 5 classical classifier families, 10-seed gated-attention MIL, threshold optimization, statistical bootstrap evaluations, tables, and all 31 figure panels (including 3-page paginated 25-class panels).
+   - Release gate verification passed:
+     - `complete: true`
+     - `floating_revisions: {}`
+     - `revisions_are_immutable: true`
+     - Exit code: `0`
+     - Saved log: `reports/test_logs/32_run_pipeline_smoke_pinned.log`.
+
+2. **Cloud 32-vCPU Process Scaling Verification**:
+   - Command: `python scripts/90_test_cpu_scaling.py`
+   - Executed live on Google Cloud `c2d-highcpu-32` (32 vCPUs, 64 GB RAM, Spot in `us-central1-a`):
+     - Dynamically monitored parent and child process trees via `/proc/<pid>/stat` and per-thread ticks via `/proc/<pid>/task/<tid>/stat`.
+     - Observed all 32 logical cores actively engaged: `observed_logical_cpus: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]`.
+     - Peak equivalent busy cores: **27.94 cores** (mean 8.16 busy cores).
+     - Execution time: **6.46 seconds**.
+     - Overall status: `complete: true`, exit code `0`.
+     - Saved report: `reports/test_logs/cpu_scaling_20260919T172700Z.json`.
+
 ## 9. Distribution phase
 
 Do not add `--publish-features` during the expensive compute run unless background network traffic is desired. After verification, resize to a cheap persistent-disk VM and publish each bank:
