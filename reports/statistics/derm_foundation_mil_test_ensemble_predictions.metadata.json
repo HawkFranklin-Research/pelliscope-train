@@ -28,9 +28,17 @@
     "CD - Contact Dermatitis",
     "Scabies"
   ],
-  "rows": 6,
+  "rows": 750,
   "seed_files": [
-    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/mil/derm_foundation/seed_42/test_predictions.csv",
-    "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/mil/derm_foundation/seed_43/test_predictions.csv"
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_42/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_43/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_44/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_45/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_46/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_47/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_48/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_49/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_50/test_predictions.csv",
+    "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_51/test_predictions.csv"
   ]
 }

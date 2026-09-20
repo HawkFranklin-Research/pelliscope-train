@@ -1,0 +1,932 @@
+[resume] 01_build_manifest.py: verified outputs already complete
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/02_audit_data.py --config configs/study_25class.yaml --strict --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/03_freeze_splits.py --config configs/study_25class.yaml
+[resume] 10_extract_features.py: verified outputs already complete
+[resume] 20_train_classical.py: verified outputs already complete
+[resume] 20_train_classical.py: verified outputs already complete
+[resume] 20_train_classical.py: verified outputs already complete
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder resnet50 --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder resnet50 --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder resnet50 --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder resnet50
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/10_extract_features.py --config configs/study_25class.yaml --encoder inception_v3 --device auto --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder inception_v3 --classifier logistic --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder inception_v3 --classifier svm_linear --workers 32
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder inception_v3 --classifier random_forest --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder inception_v3 --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder inception_v3 --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder inception_v3 --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder inception_v3
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/10_extract_features.py --config configs/study_25class.yaml --encoder bit50 --device auto --workers 32
+Loading weights:   0%|          | 0/151 [00:00<?, ?it/s]Loading weights: 100%|██████████| 151/151 [00:00<00:00, 18032.06it/s]
+[transformers] [1mBitModel LOAD REPORT[0m from: google/bit-50
+Key                 | Status     |  | 
+--------------------+------------+--+-
+classifier.1.weight | UNEXPECTED |  | 
+classifier.1.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder bit50 --classifier logistic --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder bit50 --classifier svm_linear --workers 32
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder bit50 --classifier random_forest --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder bit50 --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder bit50 --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder bit50 --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder bit50
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/10_extract_features.py --config configs/study_25class.yaml --encoder vit_base --device auto --workers 32
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights:  27%|██▋       | 54/200 [00:00<00:00, 531.18it/s]Loading weights:  55%|█████▌    | 110/200 [00:00<00:00, 541.90it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 678.85it/s]
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder vit_base --classifier logistic --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder vit_base --classifier svm_linear --workers 32
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder vit_base --classifier random_forest --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder vit_base --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder vit_base --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder vit_base --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder vit_base
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/10_extract_features.py --config configs/study_25class.yaml --encoder clip_vitb32 --device auto --workers 32
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 17171.47it/s]
+[transformers] [1mCLIPVisionModelWithProjection LOAD REPORT[0m from: openai/clip-vit-base-patch32
+Key                                                          | Status     |  | 
+-------------------------------------------------------------+------------+--+-
+text_model.encoder.layers.{0...11}.self_attn.v_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.k_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc1.bias              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.out_proj.weight | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc2.bias              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm2.weight        | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.v_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm1.weight        | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm1.bias          | UNEXPECTED |  | 
+text_projection.weight                                       | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.k_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.q_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.out_proj.bias   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.q_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc1.weight            | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc2.weight            | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm2.bias          | UNEXPECTED |  | 
+logit_scale                                                  | UNEXPECTED |  | 
+text_model.embeddings.position_embedding.weight              | UNEXPECTED |  | 
+text_model.final_layer_norm.weight                           | UNEXPECTED |  | 
+text_model.embeddings.token_embedding.weight                 | UNEXPECTED |  | 
+text_model.final_layer_norm.bias                             | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder clip_vitb32 --classifier logistic --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder clip_vitb32 --classifier svm_linear --workers 32
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder clip_vitb32 --classifier random_forest --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder clip_vitb32 --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder clip_vitb32 --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder clip_vitb32 --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder clip_vitb32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/10_extract_features.py --config configs/study_25class.yaml --encoder derm_foundation --device auto --workers 32
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789854410.730171 1170010 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1789854410.744017 1170010 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1789854412.326443 1170010 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789854415.817666 1170010 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1789854415.823674 1170010 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+E0000 00:00:1789854417.786575 1170010 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+I0000 00:00:1789854427.948596 1170142 service.cc:153] XLA service 0x7187f809e040 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1789854427.948627 1170142 service.cc:161]   StreamExecutor [0]: Host, Default Version (Driver: 0.0.0; Runtime: 0.0.0; Toolkit: 0.0.0; DNN: 0.0.0)
+I0000 00:00:1789854428.494586 1170142 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1789854430.094461 1170142 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder derm_foundation --classifier logistic --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder derm_foundation --classifier svm_linear --workers 32
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder derm_foundation --classifier random_forest --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder derm_foundation --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder derm_foundation --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder derm_foundation --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder derm_foundation
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/10_extract_features.py --config configs/study_25class.yaml --encoder siglip2_so400m --device auto --workers 32
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49406. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49407. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   6%|▌         | 55/888 [00:00<00:01, 536.98it/s]Loading weights:  12%|█▎        | 111/888 [00:00<00:01, 545.37it/s]Loading weights:  19%|█▊        | 166/888 [00:00<00:01, 540.31it/s]Loading weights:  25%|██▌       | 225/888 [00:00<00:01, 550.75it/s]Loading weights:  33%|███▎      | 297/888 [00:00<00:00, 609.95it/s]Loading weights:  41%|████      | 362/888 [00:00<00:00, 618.64it/s]Loading weights:  49%|████▉     | 438/888 [00:00<00:00, 660.24it/s]Loading weights:  59%|█████▉    | 524/888 [00:00<00:00, 712.50it/s]Loading weights:  69%|██████▉   | 612/888 [00:00<00:00, 763.70it/s]Loading weights: 100%|██████████| 888/888 [00:01<00:00, 877.62it/s]
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder siglip2_so400m --classifier logistic --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder siglip2_so400m --classifier svm_linear --workers 32
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/vatsal1_hawk_franklin_research_c/.venv/lib/python3.11/site-packages/sklearn/svm/_base.py:1295: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder siglip2_so400m --classifier random_forest --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder siglip2_so400m --classifier gradient_boosting --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/20_train_classical.py --config configs/study_25class.yaml --encoder siglip2_so400m --classifier knn --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder siglip2_so400m --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder siglip2_so400m
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/31_tune_mil.py --config configs/study_25class.yaml --encoder siglip2_so400m --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/32_run_cross_validation.py --config configs/study_25class.yaml --encoder siglip2_so400m --device auto
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/34_fit_final_model.py --config configs/study_25class.yaml --encoder siglip2_so400m --device auto --epochs 30
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/50_evaluate.py --config configs/study_25class.yaml --predictions /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/final_model/test_predictions.csv --thresholds /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/thresholds/validation_selected_thresholds.csv --output-dir /home/vatsal1_hawk_franklin_research_c/pelliscope-train/reports/evaluations/siglip2_so400m_final
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/51_compare_grid.py --config configs/study_25class.yaml --mil-encoders siglip2_so400m,derm_foundation --workers 32
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/60_generate_tables.py --config configs/study_25class.yaml
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/61_generate_figures.py --config configs/study_25class.yaml
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/70_verify_release.py --config configs/study_25class.yaml --encoders resnet50,inception_v3,bit50,vit_base,clip_vitb32,derm_foundation,siglip2_so400m --primary-encoder siglip2_so400m

@@ -6,6 +6,6 @@
     "siglip2_mil_vs_derm_foundation_mil"
   ],
   "complete": true,
-  "replicates": 100,
-  "selected_baseline": "derm_foundation+logistic:case_mean"
+  "replicates": 10000,
+  "selected_baseline": "derm_foundation+random_forest:case_mean"
 }
