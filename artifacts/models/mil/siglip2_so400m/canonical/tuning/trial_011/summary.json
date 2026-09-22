@@ -1,0 +1,12 @@
+{
+  "best_epoch": 22,
+  "best_score": 0.9134821455965836,
+  "checkpoint_metric": "macro_auc_plus_lrap",
+  "complete": true,
+  "device": "cpu",
+  "encoder": "siglip2_so400m",
+  "implementation": "canonical_siglip2_mil",
+  "provenance": {},
+  "seed": 53,
+  "selected_config_sha256": "cdd92f3fffe4799ab6ed57aa176140b4eea872804e599a2f585aab6ff73f37e9"
+}

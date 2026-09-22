@@ -7,13 +7,14 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import torch
+import yaml
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 
 from hawk_derm.constants import slugify
 from hawk_derm.evaluation.metrics import multilabel_metrics, per_class_metrics
 from hawk_derm.evaluation.predictions import prediction_frame, save_predictions
 from hawk_derm.features.bank import FeatureBank, build_case_bags
-from hawk_derm.io import write_csv, write_json
+from hawk_derm.io import canonical_json, read_json, sha256_file, sha256_text, write_csv, write_json
 from hawk_derm.models.mil import BagDataset, predict_mil, train_mil
 
 
@@ -47,6 +48,12 @@ def subset_dataset(arrays: dict[str, np.ndarray], mask: np.ndarray) -> BagDatase
     return BagDataset(arrays["bags"][mask], arrays["masks"][mask], arrays["labels"][mask], arrays["case_ids"][mask])
 
 
+def selected_config_hash(config: dict[str, Any]) -> str:
+    payload = deepcopy(config)
+    payload.get("selection", {}).pop("selected_config_sha256", None)
+    return sha256_text(canonical_json(payload))
+
+
 def run_mil_experiment(
     bank: FeatureBank,
     cases: pd.DataFrame,
@@ -59,9 +66,15 @@ def run_mil_experiment(
     device: str = "auto",
     max_images: int = 3,
     evaluation_splits: tuple[str, ...] = ("train", "validation", "test"),
+    provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    summary_path = output_dir / "summary.json"
+    if summary_path.is_file():
+        summary = read_json(summary_path)
+        if summary.get("complete"):
+            return summary
     arrays, split_values = prepare_bag_data(bank, cases, splits, labels, max_images)
     datasets = {name: subset_dataset(arrays, split_values == name) for name in ("train", "validation", "test")}
     target_device = choose_device(device)
@@ -75,24 +88,39 @@ def run_mil_experiment(
         device=target_device,
         seed=seed,
     )
+    config_sha256 = selected_config_hash(mil_config)
     torch.save(
         {
             "state_dict": result.model.state_dict(),
             "architecture": mil_config["architecture"],
+            "training": mil_config["training"],
             "input_dim": bank.dimension,
             "class_count": len(labels),
             "labels": labels,
             "seed": seed,
             "encoder": bank.encoder,
+            "selected_config_sha256": config_sha256,
         },
         output_dir / "model.pt",
     )
-    write_json(output_dir / "history.json", {"history": result.history, "best_epoch": result.best_epoch, "complete": True})
+    write_json(
+        output_dir / "history.json",
+        {
+            "history": result.history,
+            "best_epoch": result.best_epoch,
+            "best_score": result.best_score,
+            "checkpoint_metric": result.checkpoint_metric,
+            "complete": True,
+        },
+    )
     metric_rows = []
     for split_name in evaluation_splits:
         dataset = datasets[split_name]
         probabilities, attention = predict_mil(
-            result.model, dataset, device=target_device, batch_size=int(mil_config["training"]["batch_size"])
+            result.model,
+            dataset,
+            device=target_device,
+            batch_size=int(mil_config["training"]["batch_size"]),
         )
         frame = prediction_frame(
             dataset.case_ids,
@@ -109,17 +137,29 @@ def run_mil_experiment(
             output_dir / f"{split_name}_predictions.csv",
             frame,
             labels,
-            {"evaluation_unit": "case", "attention_is_model_internal": True},
+            {
+                "evaluation_unit": "case",
+                "attention_is_model_internal": True,
+                "selected_config_sha256": config_sha256,
+            },
         )
         overall = multilabel_metrics(dataset.labels.numpy(), probabilities)
         metric_rows.append({"encoder": bank.encoder, "seed": seed, "split": split_name, **overall})
-        write_csv(output_dir / f"{split_name}_per_class_metrics.csv", per_class_metrics(dataset.labels.numpy(), probabilities, labels))
+        write_csv(
+            output_dir / f"{split_name}_per_class_metrics.csv",
+            per_class_metrics(dataset.labels.numpy(), probabilities, labels),
+        )
     write_csv(output_dir / "overall_metrics.csv", pd.DataFrame(metric_rows))
     summary = {
         "encoder": bank.encoder,
         "seed": seed,
         "device": target_device,
         "best_epoch": result.best_epoch,
+        "best_score": result.best_score,
+        "checkpoint_metric": result.checkpoint_metric,
+        "selected_config_sha256": config_sha256,
+        "implementation": mil_config.get("implementation", "unspecified"),
+        "provenance": provenance or {},
         "complete": True,
     }
     write_json(output_dir / "summary.json", summary)
@@ -131,13 +171,67 @@ def sample_search_configs(base: dict[str, Any], search: dict[str, Any], trials: 
     configs = []
     for _ in range(trials):
         trial = deepcopy(base)
-        trial["training"]["learning_rate"] = float(np.exp(rng.uniform(np.log(search["learning_rate"][0]), np.log(search["learning_rate"][1]))))
-        trial["training"]["weight_decay"] = float(np.exp(rng.uniform(np.log(search["weight_decay"][0]), np.log(search["weight_decay"][1]))))
-        for key in ("dropout", "instance_dim", "attention_dim", "shared_dim"):
-            trial["architecture"][key] = rng.choice(search[key]).item()
-        trial["training"]["loss"] = str(rng.choice(search["loss"]))
+        trial["training"]["learning_rate"] = float(
+            np.exp(rng.uniform(np.log(search["learning_rate"][0]), np.log(search["learning_rate"][1])))
+        )
+        trial["training"]["weight_decay"] = float(
+            np.exp(rng.uniform(np.log(search["weight_decay"][0]), np.log(search["weight_decay"][1])))
+        )
+        for key in ("dropout", "instance_dim", "attention_dim", "shared_dim", "instance_layers", "shared_layers"):
+            if key in search:
+                trial["architecture"][key] = rng.choice(search[key]).item()
+        for key in ("loss", "class_balanced_beta", "focal_gamma", "focal_alpha"):
+            if key in search:
+                value = rng.choice(search[key]).item()
+                trial["training"][key] = str(value) if key == "loss" else value
         configs.append(trial)
     return configs
+
+
+def _write_selected_config(
+    output_dir: Path,
+    config: dict[str, Any],
+    *,
+    winning_trial: int,
+    winning_score: float,
+    feature_bank_path: Path,
+    case_manifest_path: Path,
+    split_manifest_path: Path,
+) -> dict[str, Any]:
+    hashes = {
+        "feature_bank_sha256": sha256_file(feature_bank_path),
+        "case_manifest_sha256": sha256_file(case_manifest_path),
+        "split_manifest_sha256": sha256_file(split_manifest_path),
+    }
+    selected = {
+        "implementation": config.get("implementation", "canonical_siglip2_mil"),
+        "architecture": deepcopy(config["architecture"]),
+        "training": deepcopy(config["training"]),
+        "thresholds": deepcopy(config.get("thresholds", {})),
+        "selection": {
+            "winning_trial": winning_trial,
+            "winning_score": winning_score,
+            "checkpoint_metric": config["training"].get("checkpoint_metric", "macro_auc_plus_lrap"),
+            **hashes,
+        },
+    }
+    selected["selection"]["selected_config_sha256"] = selected_config_hash(selected)
+    write_json(output_dir / "best_mil_config.json", selected)
+    yaml_path = output_dir / "best_mil_config.yaml"
+    yaml_path.write_text(yaml.safe_dump(selected, sort_keys=False), encoding="utf-8")
+    write_json(
+        output_dir / "selection_manifest.json",
+        {
+            "winning_trial": winning_trial,
+            "winning_score": winning_score,
+            "best_mil_config_yaml": str(yaml_path),
+            "best_mil_config_json": str(output_dir / "best_mil_config.json"),
+            **hashes,
+            "selected_config_sha256": selected["selection"]["selected_config_sha256"],
+            "complete": True,
+        },
+    )
+    return selected
 
 
 def run_mil_search(
@@ -152,12 +246,17 @@ def run_mil_search(
     seed: int,
     device: str,
     max_images: int,
+    feature_bank_path: Path,
+    case_manifest_path: Path,
+    split_manifest_path: Path,
 ) -> pd.DataFrame:
     output_dir = Path(output_dir)
     rows = []
-    for trial_index, config in enumerate(sample_search_configs(mil_config, mil_config["search"], trials, seed)):
+    trial_configs: dict[int, dict[str, Any]] = {}
+    for trial_index, config in enumerate(sample_search_configs(mil_config, mil_config["search"], trials, seed), start=1):
+        trial_configs[trial_index] = config
         trial_dir = output_dir / f"trial_{trial_index:03d}"
-        run_mil_experiment(
+        summary = run_mil_experiment(
             bank,
             cases,
             splits,
@@ -174,13 +273,31 @@ def run_mil_search(
         rows.append(
             {
                 "trial": trial_index,
+                "selection_score": summary["best_score"],
+                "selected_epoch": summary["best_epoch"],
                 "validation_auc_macro": validation["auc_macro"],
+                "validation_label_ranking_average_precision": validation["label_ranking_average_precision"],
                 "validation_pr_auc_macro": validation["pr_auc_macro"],
                 **{f"architecture__{key}": value for key, value in config["architecture"].items()},
-                **{f"training__{key}": value for key, value in config["training"].items() if np.isscalar(value)},
+                **{
+                    f"training__{key}": value
+                    for key, value in config["training"].items()
+                    if np.isscalar(value)
+                },
             }
         )
-    results = pd.DataFrame(rows).sort_values(["validation_auc_macro", "validation_pr_auc_macro"], ascending=False)
+        write_csv(output_dir / "trials.csv", pd.DataFrame(rows).sort_values("selection_score", ascending=False))
+    results = pd.DataFrame(rows).sort_values("selection_score", ascending=False).reset_index(drop=True)
+    winner = results.iloc[0]
+    _write_selected_config(
+        output_dir,
+        trial_configs[int(winner["trial"])],
+        winning_trial=int(winner["trial"]),
+        winning_score=float(winner["selection_score"]),
+        feature_bank_path=feature_bank_path,
+        case_manifest_path=case_manifest_path,
+        split_manifest_path=split_manifest_path,
+    )
     write_csv(output_dir / "trials.csv", results)
     return results
 
@@ -197,19 +314,26 @@ def run_mil_cross_validation(
     seed: int,
     device: str,
     max_images: int,
+    provenance: dict[str, Any] | None = None,
 ) -> pd.DataFrame:
     output_dir = Path(output_dir)
     development = splits[~splits["split"].eq("test")][["case_id"]].merge(cases, on="case_id", validate="one_to_one")
     label_columns = [f"is_{slugify(label)}" for label in labels]
     splitter = MultilabelStratifiedKFold(n_splits=folds, shuffle=True, random_state=seed)
     rows = []
-    for fold, (train_index, validation_index) in enumerate(splitter.split(development, development[label_columns]), start=1):
+    for fold, (train_index, validation_index) in enumerate(
+        splitter.split(development, development[label_columns]),
+        start=1,
+    ):
         fold_splits = splits.copy()
         fold_splits["split"] = "test"
         fold_splits.loc[fold_splits["case_id"].isin(development.iloc[train_index]["case_id"]), "split"] = "train"
-        fold_splits.loc[fold_splits["case_id"].isin(development.iloc[validation_index]["case_id"]), "split"] = "validation"
+        fold_splits.loc[
+            fold_splits["case_id"].isin(development.iloc[validation_index]["case_id"]),
+            "split",
+        ] = "validation"
         fold_dir = output_dir / f"fold_{fold:02d}"
-        run_mil_experiment(
+        summary = run_mil_experiment(
             bank,
             cases,
             fold_splits,
@@ -220,10 +344,11 @@ def run_mil_cross_validation(
             device=device,
             max_images=max_images,
             evaluation_splits=("train", "validation"),
+            provenance=provenance,
         )
         metrics = pd.read_csv(fold_dir / "overall_metrics.csv")
         validation = metrics.loc[metrics["split"].eq("validation")].iloc[0].to_dict()
-        rows.append({"fold": fold, **validation})
+        rows.append({"fold": fold, "selected_epoch": summary["best_epoch"], **validation})
     frame = pd.DataFrame(rows)
     write_csv(output_dir / "cross_validation_metrics.csv", frame)
     return frame
@@ -240,18 +365,32 @@ def run_repeated_mil(
     seeds: list[int],
     device: str,
     max_images: int,
+    provenance: dict[str, Any] | None = None,
 ) -> pd.DataFrame:
     output_dir = Path(output_dir)
     metrics = []
     for seed in seeds:
         seed_dir = output_dir / f"seed_{seed}"
-        run_mil_experiment(bank, cases, splits, labels, mil_config, seed_dir, seed=seed, device=device, max_images=max_images)
-        frame = pd.read_csv(seed_dir / "overall_metrics.csv")
-        metrics.append(frame)
+        run_mil_experiment(
+            bank,
+            cases,
+            splits,
+            labels,
+            mil_config,
+            seed_dir,
+            seed=seed,
+            device=device,
+            max_images=max_images,
+            provenance=provenance,
+        )
+        metrics.append(pd.read_csv(seed_dir / "overall_metrics.csv"))
     combined = pd.concat(metrics, ignore_index=True)
     write_csv(output_dir / "repeated_metrics_long.csv", combined)
     numeric = combined.select_dtypes(include=[np.number]).columns.drop("seed", errors="ignore")
     summary = combined.groupby(["encoder", "split"])[list(numeric)].agg(["mean", "std"]).reset_index()
-    summary.columns = ["__".join(filter(None, map(str, column))) if isinstance(column, tuple) else str(column) for column in summary.columns]
+    summary.columns = [
+        "__".join(filter(None, map(str, column))) if isinstance(column, tuple) else str(column)
+        for column in summary.columns
+    ]
     write_csv(output_dir / "repeated_metrics_summary.csv", summary)
     return combined

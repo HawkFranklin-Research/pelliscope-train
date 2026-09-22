@@ -1,0 +1,9 @@
+{
+  "complete": true,
+  "cpu_workers": 16,
+  "first_model": "siglip2_mil",
+  "paired_case_count": 750,
+  "replicates": 10000,
+  "second_model": "siglip2_random_forest",
+  "seed": 20260918
+}

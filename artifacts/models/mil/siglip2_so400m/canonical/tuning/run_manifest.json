@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "config": {
+    "config": "configs/study_25class.yaml",
+    "device": "cpu",
+    "encoder": "siglip2_so400m",
+    "epochs": null,
+    "run_tag": "canonical",
+    "seed": 42,
+    "trials": null
+  },
+  "config_sha256": "0f77d61201290bf7ee28451d565d76af0883514fe3886008950b11d8f2f97b95",
+  "ended_at": "2026-09-22T14:39:46.410119+00:00",
+  "environment": {
+    "available_cpu_count": 32,
+    "configured_cpu_workers": 32,
+    "cuda_available": false,
+    "executable": "/home/vatsal1_hawk_franklin_research_c/.venv/bin/python3",
+    "hostname": "pelliscope-runner",
+    "mps_available": false,
+    "pid": 1736,
+    "platform": "Linux-6.8.0-1067-gcp-x86_64-with-glibc2.35",
+    "python": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 11.4.0]",
+    "torch": "2.14.0+cpu"
+  },
+  "git_commit": "59160646eb3c9367d2492184de20aba1e9d5cf5d",
+  "inputs": [
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/features/siglip2_so400m/feature_bank.npz",
+      "sha256": "957037e7d41857f21246fc2377688114fe77f2843c4adcefe5b7ae6e669cc178",
+      "size": 45241799
+    },
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/data/manifests/case_manifest.csv",
+      "sha256": "e6024a68fe9b65efac048b3c282c20a8853d75322dd70c465f9e1a4616331577",
+      "size": 1531168
+    },
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/data/splits/split_manifest_v1.csv",
+      "sha256": "59e78641fb35d573ebd6244c4a0519368888f8d5b8b6e7083918dd529bf4a11b",
+      "size": 166026
+    }
+  ],
+  "outputs": [
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/trials.csv",
+      "sha256": "6ae7338a00652a87abea028ca1924adc0bfe22ae014d4a35a93a57e03c47933a",
+      "size": 3465
+    },
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml",
+      "sha256": "2a8fd7d178138e8946265eb761d2f3ce754b7b4008a4de5b3bb42784d0545089",
+      "size": 1115
+    },
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.json",
+      "sha256": "38008f7b27f0a5e5c1a556ce73bbecb7b4a97ac4bd7ca4bd1e35a5613b222643",
+      "size": 1350
+    },
+    {
+      "exists": true,
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/selection_manifest.json",
+      "sha256": "cd4cfde1ee37c43e2c575e89d1477e38fc61436372f117a7b06465f68f5385ef",
+      "size": 779
+    }
+  ],
+  "run_id": "tune_mil-20260922T143249-6ca4abff",
+  "run_mode": "full",
+  "stage": "tune_mil",
+  "started_at": "2026-09-22T14:32:49.530560+00:00",
+  "status": "complete"
+}

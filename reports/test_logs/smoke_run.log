@@ -1,0 +1,88 @@
+Downloading: "https://download.pytorch.org/models/inception_v3_google-0cc3c7bd.pth" to /home/vatsal1_hawk_franklin_research_c/.cache/torch/hub/checkpoints/inception_v3_google-0cc3c7bd.pth
+  0%|          | 0.00/104M [00:00<?, ?B/s]  2%|▏         | 2.00M/104M [00:00<00:05, 20.5MB/s] 21%|██        | 21.6M/104M [00:00<00:00, 128MB/s]  42%|████▏     | 43.1M/104M [00:00<00:00, 172MB/s] 62%|██████▏   | 64.5M/104M [00:00<00:00, 192MB/s] 80%|███████▉  | 82.9M/104M [00:00<00:00, 185MB/s]100%|██████████| 104M/104M [00:00<00:00, 178MB/s] 
+Loading weights:   0%|          | 0/151 [00:00<?, ?it/s]Loading weights: 100%|██████████| 151/151 [00:00<00:00, 19392.51it/s]
+[transformers] [1mBitModel LOAD REPORT[0m from: google/bit-50
+Key                 | Status     |  | 
+--------------------+------------+--+-
+classifier.1.bias   | UNEXPECTED |  | 
+classifier.1.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 7901.78it/s]
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 17058.34it/s]
+[transformers] [1mCLIPVisionModelWithProjection LOAD REPORT[0m from: openai/clip-vit-base-patch32
+Key                                                          | Status     |  | 
+-------------------------------------------------------------+------------+--+-
+text_model.encoder.layers.{0...11}.mlp.fc2.weight            | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.k_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.out_proj.weight | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm2.bias          | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm1.bias          | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm2.weight        | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.q_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.k_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.v_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc1.weight            | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.v_proj.bias     | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc2.bias              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.mlp.fc1.bias              | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.q_proj.weight   | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.layer_norm1.weight        | UNEXPECTED |  | 
+text_model.embeddings.position_embedding.weight              | UNEXPECTED |  | 
+logit_scale                                                  | UNEXPECTED |  | 
+text_model.encoder.layers.{0...11}.self_attn.out_proj.bias   | UNEXPECTED |  | 
+text_model.final_layer_norm.bias                             | UNEXPECTED |  | 
+text_projection.weight                                       | UNEXPECTED |  | 
+text_model.embeddings.token_embedding.weight                 | UNEXPECTED |  | 
+text_model.final_layer_norm.weight                           | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789745324.338794   15577 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1789745324.339935   15577 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1789745324.386933   15577 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1789745325.873670   15577 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1789745325.874540   15577 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+E0000 00:00:1789745326.977296   15577 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49406. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49407. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  57%|█████▋    | 509/888 [00:00<00:00, 5089.13it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 7484.18it/s]
+Verified table class_imbalance_diagnostics.csv: 25 rows
+Verified table hyperparameter_trials.csv: 1 rows
+Verified table all_model_metrics.csv: 147 rows
+Verified table cohort_sizes_by_split.csv: 3 rows
+Verified table encoder_registry.csv: 7 rows
+Verified table operating_points.csv: 175 rows
+Verified table headline_study_numbers.csv: 1 rows
+Verified figure mil_split_soft.png: 176612 bytes
+Verified figure figure1_cohort_preprocessing.png: 495911 bytes
+Verified figure gradability_mst.png: 79923 bytes
+Verified figure figure3_mil_diagnostics.png: 493626 bytes
+Verified figure figure2_encoder_classifier_heatmap.png: 274612 bytes
+Verified figure graphical_abstract.png: 190613 bytes
+Verified figure mil_youden_j_curves.png: 286417 bytes
+Verified figure images_counts_shot_types.png: 71644 bytes
+Verified figure mil_sensitivity_specificity_curves_with_thresholds.png: 680904 bytes
+Verified figure condition_distributions.png: 298970 bytes
+Verified figure figure6_operating_points.png: 425403 bytes
+Verified figure figure4_threshold_curves.png: 680904 bytes
+Verified prediction file artifacts/models/mil/vit_base/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/vit_base/seed_42/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/siglip2_so400m/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/siglip2_so400m/seed_42/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/siglip2_so400m/final_model/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/resnet50/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/resnet50/seed_42/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/derm_foundation/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/derm_foundation/seed_42/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/bit50/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/bit50/seed_42/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/clip_vitb32/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/clip_vitb32/seed_42/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/inception_v3/seed_43/test_predictions.csv: 6 rows
+Verified prediction file artifacts/models/mil/inception_v3/seed_42/test_predictions.csv: 6 rows
+ALL VERIFICATIONS PASSED: No nulls, valid non-empty files written to disk!

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.metrics import precision_recall_curve, roc_auc_score, roc_curve
+from sklearn.metrics import average_precision_score, precision_recall_curve, roc_auc_score, roc_curve
 
 from hawk_derm.evaluation.metrics import per_class_metrics
 from hawk_derm.evaluation.predictions import arrays_from_prediction_frame
@@ -69,8 +69,20 @@ def _curve_rows(seed: int, truth: np.ndarray, probability: np.ndarray, points: i
         class_prs.append(np.interp(grid, recall[order], precision[order]))
     if class_prs:
         pr_series["macro"] = np.mean(class_prs, axis=0)
+    per_class_ap = [
+        average_precision_score(truth[:, index], probability[:, index])
+        for index in range(truth.shape[1])
+        if truth[:, index].sum() > 0
+    ]
+    pr_scores = {
+        "micro": float(average_precision_score(truth.ravel(), probability.ravel())),
+        "macro": float(np.mean(per_class_ap)) if per_class_ap else float("nan"),
+    }
     for averaging, values in pr_series.items():
-        rows.extend({"seed": seed, "curve": "pr", "averaging": averaging, "x": x, "y": y, "score": float("nan")} for x, y in zip(grid, values, strict=True))
+        rows.extend(
+            {"seed": seed, "curve": "pr", "averaging": averaging, "x": x, "y": y, "score": pr_scores[averaging]}
+            for x, y in zip(grid, values, strict=True)
+        )
     return rows
 
 
@@ -179,9 +191,10 @@ def generate_mil_plot_data(
     *,
     primary_encoder: str,
     threshold_grid: np.ndarray,
+    primary_root: str | Path | None = None,
 ) -> list[Path]:
     artifacts_dir, plot_dir = Path(artifacts_dir), Path(plot_dir)
-    primary_root = artifacts_dir / "models" / "mil" / primary_encoder
+    primary_root = Path(primary_root) if primary_root else artifacts_dir / "models" / "mil" / primary_encoder
     if not primary_root.exists():
         candidates = sorted((artifacts_dir / "models" / "mil").glob("*"))
         if not candidates:

@@ -29,3 +29,5 @@ data/raw/
 !artifacts/**/metrics/*.json
 !artifacts/**/*.metadata.json
 !artifacts/**/*.upload-receipt.json
+
+*.zip

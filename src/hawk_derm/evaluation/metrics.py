@@ -8,7 +8,10 @@ from sklearn.metrics import (
     accuracy_score,
     average_precision_score,
     brier_score_loss,
+    coverage_error,
     f1_score,
+    label_ranking_average_precision_score,
+    label_ranking_loss,
     precision_score,
     recall_score,
     roc_auc_score,
@@ -21,6 +24,24 @@ def safe_auc(y_true: np.ndarray, score: np.ndarray) -> float:
 
 def safe_average_precision(y_true: np.ndarray, score: np.ndarray) -> float:
     return float(average_precision_score(y_true, score)) if np.any(y_true == 1) else float("nan")
+
+
+def safe_multilabel_auc(y_true: np.ndarray, score: np.ndarray, average: str) -> float:
+    try:
+        return float(roc_auc_score(y_true, score, average=average))
+    except ValueError:
+        return float("nan")
+
+
+def topk_hit_rate(y_true: np.ndarray, probabilities: np.ndarray, k: int) -> float:
+    """Return the fraction of target-positive cases with a true label in the top-k."""
+    hits: list[bool] = []
+    for truth, scores in zip(y_true, probabilities, strict=True):
+        if truth.sum() == 0:
+            continue
+        top = np.argsort(-scores)[:k]
+        hits.append(bool(truth[top].sum()))
+    return float(np.mean(hits)) if hits else float("nan")
 
 
 def expected_calibration_error(y_true: np.ndarray, probability: np.ndarray, bins: int = 10) -> float:
@@ -44,6 +65,18 @@ def multilabel_metrics(
     predictions = probabilities >= thresholds
     per_class_auc = [safe_auc(y_true[:, index], probabilities[:, index]) for index in range(y_true.shape[1])]
     per_class_ap = [safe_average_precision(y_true[:, index], probabilities[:, index]) for index in range(y_true.shape[1])]
+    try:
+        lrap = float(label_ranking_average_precision_score(y_true, probabilities))
+    except ValueError:
+        lrap = float("nan")
+    try:
+        coverage = float(coverage_error(y_true, probabilities))
+    except ValueError:
+        coverage = float("nan")
+    try:
+        ranking_loss = float(label_ranking_loss(y_true, probabilities))
+    except ValueError:
+        ranking_loss = float("nan")
     return {
         "subset_accuracy": float(accuracy_score(y_true, predictions)),
         "precision_micro": float(precision_score(y_true, predictions, average="micro", zero_division=0)),
@@ -54,8 +87,15 @@ def multilabel_metrics(
         "f1_macro": float(f1_score(y_true, predictions, average="macro", zero_division=0)),
         "auc_micro": safe_auc(y_true.ravel(), probabilities.ravel()),
         "auc_macro": float(np.nanmean(per_class_auc)),
+        "auc_weighted": safe_multilabel_auc(y_true, probabilities, "weighted"),
         "pr_auc_micro": safe_average_precision(y_true.ravel(), probabilities.ravel()),
         "pr_auc_macro": float(np.nanmean(per_class_ap)),
+        "label_ranking_average_precision": lrap,
+        "coverage_error": coverage,
+        "ranking_loss": ranking_loss,
+        "top1_hit": topk_hit_rate(y_true, probabilities, 1),
+        "top3_hit": topk_hit_rate(y_true, probabilities, 3),
+        "top5_hit": topk_hit_rate(y_true, probabilities, 5),
         "brier_macro": float(np.mean([brier_score_loss(y_true[:, i], probabilities[:, i]) for i in range(y_true.shape[1])])),
         "ece_macro": float(np.mean([expected_calibration_error(y_true[:, i], probabilities[:, i]) for i in range(y_true.shape[1])])),
     }

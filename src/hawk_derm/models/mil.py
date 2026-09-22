@@ -8,6 +8,8 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
 
+from hawk_derm.evaluation.metrics import multilabel_metrics
+
 
 class BagDataset(Dataset):
     def __init__(self, bags: np.ndarray, masks: np.ndarray, labels: np.ndarray, case_ids: np.ndarray) -> None:
@@ -50,11 +52,14 @@ class GatedAttentionMIL(nn.Module):
         self.instance = nn.Sequential(*instance_modules)
         self.attention_tanh = nn.Linear(instance_dim, attention_dim)
         self.attention_sigmoid = nn.Linear(instance_dim, attention_dim)
+        self.attention_dropout = nn.Dropout(dropout)
         self.attention_score = nn.Linear(attention_dim, 1)
-        classifier_modules: list[nn.Module] = [nn.LayerNorm(instance_dim)]
+        classifier_modules: list[nn.Module] = []
         current_dim = instance_dim
         for _ in range(shared_layers):
-            classifier_modules.extend([nn.Linear(current_dim, shared_dim), nn.GELU(), nn.Dropout(dropout)])
+            classifier_modules.extend(
+                [nn.Linear(current_dim, shared_dim), nn.LayerNorm(shared_dim), nn.GELU(), nn.Dropout(dropout)]
+            )
             current_dim = shared_dim
         classifier_modules.append(nn.Linear(current_dim, class_count))
         self.classifier = nn.Sequential(*classifier_modules)
@@ -62,7 +67,8 @@ class GatedAttentionMIL(nn.Module):
     def forward(self, bags: torch.Tensor, masks: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         instances = self.instance(bags)
         gated = torch.tanh(self.attention_tanh(instances)) * torch.sigmoid(self.attention_sigmoid(instances))
-        scores = self.attention_score(gated).squeeze(-1).masked_fill(~masks, torch.finfo(instances.dtype).min)
+        scores = self.attention_score(self.attention_dropout(gated)).squeeze(-1)
+        scores = scores.masked_fill(~masks, torch.finfo(instances.dtype).min)
         attention = torch.softmax(scores, dim=1)
         attention = torch.where(masks, attention, torch.zeros_like(attention))
         attention = attention / attention.sum(dim=1, keepdim=True).clamp_min(1e-12)
@@ -78,21 +84,32 @@ def effective_number_weights(labels: np.ndarray, beta: float) -> torch.Tensor:
 
 
 class MultilabelLoss(nn.Module):
-    def __init__(self, labels: np.ndarray, kind: str, beta: float = 0.999, gamma: float = 2.0) -> None:
+    def __init__(
+        self,
+        labels: np.ndarray,
+        kind: str,
+        beta: float = 0.999,
+        gamma: float = 2.0,
+        alpha: float = 0.25,
+        use_positive_weights: bool = True,
+    ) -> None:
         super().__init__()
         self.kind = kind
         self.gamma = gamma
+        self.alpha = alpha
         self.register_buffer("class_weights", effective_number_weights(labels, beta))
         positives = np.asarray(labels).sum(axis=0)
         negatives = len(labels) - positives
-        self.register_buffer("positive_weights", torch.as_tensor(negatives / np.clip(positives, 1, None), dtype=torch.float32))
+        positive_weights = negatives / np.clip(positives, 1, None) if use_positive_weights else np.ones_like(positives)
+        self.register_buffer("positive_weights", torch.as_tensor(positive_weights, dtype=torch.float32))
 
     def forward(self, logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
         loss = nn.functional.binary_cross_entropy_with_logits(logits, targets, pos_weight=self.positive_weights, reduction="none")
         if "focal" in self.kind:
             probability = torch.sigmoid(logits)
             p_t = probability * targets + (1 - probability) * (1 - targets)
-            loss = loss * (1 - p_t).pow(self.gamma)
+            alpha_factor = self.alpha * targets + (1 - self.alpha) * (1 - targets)
+            loss = loss * (1 - p_t).pow(self.gamma) * alpha_factor
         if "class_balanced" in self.kind:
             loss = loss * self.class_weights.unsqueeze(0)
         return loss.mean()
@@ -103,6 +120,8 @@ class TrainingResult:
     model: GatedAttentionMIL
     history: list[dict[str, float]]
     best_epoch: int
+    best_score: float
+    checkpoint_metric: str
 
 
 def _epoch(
@@ -137,6 +156,63 @@ def _epoch(
     return loss_value, accuracy
 
 
+def _prediction_metrics(
+    model: GatedAttentionMIL,
+    loader: DataLoader,
+    device: torch.device,
+) -> dict[str, float]:
+    truths: list[np.ndarray] = []
+    probabilities: list[np.ndarray] = []
+    model.eval()
+    for bags, masks, labels, _ in loader:
+        with torch.inference_mode():
+            logits, _ = model(bags.to(device), masks.to(device))
+        truths.append(labels.numpy())
+        probabilities.append(torch.sigmoid(logits).cpu().numpy())
+    if not truths:
+        return {}
+    return multilabel_metrics(np.concatenate(truths), np.concatenate(probabilities))
+
+
+def checkpoint_score(metrics: dict[str, float], training: dict[str, Any]) -> float:
+    metric = str(training.get("checkpoint_metric", "macro_auc_plus_lrap"))
+    if metric == "validation_loss":
+        return -float(metrics["validation_loss"])
+    if metric == "macro_auc":
+        return float(metrics.get("auc_macro", float("-inf")))
+    if metric == "macro_auc_plus_lrap":
+        auc = float(metrics.get("auc_macro", float("-inf")))
+        lrap = float(metrics.get("label_ranking_average_precision", 0.0))
+        return auc + float(training.get("checkpoint_lrap_weight", 0.1)) * lrap
+    raise ValueError(f"Unknown MIL checkpoint metric: {metric}")
+
+
+def _scheduler(
+    optimizer: torch.optim.Optimizer,
+    training: dict[str, Any],
+) -> torch.optim.lr_scheduler.LRScheduler | None:
+    name = str(training.get("scheduler", "cosine")).lower()
+    if name in {"none", "constant"}:
+        return None
+    if name == "cosine":
+        return torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=max(1, int(training["epochs"])),
+        )
+    raise ValueError(f"Unknown MIL learning-rate scheduler: {name}")
+
+
+def _optimizer(model: nn.Module, training: dict[str, Any]) -> torch.optim.Optimizer:
+    name = str(training.get("optimizer", "adamw")).lower()
+    if name != "adamw":
+        raise ValueError(f"Unknown MIL optimizer: {name}")
+    return torch.optim.AdamW(
+        model.parameters(),
+        lr=float(training["learning_rate"]),
+        weight_decay=float(training["weight_decay"]),
+    )
+
+
 def train_mil(
     train_data: BagDataset,
     validation_data: BagDataset,
@@ -153,15 +229,19 @@ def train_mil(
     target_device = torch.device(device)
     model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture).to(target_device)
     loss_function = MultilabelLoss(
-        train_data.labels.numpy(), training.get("loss", "class_balanced"), training.get("class_balanced_beta", 0.999)
+        train_data.labels.numpy(),
+        training.get("loss", "class_balanced"),
+        training.get("class_balanced_beta", 0.999),
+        training.get("focal_gamma", 2.0),
+        training.get("focal_alpha", 0.25),
+        training.get("use_positive_weights", True),
     ).to(target_device)
-    optimizer = torch.optim.AdamW(
-        model.parameters(), lr=float(training["learning_rate"]), weight_decay=float(training["weight_decay"])
-    )
+    optimizer = _optimizer(model, training)
+    scheduler = _scheduler(optimizer, training)
     train_loader = DataLoader(train_data, batch_size=int(training["batch_size"]), shuffle=True, num_workers=int(training.get("num_workers", 0)))
     validation_loader = DataLoader(validation_data, batch_size=int(training["batch_size"]), shuffle=False, num_workers=int(training.get("num_workers", 0)))
     best_state = None
-    best_loss = float("inf")
+    best_score = float("-inf")
     best_epoch = 0
     patience = 0
     history = []
@@ -170,27 +250,40 @@ def train_mil(
             model, train_loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm")
         )
         validation_loss, validation_accuracy = _epoch(model, validation_loader, loss_function, target_device)
-        history.append(
-            {
-                "epoch": epoch,
-                "train_loss": train_loss,
-                "validation_loss": validation_loss,
-                "train_accuracy": train_accuracy,
-                "validation_accuracy": validation_accuracy,
-            }
-        )
-        if validation_loss < best_loss:
-            best_loss = validation_loss
+        validation_metrics = _prediction_metrics(model, validation_loader, target_device)
+        row = {
+            "epoch": epoch,
+            "learning_rate": float(optimizer.param_groups[0]["lr"]),
+            "train_loss": train_loss,
+            "validation_loss": validation_loss,
+            "train_accuracy": train_accuracy,
+            "validation_accuracy": validation_accuracy,
+            **{f"validation_{key}": value for key, value in validation_metrics.items()},
+        }
+        score_inputs = {**validation_metrics, "validation_loss": validation_loss}
+        score = checkpoint_score(score_inputs, training)
+        row["checkpoint_score"] = score
+        history.append(row)
+        if score > best_score:
+            best_score = score
             best_epoch = epoch
             best_state = {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
             patience = 0
         else:
             patience += 1
+        if scheduler is not None:
+            scheduler.step()
         if patience >= int(training.get("early_stopping_patience", 8)):
             break
     if best_state is not None:
         model.load_state_dict(best_state)
-    return TrainingResult(model=model, history=history, best_epoch=best_epoch)
+    return TrainingResult(
+        model=model,
+        history=history,
+        best_epoch=best_epoch,
+        best_score=best_score,
+        checkpoint_metric=str(training.get("checkpoint_metric", "macro_auc_plus_lrap")),
+    )
 
 
 def train_mil_fixed(
@@ -210,11 +303,16 @@ def train_mil_fixed(
     target_device = torch.device(device)
     model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture).to(target_device)
     loss_function = MultilabelLoss(
-        train_data.labels.numpy(), training.get("loss", "class_balanced"), training.get("class_balanced_beta", 0.999)
+        train_data.labels.numpy(),
+        training.get("loss", "class_balanced"),
+        training.get("class_balanced_beta", 0.999),
+        training.get("focal_gamma", 2.0),
+        training.get("focal_alpha", 0.25),
+        training.get("use_positive_weights", True),
     ).to(target_device)
-    optimizer = torch.optim.AdamW(
-        model.parameters(), lr=float(training["learning_rate"]), weight_decay=float(training["weight_decay"])
-    )
+    optimizer = _optimizer(model, training)
+    fixed_training = {**training, "epochs": epochs}
+    scheduler = _scheduler(optimizer, fixed_training)
     loader = DataLoader(
         train_data,
         batch_size=int(training["batch_size"]),
@@ -224,8 +322,23 @@ def train_mil_fixed(
     history = []
     for epoch in range(1, epochs + 1):
         loss, accuracy = _epoch(model, loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm"))
-        history.append({"epoch": epoch, "train_loss": loss, "train_accuracy": accuracy})
-    return TrainingResult(model=model, history=history, best_epoch=epochs)
+        history.append(
+            {
+                "epoch": epoch,
+                "learning_rate": float(optimizer.param_groups[0]["lr"]),
+                "train_loss": loss,
+                "train_accuracy": accuracy,
+            }
+        )
+        if scheduler is not None:
+            scheduler.step()
+    return TrainingResult(
+        model=model,
+        history=history,
+        best_epoch=epochs,
+        best_score=float("nan"),
+        checkpoint_metric="fixed_epochs",
+    )
 
 
 def predict_mil(model: GatedAttentionMIL, data: BagDataset, *, device: str, batch_size: int = 128) -> tuple[np.ndarray, np.ndarray]:

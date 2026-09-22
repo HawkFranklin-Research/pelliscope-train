@@ -98,11 +98,27 @@ def cohort_overview(
     return _save(fig, output, int(style["dpi"]))
 
 
-def performance_heatmap(data: pd.DataFrame, output: Path, style: dict[str, Any]) -> Path:
-    matrix = data.pivot(index="encoder", columns="classifier", values="auc_macro")
+def performance_heatmap(
+    data: pd.DataFrame,
+    output: Path,
+    style: dict[str, Any],
+    *,
+    metric: str = "auc_macro",
+) -> Path:
+    averaging = metric.removeprefix("auc_")
+    matrix = data.pivot(index="encoder", columns="classifier", values=metric)
     fig, axis = plt.subplots(figsize=(12, max(5, 0.7 * len(matrix))))
-    sns.heatmap(matrix, annot=True, fmt=".3f", vmin=0.5, vmax=0.95, cmap=style["performance_heatmap"], ax=axis, cbar_kws={"label": "Test macro ROC-AUC"})
-    axis.set(xlabel="Classifier", ylabel="Frozen encoder", title="Case-level test macro ROC-AUC")
+    sns.heatmap(
+        matrix,
+        annot=True,
+        fmt=".3f",
+        vmin=0.5,
+        vmax=0.95,
+        cmap=style["performance_heatmap"],
+        ax=axis,
+        cbar_kws={"label": f"Test {averaging} ROC-AUC"},
+    )
+    axis.set(xlabel="Classifier", ylabel="Frozen encoder", title=f"Case-level test {averaging} ROC-AUC")
     fig.tight_layout()
     return _save(fig, output, int(style["dpi"]))
 
@@ -498,6 +514,15 @@ def generate_figures(
             outputs.append(graphical_abstract(len(condition_data), heatmap_data, figure_dir / "graphical_abstract.png", style))
         if include("performance") and heatmap_data is not None:
             outputs.append(performance_heatmap(heatmap_data, figure_dir / "figure2_encoder_classifier_heatmap.png", style))
+            if "auc_micro" in heatmap_data:
+                outputs.append(
+                    performance_heatmap(
+                        heatmap_data,
+                        figure_dir / "figure2_encoder_classifier_heatmap_micro.png",
+                        style,
+                        metric="auc_micro",
+                    )
+                )
 
         history_path = plot_dir / "mil_history_long.csv"
         per_class_path = plot_dir / "mil_per_class_metrics_long.csv"

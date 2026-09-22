@@ -1,0 +1,9 @@
+{
+  "comparison_cohort": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/statistics/comparison_cohort.csv",
+  "complete": true,
+  "excluded_case_count": 0,
+  "excluded_case_ids": [],
+  "rows": 750,
+  "source": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/models/classical/siglip2_so400m/random_forest/test_case_predictions.csv",
+  "source_sha256": "cd28482f0b10d32b9f5db5d0e8ae0567e733caafe4e449cf6741d581110c4d68"
+}

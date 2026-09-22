@@ -1,3 +1,6 @@
+implementation: canonical_siglip2_mil
+selected_config_required_for_full_run: true
+
 architecture:
   instance_dim: 768
   attention_dim: 256
@@ -7,6 +10,7 @@ architecture:
   dropout: 0.25
 
 training:
+  optimizer: adamw
   epochs: 30
   batch_size: 64
   learning_rate: 0.001
@@ -16,21 +20,30 @@ training:
   loss: class_balanced
   class_balanced_beta: 0.999
   use_positive_weights: true
+  focal_gamma: 2.0
+  focal_alpha: 0.25
+  scheduler: cosine
+  checkpoint_metric: macro_auc_plus_lrap
+  checkpoint_lrap_weight: 0.1
   num_workers: 0
 
 search:
   trials: 12
   learning_rate: [0.00001, 0.003]
   weight_decay: [0.000001, 0.001]
-  dropout: [0.0, 0.15, 0.25, 0.4]
-  instance_dim: [256, 512, 768]
-  attention_dim: [64, 128, 256]
-  shared_dim: [128, 256, 384]
+  dropout: [0.1, 0.2, 0.25, 0.35]
+  instance_dim: [384, 512, 768, 1024]
+  attention_dim: [128, 256, 384]
+  shared_dim: [256, 384, 512]
+  instance_layers: [1, 2]
+  shared_layers: [1, 2]
   loss: [bce, class_balanced, focal, class_balanced_focal]
+  class_balanced_beta: [0.99, 0.999, 0.9999]
+  focal_gamma: [1.0, 2.0]
+  focal_alpha: [0.25, 0.5, 0.75]
 
 thresholds:
   rule: balance
   grid_start: 0.0
   grid_stop: 1.0
   grid_step: 0.01
-

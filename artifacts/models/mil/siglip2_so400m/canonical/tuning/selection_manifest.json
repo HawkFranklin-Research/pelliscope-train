@@ -1,0 +1,11 @@
+{
+  "best_mil_config_json": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.json",
+  "best_mil_config_yaml": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml",
+  "case_manifest_sha256": "e6024a68fe9b65efac048b3c282c20a8853d75322dd70c465f9e1a4616331577",
+  "complete": true,
+  "feature_bank_sha256": "957037e7d41857f21246fc2377688114fe77f2843c4adcefe5b7ae6e669cc178",
+  "selected_config_sha256": "58b4717a40d8bbce1f3a89c02a71a1da9cfae824fc077db3253c60bdfbfeca43",
+  "split_manifest_sha256": "59e78641fb35d573ebd6244c4a0519368888f8d5b8b6e7083918dd529bf4a11b",
+  "winning_score": 0.930091033377111,
+  "winning_trial": 1
+}

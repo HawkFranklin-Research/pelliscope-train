@@ -2,7 +2,9 @@
   "aggregation": "mean",
   "classifier": "knn",
   "complete": true,
+  "cpu_workers": 32,
   "encoder": "derm_foundation",
   "model_count": 25,
+  "parallel_strategy": "estimator_internal",
   "seed": 42
 }

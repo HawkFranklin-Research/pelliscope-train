@@ -1,8 +1,9 @@
 {
   "complete": true,
+  "cpu_workers": 32,
   "first_model": "siglip2_so400m+MIL",
-  "paired_case_count": 6,
-  "replicates": 100,
-  "second_model": "derm_foundation+logistic:case_mean",
+  "paired_case_count": 750,
+  "replicates": 10000,
+  "second_model": "derm_foundation+random_forest:case_mean",
   "seed": 20260918
 }

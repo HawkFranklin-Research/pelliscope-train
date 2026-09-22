@@ -20,6 +20,7 @@ def generate_tables(
     labels: list[str],
     artifacts_dir: str | Path,
     reports_dir: str | Path,
+    primary_mil_root: str | Path | None = None,
 ) -> list[Path]:
     artifacts_dir, reports_dir = Path(artifacts_dir), Path(reports_dir)
     table_dir = reports_dir / "tables"
@@ -86,7 +87,14 @@ def generate_tables(
     outputs.append(write_csv(table_dir / "encoder_registry.csv", encoder_table))
 
     metric_files = sorted(artifacts_dir.glob("models/classical/*/*/overall_metrics.csv"))
-    metric_files += sorted(artifacts_dir.glob("models/mil/*/repeated_metrics_long.csv"))
+    mil_metric_files = sorted(artifacts_dir.glob("models/mil/*/repeated_metrics_long.csv"))
+    if primary_mil_root:
+        primary_mil_root = Path(primary_mil_root)
+        primary_encoder = primary_mil_root.parent.name
+        mil_metric_files = [path for path in mil_metric_files if path.parent.name != primary_encoder]
+        mil_metric_files.append(primary_mil_root / "repeated_metrics_long.csv")
+    metric_files += mil_metric_files
+    metric_files = [path for path in metric_files if path.is_file()]
     metric_frames = []
     for path in metric_files:
         frame = pd.read_csv(path)
@@ -97,26 +105,38 @@ def generate_tables(
         model_metrics = pd.concat(metric_frames, ignore_index=True)
         outputs.append(write_csv(table_dir / "all_model_metrics.csv", model_metrics))
         test = model_metrics[model_metrics["split"].eq("test")]
-        heatmap = test.groupby(["encoder", "classifier"], as_index=False)["auc_macro"].mean()
+        heatmap = test.groupby(["encoder", "classifier"], as_index=False)[["auc_macro", "auc_micro"]].mean()
         outputs.append(write_csv(plot_dir / "encoder_classifier_heatmap.csv", heatmap))
 
-    threshold_files = sorted(artifacts_dir.glob("models/mil/*/thresholds/test_operating_points.csv"))
+    threshold_files = (
+        [Path(primary_mil_root) / "thresholds" / "test_operating_points.csv"]
+        if primary_mil_root
+        else sorted(artifacts_dir.glob("models/mil/*/thresholds/test_operating_points.csv"))
+    )
+    threshold_files = [path for path in threshold_files if path.is_file()]
     if threshold_files:
         threshold_tables = []
         for path in threshold_files:
             frame = pd.read_csv(path)
-            frame.insert(0, "encoder", path.parents[1].name)
+            encoder = Path(primary_mil_root).parents[0].name if primary_mil_root else path.parents[1].name
+            frame.insert(0, "encoder", encoder)
             threshold_tables.append(frame)
         operating = pd.concat(threshold_tables, ignore_index=True)
         outputs.append(write_csv(table_dir / "operating_points.csv", operating))
         outputs.append(write_csv(plot_dir / "operating_points.csv", operating))
 
-    tuning_files = sorted(artifacts_dir.glob("models/mil/*/tuning/trials.csv"))
+    tuning_files = (
+        [Path(primary_mil_root) / "tuning" / "trials.csv"]
+        if primary_mil_root
+        else sorted(artifacts_dir.glob("models/mil/*/tuning/trials.csv"))
+    )
+    tuning_files = [path for path in tuning_files if path.is_file()]
     if tuning_files:
         trials = []
         for path in tuning_files:
             frame = pd.read_csv(path)
-            frame.insert(0, "encoder", path.parents[1].name)
+            encoder = Path(primary_mil_root).parents[0].name if primary_mil_root else path.parents[1].name
+            frame.insert(0, "encoder", encoder)
             trials.append(frame)
         outputs.append(write_csv(table_dir / "hyperparameter_trials.csv", pd.concat(trials, ignore_index=True)))
 
@@ -139,6 +159,7 @@ def generate_tables(
             labels,
             primary_encoder=str(figure_config.get("primary_encoder", "siglip2_so400m")),
             threshold_grid=threshold_grid,
+            primary_root=primary_mil_root,
         )
     )
 

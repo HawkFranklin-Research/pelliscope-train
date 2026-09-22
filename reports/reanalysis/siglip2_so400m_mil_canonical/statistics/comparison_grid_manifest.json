@@ -1,0 +1,80 @@
+{
+  "case_membership": "explicit_common_750_test_cohort",
+  "comparison_case_count": 750,
+  "comparison_cohort_source": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/statistics/derm_foundation_mil_test_ensemble_predictions.csv",
+  "comparison_cohort_source_sha256": "2711c9c2a83791e42536251cb7388b228925fdf37e7fb2e63717fdfdbe56d577",
+  "comparison_scope": "siglip2_mil_against_each_prespecified_comparator",
+  "comparisons": [
+    {
+      "complete": true,
+      "cpu_workers": 16,
+      "first_model": "siglip2_mil",
+      "name": "siglip2_mil_vs_siglip2_random_forest",
+      "paired_case_count": 750,
+      "replicates": 10000,
+      "second_model": "siglip2_random_forest",
+      "seed": 20260918
+    },
+    {
+      "complete": true,
+      "cpu_workers": 16,
+      "first_model": "siglip2_mil",
+      "name": "siglip2_mil_vs_derm_foundation_mil",
+      "paired_case_count": 750,
+      "replicates": 10000,
+      "second_model": "derm_foundation_mil",
+      "seed": 20260919
+    },
+    {
+      "complete": true,
+      "cpu_workers": 16,
+      "first_model": "siglip2_mil",
+      "name": "siglip2_mil_vs_derm_foundation_random_forest",
+      "paired_case_count": 750,
+      "replicates": 10000,
+      "second_model": "derm_foundation_random_forest",
+      "seed": 20260920
+    }
+  ],
+  "complete": true,
+  "excluded_rows": [
+    {
+      "case_id": "-2642851062546866158",
+      "model": "siglip2_mil",
+      "reason": "outside_common_750_cohort"
+    },
+    {
+      "case_id": "-4149065585657858240",
+      "model": "siglip2_mil",
+      "reason": "outside_common_750_cohort"
+    },
+    {
+      "case_id": "5034553214719072022",
+      "model": "siglip2_mil",
+      "reason": "outside_common_750_cohort"
+    },
+    {
+      "case_id": "8514226637880851044",
+      "model": "siglip2_mil",
+      "reason": "outside_common_750_cohort"
+    },
+    {
+      "case_id": "8611688123905317489",
+      "model": "siglip2_mil",
+      "reason": "outside_common_750_cohort"
+    }
+  ],
+  "paired_models": {
+    "derm_foundation_mil": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/statistics/paired_predictions/derm_foundation_mil.csv",
+    "derm_foundation_random_forest": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/statistics/paired_predictions/derm_foundation_random_forest.csv",
+    "siglip2_mil": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/statistics/paired_predictions/siglip2_mil.csv",
+    "siglip2_random_forest": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/statistics/paired_predictions/siglip2_random_forest.csv"
+  },
+  "replicates": 10000,
+  "source_models": {
+    "derm_foundation_mil": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/statistics/derm_foundation_mil_test_ensemble_predictions.csv",
+    "derm_foundation_random_forest": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/models/classical/derm_foundation/random_forest/test_case_predictions.csv",
+    "siglip2_mil": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/ensemble/test_predictions.csv",
+    "siglip2_random_forest": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/models/classical/siglip2_so400m/random_forest/test_case_predictions.csv"
+  }
+}

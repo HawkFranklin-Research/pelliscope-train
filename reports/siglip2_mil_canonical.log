@@ -1,0 +1,28 @@
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/31_tune_mil.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --device cpu
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/32_run_cross_validation.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --mil-config /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml --device cpu
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/33_run_repeated_seeds.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --mil-config /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml --device cpu
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/35_ensemble_mil.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --mil-config /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/40_select_thresholds.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --mil-config /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/34_fit_final_model.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --mil-config /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml --device cpu
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/50_evaluate.py --config configs/study_25class.yaml --predictions /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/ensemble/test_predictions.csv --thresholds /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/thresholds/validation_selected_thresholds.csv --output-dir /home/vatsal1_hawk_franklin_research_c/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/evaluations/ensemble
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/50_evaluate.py --config configs/study_25class.yaml --predictions /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/final_model/test_predictions.csv --thresholds /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/thresholds/validation_selected_thresholds.csv --output-dir /home/vatsal1_hawk_franklin_research_c/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/evaluations/final_model
+[run] /home/vatsal1_hawk_franklin_research_c/.venv/bin/python3 /home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/51_compare_grid.py --config configs/study_25class.yaml --encoder siglip2_so400m --run-tag canonical --workers 32
+Traceback (most recent call last):
+  File "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/51_compare_grid.py", line 142, in <module>
+    main()
+  File "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/51_compare_grid.py", line 84, in main
+    derm_ensemble = probability_ensemble(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/51_compare_grid.py", line 44, in probability_ensemble
+    raise ValueError(f"Unpaired seed predictions: {path}")
+ValueError: Unpaired seed predictions: /home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/derm_foundation/seed_44/test_predictions.csv
+Traceback (most recent call last):
+  File "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/run_mil_pipeline.py", line 288, in <module>
+    main()
+  File "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/run_mil_pipeline.py", line 239, in main
+    run_script(
+  File "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/run_mil_pipeline.py", line 54, in run_script
+    subprocess.run(command, cwd=REPOSITORY_ROOT, env=environment, check=True)
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/vatsal1_hawk_franklin_research_c/.venv/bin/python3', '/home/vatsal1_hawk_franklin_research_c/pelliscope-train/scripts/51_compare_grid.py', '--config', 'configs/study_25class.yaml', '--encoder', 'siglip2_so400m', '--run-tag', 'canonical', '--workers', '32']' returned non-zero exit status 1.

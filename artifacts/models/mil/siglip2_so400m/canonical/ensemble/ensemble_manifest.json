@@ -1,0 +1,38 @@
+{
+  "aggregation": "mean_probability_across_seeds",
+  "case_manifest_sha256": "e6024a68fe9b65efac048b3c282c20a8853d75322dd70c465f9e1a4616331577",
+  "complete": true,
+  "encoder": "siglip2_so400m",
+  "mean_per_seed_auc_is_not_ensemble_auc": true,
+  "run_mode": "full",
+  "run_tag": "canonical",
+  "selected_mil_config": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/tuning/best_mil_config.yaml",
+  "selected_mil_config_sha256": "2a8fd7d178138e8946265eb761d2f3ce754b7b4008a4de5b3bb42784d0545089",
+  "source_files": {
+    "test": [
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_42/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_43/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_44/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_45/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_46/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_47/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_48/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_49/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_50/test_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_51/test_predictions.csv"
+    ],
+    "validation": [
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_42/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_43/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_44/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_45/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_46/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_47/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_48/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_49/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_50/validation_predictions.csv",
+      "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/seed_51/validation_predictions.csv"
+    ]
+  },
+  "split_manifest_sha256": "59e78641fb35d573ebd6244c4a0519368888f8d5b8b6e7083918dd529bf4a11b"
+}

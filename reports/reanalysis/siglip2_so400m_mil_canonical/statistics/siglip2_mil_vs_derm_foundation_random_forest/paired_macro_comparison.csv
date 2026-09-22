@@ -1,0 +1,3 @@
+comparison,metric,difference,ci_lower,ci_upper,bootstrap_p,paired_permutation_p,replicates
+siglip2_mil - derm_foundation_random_forest,macro_roc_auc,-0.004074458842329043,-0.021575625701335786,0.014069090541764853,0.6499350064993501,0.7914208579142086,10000
+siglip2_mil - derm_foundation_random_forest,macro_pr_auc,0.028097803378177633,-0.012216039712809374,0.06087924152970243,0.194980501949805,0.2716728327167283,10000

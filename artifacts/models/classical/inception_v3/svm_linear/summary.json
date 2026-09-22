@@ -2,7 +2,9 @@
   "aggregation": "mean",
   "classifier": "svm_linear",
   "complete": true,
+  "cpu_workers": 32,
   "encoder": "inception_v3",
   "model_count": 25,
+  "parallel_strategy": "one_vs_rest_labels",
   "seed": 42
 }

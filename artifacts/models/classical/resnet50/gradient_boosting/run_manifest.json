@@ -5,53 +5,55 @@
     "classifier": "gradient_boosting",
     "config": "configs/study_25class.yaml",
     "encoder": "resnet50",
-    "seed": 42
+    "seed": 42,
+    "workers": 32
   },
-  "config_sha256": "253407f61c17eaf6bbd85625d2b5f5eaba3de5b3e5fdff32b3b3f0df2ba34f10",
-  "ended_at": "2026-09-18T18:16:43.117961+00:00",
+  "config_sha256": "51f8746941ad86d0e0f8a69145baa7c3c38c604efb3310223723d3e8692aaec3",
+  "ended_at": "2026-09-19T18:41:57.421033+00:00",
   "environment": {
-    "cuda_available": true,
-    "cuda_device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
-    "executable": "/home/prime/miniconda3/bin/python",
-    "hostname": "hawk-prime",
+    "available_cpu_count": 32,
+    "configured_cpu_workers": 32,
+    "cuda_available": false,
+    "executable": "/home/vatsal1_hawk_franklin_research_c/.venv/bin/python3",
+    "hostname": "pelliscope-runner",
     "mps_available": false,
-    "pid": 174871,
-    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
-    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:13:31) [GCC 14.3.0]",
-    "torch": "2.11.0+cu130"
+    "pid": 11202,
+    "platform": "Linux-6.8.0-1067-gcp-x86_64-with-glibc2.35",
+    "python": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 11.4.0]",
+    "torch": "2.14.0+cpu"
   },
-  "git_commit": "d1b877cc350fc29dea0d3e348dd8354b691ee61d",
+  "git_commit": "8de58e9091d251e052fb90458887c01fbc4f2045",
   "inputs": [
     {
       "exists": true,
-      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/features/resnet50/feature_bank.npz",
-      "sha256": "21e25bcaed0b5a140ed390ae3fad89881902b1c90ce200521f163cd628ca4f06",
-      "size": 285337
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/features/resnet50/feature_bank.npz",
+      "sha256": "d249b5810121c38e7538c5ac6f22c04ea33416c23a1b29fa3edf3db333d8f28b",
+      "size": 45661391
     },
     {
       "exists": true,
-      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/data/splits/split_manifest_v1.csv",
-      "sha256": "247d6a71a26e4e89dfb09cb54d78fba8e3c4a604da5d4f23913223af3487a8f6",
-      "size": 958
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/data/splits/split_manifest_v1.csv",
+      "sha256": "d0db8b61b29e9d51ede83166585c06f47ca761319648c6701a9b50534eb50328",
+      "size": 166026
     }
   ],
   "outputs": [
     {
       "exists": true,
-      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/resnet50/gradient_boosting/overall_metrics.csv",
-      "sha256": "a84fe828b43e5d0200ac39d7975405bdc1fe2f59063c0a1c95cf76054c04b4fa",
-      "size": 740
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/classical/resnet50/gradient_boosting/overall_metrics.csv",
+      "sha256": "afcfd9872e8da8626b6d641b01bad12cf88fc992717876b9b25b9bf6594d52e7",
+      "size": 1025
     },
     {
       "exists": true,
-      "path": "/home/prime/Documents/github/derm-paper-codebases/hawk-derm/artifacts/models/classical/resnet50/gradient_boosting/test_case_predictions.csv",
-      "sha256": "a614a99af3f8127af4e1fa95c40da78415ff531c2f6fb8f816108931ca07fd77",
-      "size": 5928
+      "path": "/home/vatsal1_hawk_franklin_research_c/pelliscope-train/artifacts/models/classical/resnet50/gradient_boosting/test_case_predictions.csv",
+      "sha256": "a86e6f292c64081f34aa2f8776dd5cb6e8620db7706a59b1e10fb7e40bbfe3db",
+      "size": 512832
     }
   ],
-  "run_id": "train_classical-20260918T234629-a2403dc2",
-  "run_mode": "smoke",
+  "run_id": "train_classical-20260919T183645-8100c32d",
+  "run_mode": "full",
   "stage": "train_classical",
-  "started_at": "2026-09-18T18:16:29.492433+00:00",
+  "started_at": "2026-09-19T18:36:45.634959+00:00",
   "status": "complete"
 }

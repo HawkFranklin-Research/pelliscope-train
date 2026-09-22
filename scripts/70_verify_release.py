@@ -6,11 +6,178 @@ from pathlib import Path
 
 import pandas as pd
 
-from _common import load_context
+from _common import load_context, mil_run_root
 
 from hawk_derm.config import path_from
 from hawk_derm.features.registry import load_encoder_registry
 from hawk_derm.io import read_json, sha256_file, write_csv, write_json
+
+
+def verify_tagged_mil_release(config: dict, encoder: str, run_tag: str) -> None:
+    artifacts = path_from(config, "artifacts_dir")
+    reports = path_from(config, "reports_dir")
+    root = mil_run_root(config, encoder, run_tag)
+    case_path = path_from(config, "case_manifest")
+    split_path = path_from(config, "split_manifest")
+    cases = pd.read_csv(case_path)
+    splits = pd.read_csv(split_path)
+    expected_case_count = int(config["study"]["canonical_case_count"])
+    expected_split_counts = splits.groupby("split")["case_id"].nunique().to_dict()
+    expected_seeds = [int(seed) for seed in config[config["study"]["run_mode"]]["seeds"]]
+    selected_config = root / "tuning" / "best_mil_config.yaml"
+    feature_bank = artifacts / "features" / encoder / "feature_bank.npz"
+    statistics_root = reports / "reanalysis" / f"{encoder}_mil_{run_tag}" / "statistics"
+    canonical_test_predictions = statistics_root / "paired_predictions" / f"{encoder.removesuffix('_so400m')}_mil.csv"
+    expected_test_case_count = int(config["study"]["canonical_test_case_count"])
+    required = [
+        feature_bank,
+        selected_config,
+        root / "tuning" / "selection_manifest.json",
+        root / "cross_validation" / "cross_validation_metrics.csv",
+        root / "repeated_metrics_long.csv",
+        root / "repeated_metrics_summary.csv",
+        root / "ensemble" / "validation_predictions.csv",
+        root / "ensemble" / "test_predictions.csv",
+        root / "ensemble" / "overall_metrics.csv",
+        root / "ensemble" / "per_class_metrics.csv",
+        root / "ensemble" / "ensemble_manifest.json",
+        root / "thresholds" / "validation_selected_thresholds.csv",
+        root / "thresholds" / "test_operating_points.csv",
+        root / "thresholds" / "threshold_manifest.json",
+        root / "final_model" / "model.pt",
+        root / "final_model" / "train_predictions.csv",
+        root / "final_model" / "validation_predictions.csv",
+        root / "final_model" / "test_predictions.csv",
+        root / "final_model" / "final_model_manifest.json",
+        statistics_root / "comparison_grid_manifest.json",
+        canonical_test_predictions,
+    ]
+    failures: list[str] = []
+    if len(cases) != expected_case_count or cases["case_id"].nunique() != expected_case_count:
+        failures.append(f"case manifest must contain {expected_case_count} unique rows; found {len(cases)}")
+    if splits["case_id"].nunique() != expected_case_count or len(splits) != expected_case_count:
+        failures.append("split manifest does not contain every canonical case exactly once")
+    missing = [str(path) for path in required if not path.is_file() or path.stat().st_size == 0]
+    if missing:
+        failures.append(f"missing or empty required artifacts: {missing}")
+
+    if canonical_test_predictions.is_file():
+        canonical_test = pd.read_csv(canonical_test_predictions)
+        canonical_ids = canonical_test["case_id"].astype(str)
+        if len(canonical_test) != expected_test_case_count or canonical_ids.nunique() != expected_test_case_count:
+            failures.append(
+                f"canonical test predictions must contain {expected_test_case_count} unique cases: "
+                f"{canonical_test_predictions}"
+            )
+        for paired_path in sorted((statistics_root / "paired_predictions").glob("*.csv")):
+            paired = pd.read_csv(paired_path)
+            paired_ids = paired["case_id"].astype(str)
+            if len(paired) != expected_test_case_count or set(paired_ids) != set(canonical_ids):
+                failures.append(f"paired prediction membership differs from the canonical test cohort: {paired_path}")
+
+    manifests = (
+        list(root.rglob("*manifest.json"))
+        + list(root.rglob("run_manifest.json"))
+        + [case_path.with_suffix(".metadata.json"), split_path.with_suffix(".metadata.json")]
+    )
+    for manifest_path in sorted(set(manifests)):
+        if not manifest_path.is_file():
+            continue
+        payload = read_json(manifest_path)
+        if payload.get("run_mode") == "smoke":
+            failures.append(f"production artifact is marked run_mode=smoke: {manifest_path}")
+
+    seed_dirs = [root / f"seed_{seed}" for seed in expected_seeds]
+    if sum(path.is_dir() for path in seed_dirs) != len(expected_seeds):
+        failures.append(f"expected {len(expected_seeds)} seed directories")
+    provenance_values: list[tuple[str, str, str]] = []
+    expected_ids = {
+        split: set(splits.loc[splits["split"].eq(split), "case_id"].astype(str))
+        for split in ("train", "validation", "test")
+    }
+    for seed_dir in seed_dirs:
+        summary_path = seed_dir / "summary.json"
+        if not summary_path.is_file():
+            failures.append(f"missing seed summary: {summary_path}")
+            continue
+        summary = read_json(summary_path)
+        provenance = summary.get("provenance", {})
+        provenance_values.append(
+            (
+                str(provenance.get("feature_bank_sha256", "")),
+                str(provenance.get("selected_mil_config_sha256", "")),
+                str(provenance.get("split_manifest_sha256", "")),
+            )
+        )
+        for split, expected in expected_ids.items():
+            path = seed_dir / f"{split}_predictions.csv"
+            if not path.is_file():
+                failures.append(f"missing raw predictions: {path}")
+                continue
+            frame = pd.read_csv(path)
+            actual = set(frame["case_id"].astype(str))
+            if len(frame) != expected_split_counts.get(split, 0) or actual != expected:
+                failures.append(f"unexpected {split} membership or row count: {path}")
+    if provenance_values and len(set(provenance_values)) != 1:
+        failures.append("feature/config/split hashes differ across repeated seeds")
+    if provenance_values and any(not value for value in provenance_values[0]):
+        failures.append("one or more repeated-seed provenance hashes are missing")
+
+    for path, split in (
+        (root / "ensemble" / "validation_predictions.csv", "validation"),
+        (root / "ensemble" / "test_predictions.csv", "test"),
+        (root / "final_model" / "train_predictions.csv", "train"),
+        (root / "final_model" / "validation_predictions.csv", "validation"),
+        (root / "final_model" / "test_predictions.csv", "test"),
+    ):
+        if not path.is_file():
+            continue
+        frame = pd.read_csv(path)
+        if len(frame) != expected_split_counts.get(split, 0):
+            failures.append(f"unexpected row count in {path}")
+        if set(frame["case_id"].astype(str)) != expected_ids[split]:
+            failures.append(f"unexpected locked membership in {path}")
+
+    if (root / "ensemble" / "ensemble_manifest.json").is_file():
+        ensemble_manifest = read_json(root / "ensemble" / "ensemble_manifest.json")
+        if ensemble_manifest.get("aggregation") != "mean_probability_across_seeds":
+            failures.append("ensemble manifest does not identify probability averaging")
+        if ensemble_manifest.get("mean_per_seed_auc_is_not_ensemble_auc") is not True:
+            failures.append("mean per-seed AUC could be mislabeled as ensemble AUC")
+    if feature_bank.is_file() and selected_config.is_file() and provenance_values:
+        if provenance_values[0][0] != sha256_file(feature_bank):
+            failures.append("seed feature-bank hash differs from the current feature bank")
+        if provenance_values[0][1] != sha256_file(selected_config):
+            failures.append("seed selected-config hash differs from best_mil_config.yaml")
+        if provenance_values[0][2] != sha256_file(split_path):
+            failures.append("seed split hash differs from the locked split manifest")
+
+    records = pd.DataFrame(
+        [
+            {
+                "path": str(path),
+                "exists": path.is_file(),
+                "size": path.stat().st_size if path.is_file() else 0,
+                "sha256": sha256_file(path) if path.is_file() else "",
+            }
+            for path in required
+        ]
+    )
+    output = reports / "reanalysis" / f"{encoder}_mil_{run_tag}" / "verification"
+    write_csv(output / "release_verification.csv", records)
+    payload = {
+        "complete": not failures,
+        "encoder": encoder,
+        "run_tag": run_tag,
+        "case_count": len(cases),
+        "split_counts": expected_split_counts,
+        "seed_count": len(seed_dirs),
+        "checked": len(required),
+        "failures": failures,
+    }
+    write_json(output / "release_verification.json", payload)
+    if failures:
+        raise RuntimeError("Tagged MIL release is incomplete: " + "; ".join(failures))
 
 
 def main() -> None:
@@ -18,8 +185,12 @@ def main() -> None:
     parser.add_argument("--config", default="configs/study_25class.yaml")
     parser.add_argument("--encoders", default=None, help="Comma-separated encoder keys expected in this release.")
     parser.add_argument("--primary-encoder", default="siglip2_so400m")
+    parser.add_argument("--mil-run-tag", default=None, help="Verify an isolated MIL run instead of the legacy release.")
     args = parser.parse_args()
     config = load_context(args.config)
+    if args.mil_run_tag:
+        verify_tagged_mil_release(config, args.primary_encoder, args.mil_run_tag)
+        return
     root = Path(config["repository_root"])
     artifacts = path_from(config, "artifacts_dir")
     reports = path_from(config, "reports_dir")

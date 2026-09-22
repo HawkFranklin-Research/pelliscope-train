@@ -1,0 +1,44 @@
+{
+  "architecture": {
+    "attention_dim": 128,
+    "dropout": 0.2,
+    "instance_dim": 1024,
+    "instance_layers": 1,
+    "shared_dim": 512,
+    "shared_layers": 1
+  },
+  "implementation": "canonical_siglip2_mil",
+  "selection": {
+    "case_manifest_sha256": "e6024a68fe9b65efac048b3c282c20a8853d75322dd70c465f9e1a4616331577",
+    "checkpoint_metric": "macro_auc_plus_lrap",
+    "feature_bank_sha256": "957037e7d41857f21246fc2377688114fe77f2843c4adcefe5b7ae6e669cc178",
+    "selected_config_sha256": "58b4717a40d8bbce1f3a89c02a71a1da9cfae824fc077db3253c60bdfbfeca43",
+    "split_manifest_sha256": "59e78641fb35d573ebd6244c4a0519368888f8d5b8b6e7083918dd529bf4a11b",
+    "winning_score": 0.930091033377111,
+    "winning_trial": 1
+  },
+  "thresholds": {
+    "grid_start": 0.0,
+    "grid_step": 0.01,
+    "grid_stop": 1.0,
+    "rule": "balance"
+  },
+  "training": {
+    "batch_size": 64,
+    "checkpoint_lrap_weight": 0.1,
+    "checkpoint_metric": "macro_auc_plus_lrap",
+    "class_balanced_beta": 0.9999,
+    "early_stopping_patience": 8,
+    "epochs": 30,
+    "focal_alpha": 0.75,
+    "focal_gamma": 2.0,
+    "gradient_clip_norm": 5.0,
+    "learning_rate": 0.0008263860513916881,
+    "loss": "focal",
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "use_positive_weights": true,
+    "weight_decay": 2.0731719263694552e-05
+  }
+}

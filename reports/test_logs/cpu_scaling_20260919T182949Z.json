@@ -1,0 +1,1833 @@
+{
+  "complete": true,
+  "selection_seed": 7,
+  "model": "random_forest",
+  "encoder": "resnet50",
+  "available_logical_cpus": 32,
+  "results": [
+    {
+      "return_code": 0,
+      "duration_seconds": 16.466857301999994,
+      "sample_count": 63,
+      "mean_equivalent_busy_cores": 1.6070392113966208,
+      "peak_equivalent_busy_cores": 12.871983020046736,
+      "observed_logical_cpu_count": 32,
+      "observed_logical_cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "samples": [
+        {
+          "elapsed_seconds": 0.25056436200000576,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 1287.1983020046737,
+          "equivalent_busy_cores": 12.871983020046736,
+          "observed_logical_cpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 0.5113979209999968,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 1242.1714492651274,
+          "equivalent_busy_cores": 12.421714492651274,
+          "observed_logical_cpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 0.7851539199999991,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 94.97508765095513,
+          "equivalent_busy_cores": 0.9497508765095514,
+          "observed_logical_cpus": [
+            14
+          ]
+        },
+        {
+          "elapsed_seconds": 1.0451317369999913,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.00853265107914,
+          "equivalent_busy_cores": 1.0000853265107914,
+          "observed_logical_cpus": [
+            14
+          ]
+        },
+        {
+          "elapsed_seconds": 1.3044883089999928,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.24808625246577,
+          "equivalent_busy_cores": 1.0024808625246577,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 1.57149966099999,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 101.11929623127139,
+          "equivalent_busy_cores": 1.0111929623127138,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 1.836186123999994,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 98.22942852955657,
+          "equivalent_busy_cores": 0.9822942852955657,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.103923626000011,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 97.11004176022509,
+          "equivalent_busy_cores": 0.9711004176022509,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.3634678349999945,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.17561208619242,
+          "equivalent_busy_cores": 1.0017561208619241,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.623460864000009,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.00268122572835,
+          "equivalent_busy_cores": 1.0000268122572835,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.8833522330000108,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 103.8895601030899,
+          "equivalent_busy_cores": 1.038895601030899,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 3.143539269999991,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 192.16945077860976,
+          "equivalent_busy_cores": 1.9216945077860976,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 3.4043465960000105,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 191.71240611544874,
+          "equivalent_busy_cores": 1.9171240611544875,
+          "observed_logical_cpus": [
+            9,
+            10
+          ]
+        },
+        {
+          "elapsed_seconds": 3.665187634000006,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 184.02012339791744,
+          "equivalent_busy_cores": 1.8402012339791745,
+          "observed_logical_cpus": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            24,
+            26,
+            28,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 3.9257362680000085,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 157.36025697221493,
+          "equivalent_busy_cores": 1.5736025697221492,
+          "observed_logical_cpus": [
+            1,
+            2,
+            3,
+            12,
+            17,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 4.186641417000004,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 176.30928395361323,
+          "equivalent_busy_cores": 1.7630928395361323,
+          "observed_logical_cpus": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            25,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 4.447356629000012,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 168.76652368101423,
+          "equivalent_busy_cores": 1.6876652368101424,
+          "observed_logical_cpus": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            16,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        {
+          "elapsed_seconds": 4.7081026379999855,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 172.58174026358577,
+          "equivalent_busy_cores": 1.7258174026358577,
+          "observed_logical_cpus": [
+            10
+          ]
+        },
+        {
+          "elapsed_seconds": 4.968810907000005,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 184.11383798492545,
+          "equivalent_busy_cores": 1.8411383798492544,
+          "observed_logical_cpus": [
+            8,
+            9,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 5.2300098460000015,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 145.48297992895195,
+          "equivalent_busy_cores": 1.4548297992895194,
+          "observed_logical_cpus": [
+            10,
+            24,
+            25,
+            27,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 5.490661764000009,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 145.78829993493034,
+          "equivalent_busy_cores": 1.4578829993493034,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            13,
+            14,
+            15,
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 5.750705323000005,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.9018164760639,
+          "equivalent_busy_cores": 1.269018164760639,
+          "observed_logical_cpus": [
+            8,
+            12,
+            13,
+            14,
+            24,
+            25,
+            26,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 6.0114723559999845,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.5497391305696,
+          "equivalent_busy_cores": 1.2654973913056962,
+          "observed_logical_cpus": [
+            28
+          ]
+        },
+        {
+          "elapsed_seconds": 6.272705403999993,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 137.8079851520121,
+          "equivalent_busy_cores": 1.378079851520121,
+          "observed_logical_cpus": [
+            8,
+            12,
+            13,
+            14,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 6.536514476999997,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 121.29984627177497,
+          "equivalent_busy_cores": 1.2129984627177497,
+          "observed_logical_cpus": [
+            8,
+            26,
+            27,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 6.797347010999999,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.5179596039186,
+          "equivalent_busy_cores": 1.265179596039186,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 7.058041446999994,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 141.928614080589,
+          "equivalent_busy_cores": 1.41928614080589,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 7.318713451999997,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 130.43211141909748,
+          "equivalent_busy_cores": 1.3043211141909747,
+          "observed_logical_cpus": [
+            9,
+            13,
+            15,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 7.579322466000008,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 141.97513521154912,
+          "equivalent_busy_cores": 1.4197513521154912,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            24,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 7.848844555999989,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.14921470816135,
+          "equivalent_busy_cores": 1.2614921470816136,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            15,
+            24,
+            25,
+            28,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 8.111389229999986,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 121.88401886987178,
+          "equivalent_busy_cores": 1.218840188698718,
+          "observed_logical_cpus": [
+            25
+          ]
+        },
+        {
+          "elapsed_seconds": 8.373775203999998,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 125.76891781570065,
+          "equivalent_busy_cores": 1.2576891781570065,
+          "observed_logical_cpus": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            27,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 8.634708679999989,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.4690161871033,
+          "equivalent_busy_cores": 1.2646901618710331,
+          "observed_logical_cpus": [
+            10,
+            11,
+            25,
+            26,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 8.896662459999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 118.3414875708231,
+          "equivalent_busy_cores": 1.183414875708231,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 9.160028828999998,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 129.09772849546573,
+          "equivalent_busy_cores": 1.2909772849546572,
+          "observed_logical_cpus": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 9.421392309999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.43485538823727,
+          "equivalent_busy_cores": 1.2243485538823726,
+          "observed_logical_cpus": [
+            10,
+            15,
+            26,
+            28,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 9.682024186000007,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 134.28902303568353,
+          "equivalent_busy_cores": 1.3428902303568353,
+          "observed_logical_cpus": [
+            9,
+            10,
+            12,
+            25,
+            26,
+            27,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 9.942142791999999,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 138.39840430330898,
+          "equivalent_busy_cores": 1.3839840430330899,
+          "observed_logical_cpus": [
+            9,
+            10,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 10.202781810999994,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.61189459127205,
+          "equivalent_busy_cores": 1.2661189459127205,
+          "observed_logical_cpus": [
+            8
+          ]
+        },
+        {
+          "elapsed_seconds": 10.463392903999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.78832658900173,
+          "equivalent_busy_cores": 1.2278832658900172,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            11,
+            24,
+            25,
+            26,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 10.723748414,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.9088641142977,
+          "equivalent_busy_cores": 1.229088641142977,
+          "observed_logical_cpus": [
+            10,
+            11,
+            12,
+            13,
+            24,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 10.985391198999992,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 129.94816577877737,
+          "equivalent_busy_cores": 1.2994816577877737,
+          "observed_logical_cpus": [
+            13,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 11.246340884999995,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 153.2862545770584,
+          "equivalent_busy_cores": 1.532862545770584,
+          "observed_logical_cpus": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 11.507156882000004,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 130.36010210676938,
+          "equivalent_busy_cores": 1.3036010210676938,
+          "observed_logical_cpus": [
+            9,
+            13,
+            14,
+            15,
+            26,
+            27
+          ]
+        },
+        {
+          "elapsed_seconds": 11.76839659800001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 133.97656579905038,
+          "equivalent_busy_cores": 1.3397656579905037,
+          "observed_logical_cpus": [
+            27
+          ]
+        },
+        {
+          "elapsed_seconds": 12.029354880999989,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.45699389431756,
+          "equivalent_busy_cores": 1.2645699389431757,
+          "observed_logical_cpus": [
+            9,
+            10,
+            13,
+            14,
+            15,
+            24,
+            26,
+            27,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 12.29087787200001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 110.88891224862779,
+          "equivalent_busy_cores": 1.1088891224862778,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 12.55071226199999,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.06373675171311,
+          "equivalent_busy_cores": 1.0006373675171312,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 12.810789061000008,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 103.81548874722247,
+          "equivalent_busy_cores": 1.0381548874722248,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 13.070691825000011,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 96.18981966655691,
+          "equivalent_busy_cores": 0.9618981966655692,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 13.330643600999991,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.01855113312253,
+          "equivalent_busy_cores": 1.0001855113312252,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 13.590641691000002,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.00073462077721,
+          "equivalent_busy_cores": 1.000007346207772,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 13.850622393000009,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 111.5467408807874,
+          "equivalent_busy_cores": 1.115467408807874,
+          "observed_logical_cpus": [
+            10
+          ]
+        },
+        {
+          "elapsed_seconds": 14.111186745999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 118.97252883245545,
+          "equivalent_busy_cores": 1.1897252883245546,
+          "observed_logical_cpus": [
+            10
+          ]
+        },
+        {
+          "elapsed_seconds": 14.37503910000001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 109.90995365535971,
+          "equivalent_busy_cores": 1.0990995365535972,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 14.636118939999989,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 107.24688662288979,
+          "equivalent_busy_cores": 1.072468866228898,
+          "observed_logical_cpus": [
+            12
+          ]
+        },
+        {
+          "elapsed_seconds": 14.896561029999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 107.50950432013589,
+          "equivalent_busy_cores": 1.0750950432013588,
+          "observed_logical_cpus": [
+            12
+          ]
+        },
+        {
+          "elapsed_seconds": 15.15954089600001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 102.66945683209681,
+          "equivalent_busy_cores": 1.026694568320968,
+          "observed_logical_cpus": [
+            13
+          ]
+        },
+        {
+          "elapsed_seconds": 15.419397841000006,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.0550514437874,
+          "equivalent_busy_cores": 1.0005505144378741,
+          "observed_logical_cpus": [
+            13
+          ]
+        },
+        {
+          "elapsed_seconds": 15.67950521200001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 96.1141543351328,
+          "equivalent_busy_cores": 0.961141543351328,
+          "observed_logical_cpus": [
+            13
+          ]
+        },
+        {
+          "elapsed_seconds": 15.939174638999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 103.97835552663025,
+          "equivalent_busy_cores": 1.0397835552663026,
+          "observed_logical_cpus": [
+            13
+          ]
+        },
+        {
+          "elapsed_seconds": 16.198945581000004,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.08817691394553,
+          "equivalent_busy_cores": 1.0008817691394554,
+          "observed_logical_cpus": [
+            13
+          ]
+        },
+        {
+          "elapsed_seconds": 16.458824752999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 69.26295732541861,
+          "equivalent_busy_cores": 0.6926295732541861,
+          "observed_logical_cpus": [
+            13
+          ]
+        }
+      ],
+      "requested_workers": -1,
+      "effective_workers": 32
+    },
+    {
+      "return_code": 0,
+      "duration_seconds": 16.438469237999982,
+      "sample_count": 63,
+      "mean_equivalent_busy_cores": 1.6093213126539614,
+      "peak_equivalent_busy_cores": 12.873053854616208,
+      "observed_logical_cpu_count": 32,
+      "observed_logical_cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "samples": [
+        {
+          "elapsed_seconds": 0.25044361700000195,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 1287.3053854616207,
+          "equivalent_busy_cores": 12.873053854616208,
+          "observed_logical_cpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 0.510166938999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 1243.6310975570327,
+          "equivalent_busy_cores": 12.436310975570327,
+          "observed_logical_cpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 0.7824313520000032,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 95.49540358033661,
+          "equivalent_busy_cores": 0.9549540358033661,
+          "observed_logical_cpus": [
+            24
+          ]
+        },
+        {
+          "elapsed_seconds": 1.0417361319999827,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.26810921110693,
+          "equivalent_busy_cores": 1.0026810921110694,
+          "observed_logical_cpus": [
+            24
+          ]
+        },
+        {
+          "elapsed_seconds": 1.3011146949999954,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.2395868774966,
+          "equivalent_busy_cores": 1.0023958687749661,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 1.5602672050000024,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.32702365105128,
+          "equivalent_busy_cores": 1.0032702365105128,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 1.819451999999984,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.3145265523845,
+          "equivalent_busy_cores": 1.003145265523845,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.0787796029999868,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.25928477810258,
+          "equivalent_busy_cores": 1.0025928477810258,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.338083019999999,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.26863625942407,
+          "equivalent_busy_cores": 1.0026863625942406,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.5979420059999825,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.05426558541895,
+          "equivalent_busy_cores": 1.0005426558541894,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 2.857787108999986,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.05961128310987,
+          "equivalent_busy_cores": 1.0005961128310987,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 3.1175188149999826,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 196.35646639151813,
+          "equivalent_busy_cores": 1.9635646639151814,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 3.3783794130000047,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 191.67325530701947,
+          "equivalent_busy_cores": 1.9167325530701946,
+          "observed_logical_cpus": [
+            24
+          ]
+        },
+        {
+          "elapsed_seconds": 3.641616454000001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 186.14401610752287,
+          "equivalent_busy_cores": 1.8614401610752287,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 3.9025851810000063,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 168.6025774268314,
+          "equivalent_busy_cores": 1.686025774268314,
+          "observed_logical_cpus": [
+            9,
+            11,
+            12,
+            15,
+            18,
+            19,
+            20,
+            24,
+            26,
+            27,
+            28,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 4.1647145559999785,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 164.04113426816264,
+          "equivalent_busy_cores": 1.6404113426816265,
+          "observed_logical_cpus": [
+            9,
+            13,
+            14,
+            17,
+            18,
+            19,
+            21,
+            22,
+            24,
+            25,
+            27,
+            28,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 4.424791726999985,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 180.71559229625313,
+          "equivalent_busy_cores": 1.8071559229625314,
+          "observed_logical_cpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            9,
+            10,
+            11,
+            12,
+            17,
+            19,
+            20,
+            21,
+            23
+          ]
+        },
+        {
+          "elapsed_seconds": 4.6853758409999955,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 165.013896434217,
+          "equivalent_busy_cores": 1.65013896434217,
+          "observed_logical_cpus": [
+            10,
+            12
+          ]
+        },
+        {
+          "elapsed_seconds": 4.947864179999982,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 182.86526625475142,
+          "equivalent_busy_cores": 1.8286526625475141,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 5.209772311999984,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 145.08904213787338,
+          "equivalent_busy_cores": 1.4508904213787337,
+          "observed_logical_cpus": [
+            1,
+            9,
+            10,
+            13,
+            24,
+            25,
+            27,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 5.472243266999982,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 144.77792409449773,
+          "equivalent_busy_cores": 1.4477792409449775,
+          "observed_logical_cpus": [
+            2,
+            3,
+            4,
+            6,
+            10,
+            14,
+            15,
+            24,
+            25,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 5.732274615999984,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 130.75346542158556,
+          "equivalent_busy_cores": 1.3075346542158557,
+          "observed_logical_cpus": [
+            8,
+            14,
+            15,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 5.995474984999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 125.37976343034528,
+          "equivalent_busy_cores": 1.2537976343034527,
+          "observed_logical_cpus": [
+            21
+          ]
+        },
+        {
+          "elapsed_seconds": 6.256967597999989,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 137.67119302907344,
+          "equivalent_busy_cores": 1.3767119302907345,
+          "observed_logical_cpus": [
+            0,
+            14,
+            15,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 6.518127454999984,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.53031674772492,
+          "equivalent_busy_cores": 1.2253031674772492,
+          "observed_logical_cpus": [
+            1,
+            18,
+            19,
+            20,
+            22,
+            23,
+            28,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 6.778696070999985,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 118.97058239738259,
+          "equivalent_busy_cores": 1.1897058239738258,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 7.0392650469999865,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 138.15919512996723,
+          "equivalent_busy_cores": 1.3815919512996724,
+          "observed_logical_cpus": [
+            2,
+            8,
+            9,
+            10,
+            13,
+            20,
+            21,
+            23,
+            24,
+            25,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 7.2998614809999935,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 130.4699357474672,
+          "equivalent_busy_cores": 1.304699357474672,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 7.560400082000001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 142.01350532314763,
+          "equivalent_busy_cores": 1.4201350532314763,
+          "observed_logical_cpus": [
+            0,
+            1,
+            2,
+            8,
+            9,
+            12,
+            13,
+            23,
+            24,
+            25,
+            26,
+            28,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 7.821006794999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.62758998077545,
+          "equivalent_busy_cores": 1.2662758998077546,
+          "observed_logical_cpus": [
+            8,
+            9,
+            12,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 8.081789076999996,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.54233925293659,
+          "equivalent_busy_cores": 1.2654233925293659,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 8.342591287999994,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.53266961759104,
+          "equivalent_busy_cores": 1.2653266961759104,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            26,
+            27,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 8.603289405999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 118.91148366479877,
+          "equivalent_busy_cores": 1.1891148366479876,
+          "observed_logical_cpus": [
+            9,
+            28,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 8.863875992000004,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.63737035181815,
+          "equivalent_busy_cores": 1.2663737035181815,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            26,
+            27,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 9.124101645999986,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.97019724274487,
+          "equivalent_busy_cores": 1.2297019724274487,
+          "observed_logical_cpus": [
+            8,
+            11,
+            12,
+            13,
+            15,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 9.386373696999982,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.01071321930687,
+          "equivalent_busy_cores": 1.2201071321930685,
+          "observed_logical_cpus": [
+            10,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 9.646850815999983,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 145.88613443624536,
+          "equivalent_busy_cores": 1.4588613443624536,
+          "observed_logical_cpus": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            26,
+            30,
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 9.908163021999997,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.28571969576603,
+          "equivalent_busy_cores": 1.2628571969576603,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            13,
+            14,
+            24,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 10.169229019,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 130.2352676744786,
+          "equivalent_busy_cores": 1.302352676744786,
+          "observed_logical_cpus": [
+            12
+          ]
+        },
+        {
+          "elapsed_seconds": 10.432001563,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 125.58389661897068,
+          "equivalent_busy_cores": 1.255838966189707,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            27,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 10.695346650000005,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 121.51356368383448,
+          "equivalent_busy_cores": 1.2151356368383448,
+          "observed_logical_cpus": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            27
+          ]
+        },
+        {
+          "elapsed_seconds": 10.956880851999983,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 126.17852559109149,
+          "equivalent_busy_cores": 1.2617852559109148,
+          "observed_logical_cpus": [
+            14
+          ]
+        },
+        {
+          "elapsed_seconds": 11.219487883,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 148.51087517149392,
+          "equivalent_busy_cores": 1.4851087517149393,
+          "observed_logical_cpus": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 11.481547997999996,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 137.37306037586225,
+          "equivalent_busy_cores": 1.3737306037586225,
+          "observed_logical_cpus": [
+            12,
+            14,
+            15,
+            25,
+            28
+          ]
+        },
+        {
+          "elapsed_seconds": 11.743915034999986,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 144.83526754925944,
+          "equivalent_busy_cores": 1.4483526754925944,
+          "observed_logical_cpus": [
+            9,
+            11,
+            12,
+            13,
+            14,
+            15,
+            24,
+            25,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "elapsed_seconds": 12.004209662999983,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 122.9376120662789,
+          "equivalent_busy_cores": 1.2293761206627891,
+          "observed_logical_cpus": [
+            10,
+            11,
+            12,
+            15,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 12.26656163299998,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 110.53852578275011,
+          "equivalent_busy_cores": 1.1053852578275012,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 12.526863088999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 99.8841896604652,
+          "equivalent_busy_cores": 0.998841896604652,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 12.787011551999996,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 99.94293143296132,
+          "equivalent_busy_cores": 0.9994293143296131,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 13.047058878000001,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 99.98180100494254,
+          "equivalent_busy_cores": 0.9998180100494254,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 13.30728101699998,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 99.91463485742142,
+          "equivalent_busy_cores": 0.9991463485742141,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 13.566969788999984,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.11984653691378,
+          "equivalent_busy_cores": 1.001198465369138,
+          "observed_logical_cpus": [
+            26
+          ]
+        },
+        {
+          "elapsed_seconds": 13.826961987999994,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 115.38807747073545,
+          "equivalent_busy_cores": 1.1538807747073545,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 14.088147209999988,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 111.03231560321815,
+          "equivalent_busy_cores": 1.1103231560321816,
+          "observed_logical_cpus": [
+            29
+          ]
+        },
+        {
+          "elapsed_seconds": 14.348741711999992,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 107.44662602282997,
+          "equivalent_busy_cores": 1.0744662602282997,
+          "observed_logical_cpus": [
+            31
+          ]
+        },
+        {
+          "elapsed_seconds": 14.609317762999979,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 111.29188537745345,
+          "equivalent_busy_cores": 1.1129188537745345,
+          "observed_logical_cpus": [
+            9
+          ]
+        },
+        {
+          "elapsed_seconds": 14.869736168000003,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 107.51928228727688,
+          "equivalent_busy_cores": 1.0751928228727687,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 15.130906049000004,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 103.38098672258431,
+          "equivalent_busy_cores": 1.0338098672258431,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 15.390788756000006,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.045133053042,
+          "equivalent_busy_cores": 1.00045133053042,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 15.650675106999984,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.04373026885996,
+          "equivalent_busy_cores": 1.0004373026885995,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 15.910557133999987,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.04539482832213,
+          "equivalent_busy_cores": 1.0004539482832213,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 16.17046899899998,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 100.03390957161871,
+          "equivalent_busy_cores": 1.000339095716187,
+          "observed_logical_cpus": [
+            11
+          ]
+        },
+        {
+          "elapsed_seconds": 16.43041304099998,
+          "process_tree_size": 1,
+          "aggregate_cpu_percent": 73.09265430288241,
+          "equivalent_busy_cores": 0.7309265430288241,
+          "observed_logical_cpus": [
+            11
+          ]
+        }
+      ],
+      "requested_workers": 32,
+      "effective_workers": 32
+    }
+  ]
+}

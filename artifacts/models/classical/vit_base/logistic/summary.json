@@ -2,7 +2,9 @@
   "aggregation": "mean",
   "classifier": "logistic",
   "complete": true,
+  "cpu_workers": 32,
   "encoder": "vit_base",
   "model_count": 25,
+  "parallel_strategy": "one_vs_rest_labels",
   "seed": 42
 }

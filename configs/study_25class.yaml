@@ -4,6 +4,7 @@ study:
   run_mode: full
   max_images_per_case: 3
   canonical_case_count: 5033
+  canonical_test_case_count: 750
   expected_manifest_image_rows: 10407
   expected_unique_pngs: 10380
   expected_siglip2_embeddings: 10406

@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "outputs": [
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/headline_study_numbers.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/cohort_sizes_by_split.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/split_composition.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/class_imbalance_diagnostics.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/condition_support.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/encoder_registry.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/all_model_metrics.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/encoder_classifier_heatmap.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/operating_points.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/operating_points.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/tables/hyperparameter_trials.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/mil_history_long.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/mil_per_class_metrics_long.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/mil_roc_pr_curves.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/validation_threshold_curves.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/test_sensitivity_specificity_curves.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/threshold_accuracy_comparison.csv",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/plot_data/mil_split_per_class_metrics.csv"
+  ]
+}

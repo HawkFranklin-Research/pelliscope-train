@@ -10,6 +10,10 @@ from hawk_derm.evaluation.metrics import safe_auc, safe_average_precision
 
 
 def macro_metric(y_true: np.ndarray, probabilities: np.ndarray, metric: str) -> float:
+    if metric == "roc_auc_micro":
+        return safe_auc(y_true.ravel(), probabilities.ravel())
+    if metric == "pr_auc_micro":
+        return safe_average_precision(y_true.ravel(), probabilities.ravel())
     function: Callable[[np.ndarray, np.ndarray], float]
     if metric == "roc_auc":
         function = safe_auc

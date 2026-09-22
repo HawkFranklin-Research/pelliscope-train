@@ -2,36 +2,17 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 
-from _common import load_context
+from _common import load_context, load_selected_mil_config, mil_run_root
 
-from hawk_derm.config import load_yaml, path_from
+from hawk_derm.config import path_from
 from hawk_derm.evaluation.metrics import per_class_metrics
 from hawk_derm.evaluation.predictions import arrays_from_prediction_frame
 from hawk_derm.evaluation.thresholds import select_thresholds, threshold_sweep
-from hawk_derm.io import write_csv, write_json
+from hawk_derm.io import sha256_file, write_csv, write_json
 from hawk_derm.statistics.inference import wilson_interval
-
-
-def mean_seed_predictions(paths: list[Path], labels: list[str]) -> tuple[pd.DataFrame, np.ndarray, np.ndarray]:
-    frames = [pd.read_csv(path).sort_values("case_id").reset_index(drop=True) for path in paths]
-    if not frames:
-        raise FileNotFoundError("No repeated-seed prediction files were found")
-    case_ids = frames[0]["case_id"].astype(str)
-    truth, _ = arrays_from_prediction_frame(frames[0], labels)
-    probabilities = []
-    for frame in frames:
-        if not case_ids.equals(frame["case_id"].astype(str)):
-            raise ValueError("Repeated-seed prediction files do not contain identical ordered case IDs")
-        candidate_truth, candidate_probability = arrays_from_prediction_frame(frame, labels)
-        if not np.array_equal(truth, candidate_truth):
-            raise ValueError("Repeated-seed ground truths disagree")
-        probabilities.append(candidate_probability)
-    return frames[0][["case_id"]], truth, np.mean(probabilities, axis=0)
 
 
 def main() -> None:
@@ -39,14 +20,16 @@ def main() -> None:
     parser.add_argument("--config", default="configs/study_25class.yaml")
     parser.add_argument("--encoder", required=True)
     parser.add_argument("--rule", choices=["balance", "youden", "f1"], default=None)
+    parser.add_argument("--mil-config", default=None)
+    parser.add_argument("--run-tag", default=None)
     args = parser.parse_args()
     config = load_context(args.config)
-    mil_config = load_yaml("configs/mil.yaml")
-    root = path_from(config, "artifacts_dir") / "models" / "mil" / args.encoder
-    validation_paths = sorted(root.glob("seed_*/validation_predictions.csv"))
-    test_paths = sorted(root.glob("seed_*/test_predictions.csv"))
-    _, validation_truth, validation_probability = mean_seed_predictions(validation_paths, config["labels"])
-    _, test_truth, test_probability = mean_seed_predictions(test_paths, config["labels"])
+    mil_config, mil_config_path = load_selected_mil_config(config, args.encoder, args.run_tag, args.mil_config)
+    root = mil_run_root(config, args.encoder, args.run_tag)
+    validation_path = root / "ensemble" / "validation_predictions.csv"
+    test_path = root / "ensemble" / "test_predictions.csv"
+    validation_truth, validation_probability = arrays_from_prediction_frame(pd.read_csv(validation_path), config["labels"])
+    test_truth, test_probability = arrays_from_prediction_frame(pd.read_csv(test_path), config["labels"])
     threshold_config = mil_config["thresholds"]
     grid = np.arange(
         float(threshold_config["grid_start"]),
@@ -91,11 +74,17 @@ def main() -> None:
         output / "threshold_manifest.json",
         {
             "encoder": args.encoder,
+            "run_tag": args.run_tag,
+            "run_mode": config["study"]["run_mode"],
             "selection_split": "validation",
             "application_split": "test",
             "rule": args.rule or threshold_config["rule"],
-            "validation_seed_files": [str(path) for path in validation_paths],
-            "test_seed_files": [str(path) for path in test_paths],
+            "validation_ensemble_predictions": str(validation_path),
+            "test_ensemble_predictions": str(test_path),
+            "selected_mil_config": str(mil_config_path),
+            "selected_mil_config_sha256": sha256_file(mil_config_path),
+            "case_manifest_sha256": sha256_file(path_from(config, "case_manifest")),
+            "split_manifest_sha256": sha256_file(path_from(config, "split_manifest")),
             "complete": True,
         },
     )

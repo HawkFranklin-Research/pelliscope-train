@@ -1,0 +1,19 @@
+{
+  "complete": true,
+  "groups": [
+    "mil",
+    "performance"
+  ],
+  "outputs": [
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure2_encoder_classifier_heatmap.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure2_encoder_classifier_heatmap_micro.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure3a_learning_curves.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure3b_per_class_auc_page_01.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure3b_per_class_auc_page_02.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure3b_per_class_auc_page_03.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure3c_roc_pr_curves.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/mil_roc_pr_curves.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/figure3c_roc_with_sens_spec.png",
+    "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/reports/reanalysis/siglip2_so400m_mil_canonical/figures/mil_roc_with_sens_spec.png"
+  ]
+}

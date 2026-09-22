@@ -1,0 +1,4 @@
+split,cases,images
+train,3523,7270
+validation,755,1562
+test,755,1575

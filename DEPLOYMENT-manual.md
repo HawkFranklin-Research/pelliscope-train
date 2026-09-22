@@ -199,3 +199,30 @@ done
 ```
 
 Delete a local feature artifact only through `12_cleanup_verified_artifact.py` after remote checksum verification. Keep raw predictions, metrics, threshold tables, plot data, run manifests, and the run ledger.
+
+## 10. SigLIP2 MIL-only rerun
+
+Use the persistent production disk when the canonical manifests, locked split, SigLIP2 feature bank, and classical results already exist. This workflow does not download images, extract features, or retrain classical models.
+
+```bash
+python scripts/run_mil_pipeline.py \
+  --config configs/study_25class.yaml \
+  --encoder siglip2_so400m \
+  --run-mode full \
+  --cpu-workers 32 \
+  --device cpu \
+  --run-tag canonical \
+  --resume \
+  2>&1 | tee reports/siglip2_mil_canonical.log
+```
+
+The stages run in this order: preflight, September-behavior check, tuning, development-only cross-validation, ten fixed-split seeds, probability ensembling, validation-only threshold selection, separately labelled final-model fitting, evaluation, paired statistics, tables, figures, and strict verification.
+
+Canonical artifacts are isolated under:
+
+```text
+artifacts/models/mil/siglip2_so400m/canonical/
+reports/reanalysis/siglip2_so400m_mil_canonical/
+```
+
+The preflight deliberately fails if the complete 5,033-case manifest, locked split, existing SigLIP2 feature bank, or matched random-forest predictions are unavailable. The full run also fails if tuning has not produced `best_mil_config.yaml`; downstream stages cannot silently fall back to `configs/mil.yaml`.

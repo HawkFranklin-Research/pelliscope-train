@@ -1,0 +1,5 @@
+model,metric,averaging,estimate,ci_95_lower,ci_95_upper,cases,bootstrap_replicates
+siglip2_mil,roc_auc,macro,0.842474179501167,0.821422,0.861944,750,10000
+siglip2_mil,roc_auc,micro,0.8785133630981108,0.866269,0.890374,750,10000
+siglip2_mil,pr_auc,macro,0.27915305481032765,0.257989,0.333815,750,10000
+siglip2_mil,pr_auc,micro,0.2630899194843987,0.233745,0.297925,750,10000

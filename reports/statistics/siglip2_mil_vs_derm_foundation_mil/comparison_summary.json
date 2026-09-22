@@ -1,8 +1,9 @@
 {
   "complete": true,
+  "cpu_workers": 32,
   "first_model": "SigLIP2+MIL",
-  "paired_case_count": 6,
-  "replicates": 100,
+  "paired_case_count": 750,
+  "replicates": 10000,
   "second_model": "Derm Foundation+MIL",
   "seed": 20260919
 }

@@ -1,4 +1,4 @@
 split,cases,images
-train,19,41
-validation,3,7
-test,6,17
+train,3529,7279
+validation,754,1561
+test,750,1567

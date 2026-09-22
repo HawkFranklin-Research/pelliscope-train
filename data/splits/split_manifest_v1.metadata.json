@@ -1,15 +1,16 @@
 {
   "complete": true,
   "counts": {
-    "test": 6,
-    "train": 19,
-    "validation": 3
+    "test": 755,
+    "train": 3523,
+    "validation": 755
   },
   "fractions": {
     "test": 0.15,
     "train": 0.7,
     "validation": 0.15
   },
+  "run_mode": "full",
   "seed": 42,
   "split_version": "v1"
 }

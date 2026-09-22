@@ -1,0 +1,8 @@
+encoder,key,model_id,revision,embedding_dimension,backend
+ResNet-50,resnet50,resnet50,IMAGENET1K_V2,2048,torchvision
+Inception-v3,inception_v3,inception_v3,IMAGENET1K_V1,2048,torchvision
+BiT-50,bit50,google/bit-50,60f75d535bfe0a2a9d419f89f96e3c6c78bd0da9,2048,transformers
+ViT-Base,vit_base,google/vit-base-patch16-224-in21k,b4569560a39a0f1af58e3ddaf17facf20ab919b0,768,transformers
+CLIP ViT-B/32,clip_vitb32,openai/clip-vit-base-patch32,3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268,512,transformers
+Derm Foundation,derm_foundation,google-derm-foundation,a16a6ab4f87888948fe248136e697ed28146a1c6,6144,tensorflow_savedmodel
+SigLIP2 SO400M,siglip2_so400m,google/siglip2-so400m-patch14-384,e8e487298228002f3d8a82e0cd5c8ea9c567f57f,1152,transformers

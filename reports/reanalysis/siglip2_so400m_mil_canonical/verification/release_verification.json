@@ -1,0 +1,16 @@
+{
+  "case_count": 5033,
+  "checked": 20,
+  "complete": false,
+  "encoder": "siglip2_so400m",
+  "failures": [
+    "missing or empty required artifacts: ['/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/features/siglip2_so400m/feature_bank.npz', '/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/final_model/model.pt']"
+  ],
+  "run_tag": "canonical",
+  "seed_count": 10,
+  "split_counts": {
+    "test": 755,
+    "train": 3523,
+    "validation": 755
+  }
+}
