@@ -1,0 +1,22 @@
+hub:
+  repo_id: HawkFranklin-Research/pelliscope-25class-models-internal
+  revision: 2b407de6256378d4201ff5f8c06c50345f30e2f8
+
+canonical:
+  expected_cases: 750
+  label_scopes: [5, 10, 15, 20, 25]
+  top_k: [1, 3, 5]
+
+statistics:
+  bootstrap_seed: 20260923
+  metric_bootstrap_replicates: 1000
+  curve_bootstrap_replicates: 500
+
+principal_models:
+  - siglip2_so400m__mil
+  - siglip2_so400m__random_forest
+  - derm_foundation__mil
+  - derm_foundation__random_forest
+
+primary_model: siglip2_so400m__mil
+

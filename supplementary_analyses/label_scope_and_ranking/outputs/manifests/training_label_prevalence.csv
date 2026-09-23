@@ -1,0 +1,26 @@
+prevalence_rank,label,label_slug,configured_order,training_positives,training_prevalence
+1,Eczema,eczema,0,739,0.20976440533636107
+2,Allergic Contact Dermatitis,allergic_contact_dermatitis,1,611,0.17343173431734318
+3,Insect Bite,insect_bite,2,282,0.08004541583877377
+4,Urticaria,urticaria,3,232,0.06585296622196991
+5,Psoriasis,psoriasis,4,216,0.06131138234459268
+6,Folliculitis,folliculitis,5,188,0.05336361055918251
+7,Irritant Contact Dermatitis,irritant_contact_dermatitis,6,174,0.04938972466647743
+8,Tinea,tinea,7,144,0.04087425489639512
+9,Drug Rash,drug_rash,9,104,0.02952029520295203
+10,Herpes Zoster,herpes_zoster,8,99,0.028101050241271644
+11,Herpes Simplex,herpes_simplex,10,99,0.028101050241271644
+12,Acute Dermatitis NOS,acute_dermatitis_nos,12,87,0.024694862333238716
+13,Impetigo,impetigo,11,85,0.024127164348566564
+14,Hypersensitivity,hypersensitivity,13,79,0.022424070394550098
+15,Acne,acne,14,69,0.01958558047118933
+16,Pigmented Purpuric Eruption,pigmented_purpuric_eruption,15,69,0.01958558047118933
+17,Leukocytoclastic Vasculitis,leukocytoclastic_vasculitis,16,69,0.01958558047118933
+18,Lichen Planus Lichenoid Eruption,lichen_planus_lichenoid_eruption,17,62,0.017598637524836785
+19,Viral Exanthem,viral_exanthem,19,57,0.0161793925631564
+20,Pityriasis Rosea,pityriasis_rosea,18,56,0.015895543570820323
+21,Lichen Simplex Chronicus,lichen_simplex_chronicus,20,55,0.015611694578484247
+22,Stasis Dermatitis,stasis_dermatitis,21,49,0.013908600624467783
+23,CD - Contact Dermatitis,cd_contact_dermatitis,23,49,0.013908600624467783
+24,Scabies,scabies,24,44,0.012489355662787397
+25,Keratosis Pilaris,keratosis_pilaris,22,43,0.012205506670451319

@@ -1,0 +1,76 @@
+scope_n,within_scope_rank,label_slug,label
+5,1,eczema,Eczema
+5,2,allergic_contact_dermatitis,Allergic Contact Dermatitis
+5,3,insect_bite,Insect Bite
+5,4,urticaria,Urticaria
+5,5,psoriasis,Psoriasis
+10,1,eczema,Eczema
+10,2,allergic_contact_dermatitis,Allergic Contact Dermatitis
+10,3,insect_bite,Insect Bite
+10,4,urticaria,Urticaria
+10,5,psoriasis,Psoriasis
+10,6,folliculitis,Folliculitis
+10,7,irritant_contact_dermatitis,Irritant Contact Dermatitis
+10,8,tinea,Tinea
+10,9,drug_rash,Drug Rash
+10,10,herpes_zoster,Herpes Zoster
+15,1,eczema,Eczema
+15,2,allergic_contact_dermatitis,Allergic Contact Dermatitis
+15,3,insect_bite,Insect Bite
+15,4,urticaria,Urticaria
+15,5,psoriasis,Psoriasis
+15,6,folliculitis,Folliculitis
+15,7,irritant_contact_dermatitis,Irritant Contact Dermatitis
+15,8,tinea,Tinea
+15,9,drug_rash,Drug Rash
+15,10,herpes_zoster,Herpes Zoster
+15,11,herpes_simplex,Herpes Simplex
+15,12,acute_dermatitis_nos,Acute Dermatitis NOS
+15,13,impetigo,Impetigo
+15,14,hypersensitivity,Hypersensitivity
+15,15,acne,Acne
+20,1,eczema,Eczema
+20,2,allergic_contact_dermatitis,Allergic Contact Dermatitis
+20,3,insect_bite,Insect Bite
+20,4,urticaria,Urticaria
+20,5,psoriasis,Psoriasis
+20,6,folliculitis,Folliculitis
+20,7,irritant_contact_dermatitis,Irritant Contact Dermatitis
+20,8,tinea,Tinea
+20,9,drug_rash,Drug Rash
+20,10,herpes_zoster,Herpes Zoster
+20,11,herpes_simplex,Herpes Simplex
+20,12,acute_dermatitis_nos,Acute Dermatitis NOS
+20,13,impetigo,Impetigo
+20,14,hypersensitivity,Hypersensitivity
+20,15,acne,Acne
+20,16,pigmented_purpuric_eruption,Pigmented Purpuric Eruption
+20,17,leukocytoclastic_vasculitis,Leukocytoclastic Vasculitis
+20,18,lichen_planus_lichenoid_eruption,Lichen Planus Lichenoid Eruption
+20,19,viral_exanthem,Viral Exanthem
+20,20,pityriasis_rosea,Pityriasis Rosea
+25,1,eczema,Eczema
+25,2,allergic_contact_dermatitis,Allergic Contact Dermatitis
+25,3,insect_bite,Insect Bite
+25,4,urticaria,Urticaria
+25,5,psoriasis,Psoriasis
+25,6,folliculitis,Folliculitis
+25,7,irritant_contact_dermatitis,Irritant Contact Dermatitis
+25,8,tinea,Tinea
+25,9,drug_rash,Drug Rash
+25,10,herpes_zoster,Herpes Zoster
+25,11,herpes_simplex,Herpes Simplex
+25,12,acute_dermatitis_nos,Acute Dermatitis NOS
+25,13,impetigo,Impetigo
+25,14,hypersensitivity,Hypersensitivity
+25,15,acne,Acne
+25,16,pigmented_purpuric_eruption,Pigmented Purpuric Eruption
+25,17,leukocytoclastic_vasculitis,Leukocytoclastic Vasculitis
+25,18,lichen_planus_lichenoid_eruption,Lichen Planus Lichenoid Eruption
+25,19,viral_exanthem,Viral Exanthem
+25,20,pityriasis_rosea,Pityriasis Rosea
+25,21,lichen_simplex_chronicus,Lichen Simplex Chronicus
+25,22,stasis_dermatitis,Stasis Dermatitis
+25,23,cd_contact_dermatitis,CD - Contact Dermatitis
+25,24,scabies,Scabies
+25,25,keratosis_pilaris,Keratosis Pilaris

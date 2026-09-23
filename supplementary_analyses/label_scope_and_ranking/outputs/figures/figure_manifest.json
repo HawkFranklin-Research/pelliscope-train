@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "figures": [
+    "outputs/figures/figure_s1_topk_ranking_performance.png",
+    "outputs/figures/figure_s2_cumulative_roc_pr_curves.png",
+    "outputs/figures/figure_s3_label_scope_metric_trajectories.png",
+    "outputs/figures/figure_s4_heatmaps_top05.png",
+    "outputs/figures/figure_s4_heatmaps_top10.png",
+    "outputs/figures/figure_s4_heatmaps_top15.png",
+    "outputs/figures/figure_s4_heatmaps_top20.png",
+    "outputs/figures/figure_s4_heatmaps_top25.png",
+    "outputs/figures/figure_s5_principal_models_top05_radar.png",
+    "outputs/figures/figure_s5_principal_models_top10_radar.png",
+    "outputs/figures/figure_s5_principal_models_top15_radar.png",
+    "outputs/figures/figure_s5_principal_models_top20_radar.png",
+    "outputs/figures/figure_s5_principal_models_top25_radar.png"
+  ],
+  "figure_count": 13,
+  "canonical_cases": 750,
+  "note": "All figures use saved probabilities; no model was retrained."
+}

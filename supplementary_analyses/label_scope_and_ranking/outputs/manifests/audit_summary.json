@@ -1,0 +1,13 @@
+{
+  "canonical_cases": 750,
+  "classical_case_models": 35,
+  "classical_image_files_audited": 35,
+  "complete": true,
+  "hub_repo": "HawkFranklin-Research/pelliscope-25class-models-internal",
+  "hub_revision": "2b407de6256378d4201ff5f8c06c50345f30e2f8",
+  "labels": 25,
+  "mil_encoders": 7,
+  "mil_seeds_per_encoder": 10,
+  "normalized_model_grid_cells": 42,
+  "siglip2_ensemble_max_probability_difference_from_seed_mean": 1.1102230246251565e-16
+}
