@@ -1,0 +1,76 @@
+photos,condition,positive_cases,negative_cases
+1,Eczema,36,242
+1,Allergic Contact Dermatitis,39,239
+1,Insect Bite,20,258
+1,Urticaria,18,260
+1,Psoriasis,12,266
+1,Folliculitis,13,265
+1,Irritant Contact Dermatitis,13,265
+1,Tinea,6,272
+1,Herpes Zoster,9,269
+1,Drug Rash,7,271
+1,Herpes Simplex,7,271
+1,Impetigo,4,274
+1,Acute Dermatitis NOS,2,276
+1,Hypersensitivity,5,273
+1,Acne,4,274
+1,Pigmented Purpuric Eruption,7,271
+1,Leukocytoclastic Vasculitis,9,269
+1,Lichen Planus Lichenoid Eruption,5,273
+1,Pityriasis Rosea,4,274
+1,Viral Exanthem,3,275
+1,Lichen Simplex Chronicus,3,275
+1,Stasis Dermatitis,5,273
+1,Keratosis Pilaris,3,275
+1,CD - Contact Dermatitis,0,278
+1,Scabies,0,278
+2,Eczema,30,97
+2,Allergic Contact Dermatitis,26,101
+2,Insect Bite,8,119
+2,Urticaria,9,118
+2,Psoriasis,10,117
+2,Folliculitis,6,121
+2,Irritant Contact Dermatitis,9,118
+2,Tinea,7,120
+2,Herpes Zoster,4,123
+2,Drug Rash,5,122
+2,Herpes Simplex,3,124
+2,Impetigo,2,125
+2,Acute Dermatitis NOS,3,124
+2,Hypersensitivity,4,123
+2,Acne,3,124
+2,Pigmented Purpuric Eruption,1,126
+2,Leukocytoclastic Vasculitis,1,126
+2,Lichen Planus Lichenoid Eruption,2,125
+2,Pityriasis Rosea,4,123
+2,Viral Exanthem,5,122
+2,Lichen Simplex Chronicus,3,124
+2,Stasis Dermatitis,0,127
+2,Keratosis Pilaris,1,126
+2,CD - Contact Dermatitis,0,127
+2,Scabies,1,126
+3,Eczema,91,254
+3,Allergic Contact Dermatitis,65,280
+3,Insect Bite,32,313
+3,Urticaria,23,322
+3,Psoriasis,24,321
+3,Folliculitis,21,324
+3,Irritant Contact Dermatitis,15,330
+3,Tinea,18,327
+3,Herpes Zoster,8,337
+3,Drug Rash,10,335
+3,Herpes Simplex,10,335
+3,Impetigo,12,333
+3,Acute Dermatitis NOS,14,331
+3,Hypersensitivity,8,337
+3,Acne,8,337
+3,Pigmented Purpuric Eruption,7,338
+3,Leukocytoclastic Vasculitis,5,340
+3,Lichen Planus Lichenoid Eruption,7,338
+3,Pityriasis Rosea,4,341
+3,Viral Exanthem,5,340
+3,Lichen Simplex Chronicus,5,340
+3,Stasis Dermatitis,6,339
+3,Keratosis Pilaris,5,340
+3,CD - Contact Dermatitis,11,334
+3,Scabies,8,337

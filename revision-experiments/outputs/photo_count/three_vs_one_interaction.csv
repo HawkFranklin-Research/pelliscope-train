@@ -1,0 +1,5 @@
+metric,comparison,estimate,ci_95_lower,ci_95_upper,labels_compared
+macro_roc_auc,three_photo_advantage_minus_one_photo_advantage,-0.02002060216570134,-0.043409907639633906,0.0025005272692069564,23
+micro_roc_auc,three_photo_advantage_minus_one_photo_advantage,-0.012458401610096592,-0.030140898420589222,0.00607531876268217,25
+macro_ap,three_photo_advantage_minus_one_photo_advantage,-0.04608149090198993,-0.1335217747169235,0.011352375256642358,23
+micro_ap,three_photo_advantage_minus_one_photo_advantage,-0.08643110957217665,-0.15772002060661927,-0.020646480608771133,25

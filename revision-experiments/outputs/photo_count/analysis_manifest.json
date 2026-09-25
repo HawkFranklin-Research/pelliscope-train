@@ -1,0 +1,42 @@
+{
+  "test_cases": 750,
+  "photo_groups": {
+    "1": 278,
+    "2": 127,
+    "3": 345
+  },
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260926,
+  "shared_macro_interaction_labels": [
+    "Eczema",
+    "Allergic Contact Dermatitis",
+    "Insect Bite",
+    "Urticaria",
+    "Psoriasis",
+    "Folliculitis",
+    "Irritant Contact Dermatitis",
+    "Tinea",
+    "Herpes Zoster",
+    "Drug Rash",
+    "Herpes Simplex",
+    "Impetigo",
+    "Acute Dermatitis NOS",
+    "Hypersensitivity",
+    "Acne",
+    "Pigmented Purpuric Eruption",
+    "Leukocytoclastic Vasculitis",
+    "Lichen Planus Lichenoid Eruption",
+    "Pityriasis Rosea",
+    "Viral Exanthem",
+    "Lichen Simplex Chronicus",
+    "Stasis Dermatitis",
+    "Keratosis Pilaris"
+  ],
+  "sources_sha256": {
+    "reports/reanalysis/siglip2_so400m_mil_canonical/statistics/comparison_cohort.csv": "0d0da6e36c020839f645b21fed1727b4b65b49779482d921ffb3a802394a3dd0",
+    "data/manifests/image_manifest.csv": "8dcd08780719c388b6875f512dedf166d17d5da73819fb9635fd587704f351ca",
+    "supplementary_analyses/label_scope_and_ranking/outputs/raw_predictions/mil_probability_ensembles/siglip2_so400m.csv": "f10230727401f19552d2130f1064a636eb7ebec9333a6356f16284526735124f",
+    "supplementary_analyses/label_scope_and_ranking/outputs/raw_predictions/classical_case_aggregated/siglip2_so400m/random_forest.csv": "0ff191a06cf23443045bb4368a10fa14e9146c323e2b5e9d8cc84d1f5a5ce79e"
+  },
+  "interpretation": "exploratory paired subgroup analysis; report every group"
+}
