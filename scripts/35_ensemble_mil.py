@@ -9,7 +9,8 @@ import pandas as pd
 
 from _common import load_context, mil_run_root, selected_mil_config_path
 
-from hawk_derm.config import path_from
+from hawk_derm.config import load_yaml, path_from
+from hawk_derm.evaluation.calibration import apply_platt, fit_platt
 from hawk_derm.evaluation.metrics import multilabel_metrics, per_class_metrics
 from hawk_derm.evaluation.predictions import arrays_from_prediction_frame, prediction_frame, save_predictions
 from hawk_derm.io import sha256_file, write_csv, write_json
@@ -48,6 +49,12 @@ def main() -> None:
     if not config_path.is_file():
         raise FileNotFoundError(f"Selected MIL configuration is missing: {config_path}")
 
+    calibration = load_yaml(config_path).get("calibration", {}) or {}
+    calibration_method = str(calibration.get("method", "none"))
+    if calibration_method not in {"none", "platt"}:
+        raise ValueError(f"Unknown MIL calibration method: {calibration_method}")
+    calibration_parameters = None
+
     overall_rows: list[dict[str, object]] = []
     per_class_rows: list[pd.DataFrame] = []
     source_files: dict[str, list[str]] = {}
@@ -58,6 +65,29 @@ def main() -> None:
             raise ValueError(f"Expected {expected_seed_count} {split} seed files, found {len(paths)}")
         reference, truth, seed_probabilities = load_seed_predictions(paths, config["labels"])
         ensemble_probability = np.mean(seed_probabilities, axis=0)
+        if calibration_method == "platt":
+            # Fitted once on the validation ensemble (the loop visits validation first), then
+            # applied unchanged to test. Per-label AP and ROC-AUC are unaffected by construction.
+            if split == "validation":
+                calibration_parameters = fit_platt(
+                    truth, ensemble_probability, config["labels"], l2=float(calibration.get("l2", 1e-3))
+                )
+                write_csv(output / "calibration_parameters.csv", calibration_parameters)
+            uncalibrated = prediction_frame(
+                reference["case_id"].astype(str),
+                truth,
+                ensemble_probability,
+                config["labels"],
+                split=split,
+                model=f"{args.encoder}+mil:probability_ensemble_uncalibrated",
+            )
+            save_predictions(
+                output / f"{split}_predictions_uncalibrated.csv",
+                uncalibrated,
+                config["labels"],
+                {"aggregation": "mean_probability_across_seeds", "calibration": "none"},
+            )
+            ensemble_probability = apply_platt(ensemble_probability, calibration_parameters, config["labels"])
         ensemble_frame = prediction_frame(
             reference["case_id"].astype(str),
             truth,
@@ -72,6 +102,7 @@ def main() -> None:
             config["labels"],
             {
                 "aggregation": "mean_probability_across_seeds",
+                "calibration": calibration_method,
                 "seed_count": len(paths),
                 "selected_mil_config_sha256": sha256_file(config_path),
             },
@@ -105,6 +136,11 @@ def main() -> None:
             "run_mode": config["study"]["run_mode"],
             "aggregation": "mean_probability_across_seeds",
             "mean_per_seed_auc_is_not_ensemble_auc": True,
+            "calibration": {
+                "method": calibration_method,
+                "fitted_on": "validation_ensemble" if calibration_method == "platt" else None,
+                "parameters": str(output / "calibration_parameters.csv") if calibration_method == "platt" else None,
+            },
             "selected_mil_config": str(config_path),
             "selected_mil_config_sha256": sha256_file(config_path),
             "case_manifest_sha256": sha256_file(path_from(config, "case_manifest")),

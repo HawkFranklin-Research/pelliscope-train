@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
 from _common import load_context, load_manifests, mil_run_root
 
@@ -36,7 +37,7 @@ def main() -> None:
         "tune_mil",
         vars(args),
         output_dir,
-        inputs=[bank_path, case_manifest_path, split_manifest_path],
+        inputs=[bank_path, case_manifest_path, split_manifest_path, Path("configs/mil.yaml")],
     ) as run:
         run_mil_search(
             bank,

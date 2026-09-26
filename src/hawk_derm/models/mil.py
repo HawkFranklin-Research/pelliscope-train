@@ -25,6 +25,26 @@ class BagDataset(Dataset):
         return self.bags[index], self.masks[index], self.labels[index], self.case_ids[index]
 
 
+class ManifoldResidualProjection(nn.Module):
+    """Fixed random projection plus a zero-initialised low-rank trainable residual.
+
+    Adapted from the Manifold Residual block (ICLR 2026), which placed it inside ABMIL's
+    attention branches; here it replaces the first instance projection. The anchor is a
+    persistent buffer so it is saved with the model and never redrawn at inference.
+    """
+
+    def __init__(self, input_dim: int, output_dim: int, rank: int = 32) -> None:
+        super().__init__()
+        bound = float(np.sqrt(6.0 / input_dim))
+        self.register_buffer("anchor", (torch.rand(input_dim, output_dim) * 2 - 1) * bound, persistent=True)
+        self.down = nn.Linear(input_dim, rank, bias=False)
+        self.up = nn.Linear(rank, output_dim, bias=False)
+        nn.init.zeros_(self.up.weight)
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        return inputs @ self.anchor + self.up(nn.functional.gelu(self.down(inputs)))
+
+
 class GatedAttentionMIL(nn.Module):
     def __init__(
         self,
@@ -36,18 +56,25 @@ class GatedAttentionMIL(nn.Module):
         instance_layers: int = 1,
         shared_layers: int = 1,
         dropout: float = 0.25,
+        instance_projection: str = "dense",
+        projection_rank: int = 32,
     ) -> None:
         super().__init__()
         if instance_layers < 1:
             raise ValueError("instance_layers must be at least 1")
         if shared_layers < 0:
             raise ValueError("shared_layers cannot be negative")
+        if instance_projection not in {"dense", "manifold_residual"}:
+            raise ValueError(f"Unknown instance projection: {instance_projection}")
         instance_modules: list[nn.Module] = []
         current_dim = input_dim
-        for _ in range(instance_layers):
-            instance_modules.extend(
-                [nn.Linear(current_dim, instance_dim), nn.LayerNorm(instance_dim), nn.GELU(), nn.Dropout(dropout)]
+        for layer in range(instance_layers):
+            projection: nn.Module = (
+                ManifoldResidualProjection(current_dim, instance_dim, int(projection_rank))
+                if layer == 0 and instance_projection == "manifold_residual"
+                else nn.Linear(current_dim, instance_dim)
             )
+            instance_modules.extend([projection, nn.LayerNorm(instance_dim), nn.GELU(), nn.Dropout(dropout)])
             current_dim = instance_dim
         self.instance = nn.Sequential(*instance_modules)
         self.attention_tanh = nn.Linear(instance_dim, attention_dim)
@@ -92,6 +119,7 @@ class MultilabelLoss(nn.Module):
         gamma: float = 2.0,
         alpha: float = 0.25,
         use_positive_weights: bool = True,
+        positive_weight_power: float = 1.0,
     ) -> None:
         super().__init__()
         self.kind = kind
@@ -100,7 +128,12 @@ class MultilabelLoss(nn.Module):
         self.register_buffer("class_weights", effective_number_weights(labels, beta))
         positives = np.asarray(labels).sum(axis=0)
         negatives = len(labels) - positives
-        positive_weights = negatives / np.clip(positives, 1, None) if use_positive_weights else np.ones_like(positives)
+        # Power 1 is the original negatives/positives weight; 0.5 is its square root; 0 disables it.
+        positive_weights = (
+            np.power(negatives / np.clip(positives, 1, None), float(positive_weight_power))
+            if use_positive_weights
+            else np.ones_like(positives, dtype=float)
+        )
         self.register_buffer("positive_weights", torch.as_tensor(positive_weights, dtype=torch.float32))
 
     def forward(self, logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
@@ -171,7 +204,14 @@ def _prediction_metrics(
         probabilities.append(torch.sigmoid(logits).cpu().numpy())
     if not truths:
         return {}
-    return multilabel_metrics(np.concatenate(truths), np.concatenate(probabilities))
+    truth, probability = np.concatenate(truths), np.concatenate(probabilities)
+    return {**multilabel_metrics(truth, probability), "log_loss_unweighted": unweighted_log_loss(truth, probability)}
+
+
+def unweighted_log_loss(truth: np.ndarray, probability: np.ndarray, eps: float = 1e-7) -> float:
+    """Mean binary log-loss over all case-label pairs, without class or positive weights."""
+    clipped = np.clip(probability, eps, 1 - eps)
+    return float(-np.mean(truth * np.log(clipped) + (1 - truth) * np.log(1 - clipped)))
 
 
 def checkpoint_score(metrics: dict[str, float], training: dict[str, Any]) -> float:
@@ -184,7 +224,48 @@ def checkpoint_score(metrics: dict[str, float], training: dict[str, Any]) -> flo
         auc = float(metrics.get("auc_macro", float("-inf")))
         lrap = float(metrics.get("label_ranking_average_precision", 0.0))
         return auc + float(training.get("checkpoint_lrap_weight", 0.1)) * lrap
+    if metric == "macro_micro_ap":
+        # Macro AP ranks cases within each label; micro AP ranks all case-label pairs together.
+        # Unlike LRAP, both penalise false positives on cases with no target label.
+        macro = float(metrics.get("pr_auc_macro", float("nan")))
+        micro = float(metrics.get("pr_auc_micro", float("nan")))
+        if not np.isfinite(macro) or not np.isfinite(micro):
+            return float("-inf")
+        weight = float(training.get("checkpoint_macro_ap_weight", 0.5))
+        return weight * macro + (1 - weight) * micro
     raise ValueError(f"Unknown MIL checkpoint metric: {metric}")
+
+
+def initialize_prior_bias(model: GatedAttentionMIL, labels: np.ndarray) -> None:
+    """Start each output at its training prevalence so rare labels do not begin near 0.5."""
+    prevalence = np.clip(np.asarray(labels, dtype=float).mean(axis=0), 1e-4, 1 - 1e-4)
+    output = model.classifier[-1]
+    with torch.no_grad():
+        output.bias.copy_(torch.as_tensor(np.log(prevalence / (1 - prevalence)), dtype=output.bias.dtype))
+
+
+def _build_model_and_loss(
+    train_data: BagDataset,
+    input_dim: int,
+    class_count: int,
+    architecture: dict[str, Any],
+    training: dict[str, Any],
+    device: torch.device,
+) -> tuple[GatedAttentionMIL, nn.Module]:
+    model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture)
+    train_labels = train_data.labels.numpy()
+    if training.get("prior_bias_init", False):
+        initialize_prior_bias(model, train_labels)
+    loss_function = MultilabelLoss(
+        train_labels,
+        training.get("loss", "class_balanced"),
+        training.get("class_balanced_beta", 0.999),
+        training.get("focal_gamma", 2.0),
+        training.get("focal_alpha", 0.25),
+        training.get("use_positive_weights", True),
+        training.get("positive_weight_power", 1.0),
+    )
+    return model.to(device), loss_function.to(device)
 
 
 def _scheduler(
@@ -227,24 +308,21 @@ def train_mil(
     torch.manual_seed(seed)
     np.random.seed(seed)
     target_device = torch.device(device)
-    model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture).to(target_device)
-    loss_function = MultilabelLoss(
-        train_data.labels.numpy(),
-        training.get("loss", "class_balanced"),
-        training.get("class_balanced_beta", 0.999),
-        training.get("focal_gamma", 2.0),
-        training.get("focal_alpha", 0.25),
-        training.get("use_positive_weights", True),
-    ).to(target_device)
+    model, loss_function = _build_model_and_loss(train_data, input_dim, class_count, architecture, training, target_device)
     optimizer = _optimizer(model, training)
     scheduler = _scheduler(optimizer, training)
     train_loader = DataLoader(train_data, batch_size=int(training["batch_size"]), shuffle=True, num_workers=int(training.get("num_workers", 0)))
     validation_loader = DataLoader(validation_data, batch_size=int(training["batch_size"]), shuffle=False, num_workers=int(training.get("num_workers", 0)))
     best_state = None
     best_score = float("-inf")
+    best_log_loss = float("inf")
     best_epoch = 0
     patience = 0
     history = []
+    raw_scores: list[float] = []
+    # Defaults (smoothing 1, tolerance 0) reproduce the original strict best-score rule.
+    smoothing = max(1, int(training.get("checkpoint_smoothing", 1)))
+    tolerance = float(training.get("checkpoint_tie_tolerance", 0.0))
     for epoch in range(1, int(training["epochs"]) + 1):
         train_loss, train_accuracy = _epoch(
             model, train_loader, loss_function, target_device, optimizer, training.get("gradient_clip_norm")
@@ -261,11 +339,18 @@ def train_mil(
             **{f"validation_{key}": value for key, value in validation_metrics.items()},
         }
         score_inputs = {**validation_metrics, "validation_loss": validation_loss}
-        score = checkpoint_score(score_inputs, training)
+        raw_scores.append(checkpoint_score(score_inputs, training))
+        score = float(np.mean(raw_scores[-smoothing:]))
+        log_loss = float(validation_metrics.get("log_loss_unweighted", float("inf")))
+        row["checkpoint_score_raw"] = raw_scores[-1]
         row["checkpoint_score"] = score
         history.append(row)
-        if score > best_score:
+        improved = score > best_score + tolerance or (
+            tolerance > 0 and abs(score - best_score) <= tolerance and log_loss < best_log_loss
+        )
+        if improved:
             best_score = score
+            best_log_loss = log_loss
             best_epoch = epoch
             best_state = {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
             patience = 0
@@ -301,15 +386,7 @@ def train_mil_fixed(
     torch.manual_seed(seed)
     np.random.seed(seed)
     target_device = torch.device(device)
-    model = GatedAttentionMIL(input_dim=input_dim, class_count=class_count, **architecture).to(target_device)
-    loss_function = MultilabelLoss(
-        train_data.labels.numpy(),
-        training.get("loss", "class_balanced"),
-        training.get("class_balanced_beta", 0.999),
-        training.get("focal_gamma", 2.0),
-        training.get("focal_alpha", 0.25),
-        training.get("use_positive_weights", True),
-    ).to(target_device)
+    model, loss_function = _build_model_and_loss(train_data, input_dim, class_count, architecture, training, target_device)
     optimizer = _optimizer(model, training)
     fixed_training = {**training, "epochs": epochs}
     scheduler = _scheduler(optimizer, fixed_training)

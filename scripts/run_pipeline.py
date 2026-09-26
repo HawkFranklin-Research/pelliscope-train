@@ -8,10 +8,14 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pandas as pd
+
 from _common import REPOSITORY_ROOT, load_context
 
 from hawk_derm.config import load_yaml, path_from
 from hawk_derm.features.registry import load_encoder_registry
+from hawk_derm.data.splits import assert_classical_locked, assert_complete_image_audit, assert_existing_full_split
+from hawk_derm.io import sha256_file
 from hawk_derm.runtime import cpu_environment, resolve_cpu_workers
 
 
@@ -22,10 +26,11 @@ STAGES = (
     "split",
     "features",
     "classical",
-    "mil",
-    "thresholds",
     "tuning",
     "cross-validation",
+    "mil",
+    "ensemble",
+    "thresholds",
     "final",
     "evaluation",
     "statistics",
@@ -44,7 +49,22 @@ def completed_artifact(outputs: list[Path], manifest: Path | None, run_mode: str
         payload = json.loads(manifest.read_text())
     except (json.JSONDecodeError, OSError):
         return False
-    return bool(payload.get("complete")) and payload.get("run_mode") == run_mode
+    if not (payload.get("complete") and payload.get("run_mode") == run_mode):
+        return False
+    if payload.get("split_version"):
+        if not all(payload.get(key) for key in ("image_manifest_sha256", "image_audit_sha256", "split_manifest_sha256")):
+            return False
+        if sha256_file(outputs[0]) != payload["split_manifest_sha256"]:
+            return False
+    for item in payload.get("inputs", []):
+        path = Path(item["path"])
+        if not path.is_file() or sha256_file(path) != item.get("sha256"):
+            return False
+    for item in payload.get("outputs", []):
+        path = Path(item["path"])
+        if not path.is_file() or sha256_file(path) != item.get("sha256"):
+            return False
+    return True
 
 
 def run(
@@ -81,6 +101,7 @@ def main() -> None:
     parser.add_argument("--data-revision", default="main", help="Hugging Face dataset revision used with --download-data.")
     parser.add_argument("--skip-encoders", default="", help="Comma-separated encoder keys to omit from this run.")
     parser.add_argument("--primary-encoder", default=None, help="Encoder used for tuning, cross-validation, and final fitting.")
+    parser.add_argument("--mil-run-tag", default="canonical", help="Shared MIL output namespace for the full run.")
     parser.add_argument("--cpu-workers", type=int, default=None, help="CPU budget assigned to each top-level pipeline job.")
     parser.add_argument("--download-workers", type=int, default=None, help="Concurrent Hugging Face file downloads (maximum 32).")
     parser.add_argument("--from-stage", choices=STAGES, default=STAGES[0])
@@ -127,26 +148,45 @@ def main() -> None:
         audit_arguments.append("--strict")
     if stage_selected("audit", args.from_stage, args.to_stage):
         audit_summary = path_from(config, "audit_dir") / "data_audit_summary.json"
+        audit_path = path_from(config, "audit_dir") / "image_audit.csv"
+        audit_resume = args.resume
+        if audit_resume and args.run_mode == "full" and audit_path.is_file():
+            try:
+                assert_complete_image_audit(
+                    pd.read_csv(path_from(config, "image_manifest")),
+                    pd.read_csv(audit_path),
+                    run_mode="full",
+                )
+            except (ValueError, FileNotFoundError):
+                audit_resume = False
         run(
             "02_audit_data.py",
             *audit_arguments,
             "--workers",
             str(workers),
             environment=environment,
-            resume=args.resume,
-            outputs=[audit_summary, path_from(config, "audit_dir") / "image_audit.csv"],
+            resume=audit_resume,
+            outputs=[audit_summary, audit_path],
             manifest=audit_summary,
         )
     if stage_selected("split", args.from_stage, args.to_stage):
         split_manifest = path_from(config, "split_manifest")
+        split_resume = args.resume
+        if split_resume and args.run_mode == "full":
+            try:
+                assert_existing_full_split(config)
+            except (ValueError, FileNotFoundError):
+                split_resume = False
         run(
             "03_freeze_splits.py",
             *config_args,
             environment=environment,
-            resume=args.resume,
+            resume=split_resume,
             outputs=[split_manifest],
             manifest=split_manifest.with_suffix(".metadata.json"),
         )
+    if args.run_mode == "full" and STAGES.index(args.to_stage) >= STAGES.index("split"):
+        assert_existing_full_split(config)
     registry = load_encoder_registry()
     skipped = set(comma_values(args.skip_encoders))
     unknown = skipped.difference(registry)
@@ -165,6 +205,9 @@ def main() -> None:
         primary = "derm_foundation"
     else:
         primary = encoders[0]
+    if args.run_mode == "full" and stage_selected("statistics", args.from_stage, args.to_stage):
+        if primary != "siglip2_so400m" or "derm_foundation" not in encoders:
+            raise ValueError("The prespecified paired comparison requires SigLIP2 as primary and Derm Foundation in this run")
     classifiers = list(load_yaml("configs/classifiers.yaml")["classifiers"])
     uploads: list[subprocess.Popen] = []
     for encoder in encoders:
@@ -216,104 +259,49 @@ def main() -> None:
                     outputs=[model_dir / "overall_metrics.csv", model_dir / "test_case_predictions.csv"],
                     manifest=model_dir / "run_manifest.json",
                 )
-        repeated_arguments = ["--encoder", encoder, "--device", args.device]
-        if args.run_mode == "smoke":
-            repeated_arguments += ["--epochs", str(config["smoke"]["epochs"]), "--seeds", ",".join(map(str, config["smoke"]["seeds"]))]
-        mil_dir = artifacts / "models" / "mil" / encoder
-        if stage_selected("mil", args.from_stage, args.to_stage):
-            run(
-                "33_run_repeated_seeds.py",
-                *config_args,
-                *repeated_arguments,
-                environment=environment,
-                resume=args.resume,
-                outputs=[mil_dir / "repeated_metrics_long.csv", mil_dir / "repeated_metrics_summary.csv"],
-                manifest=mil_dir / "run_manifest.json",
-            )
-        if stage_selected("thresholds", args.from_stage, args.to_stage):
-            run("40_select_thresholds.py", *config_args, "--encoder", encoder, environment=environment)
-    tuning_arguments = ["--encoder", primary, "--device", args.device]
-    cv_arguments = ["--encoder", primary, "--device", args.device]
+    if args.run_mode == "full" and STAGES.index(args.to_stage) >= STAGES.index("tuning"):
+        assert_classical_locked(config, encoders, classifiers)
+    mil_stages = ("tuning", "cross-validation", "mil", "ensemble", "thresholds")
+    selected_mil_stages = [stage for stage in mil_stages if stage_selected(stage, args.from_stage, args.to_stage)]
+    common_mil = [
+        *config_args, "--run-mode", args.run_mode, "--device", args.device,
+        "--cpu-workers", str(workers), "--run-tag", args.mil_run_tag,
+    ]
     if args.run_mode == "smoke":
-        tuning_arguments += ["--trials", str(config["smoke"]["trials"]), "--epochs", str(config["smoke"]["epochs"])]
-        cv_arguments += ["--folds", str(config["smoke"]["folds"]), "--epochs", str(config["smoke"]["epochs"])]
-    primary_mil_dir = artifacts / "models" / "mil" / primary
-    if stage_selected("tuning", args.from_stage, args.to_stage):
+        common_mil += [
+            "--trials", str(config["smoke"]["trials"]),
+            "--folds", str(config["smoke"]["folds"]),
+            "--seeds", ",".join(map(str, config["smoke"]["seeds"])),
+            "--epochs", str(config["smoke"]["epochs"]),
+        ]
+    if args.resume:
+        common_mil.append("--resume")
+    mil_stage_name = {"mil": "repeated-seeds"}
+    for encoder in encoders if selected_mil_stages else []:
         run(
-            "31_tune_mil.py",
-            *config_args,
-            *tuning_arguments,
-            environment=environment,
-            resume=args.resume,
-            outputs=[primary_mil_dir / "tuning" / "trials.csv"],
-            manifest=primary_mil_dir / "tuning" / "run_manifest.json",
-        )
-    if stage_selected("cross-validation", args.from_stage, args.to_stage):
-        run(
-            "32_run_cross_validation.py",
-            *config_args,
-            *cv_arguments,
-            environment=environment,
-            resume=args.resume,
-            outputs=[primary_mil_dir / "cross_validation" / "cross_validation_metrics.csv"],
-            manifest=primary_mil_dir / "cross_validation" / "run_manifest.json",
-        )
-    final_epochs = str(config["smoke"]["epochs"] if args.run_mode == "smoke" else load_yaml("configs/mil.yaml")["training"]["epochs"])
-    if stage_selected("final", args.from_stage, args.to_stage):
-        run(
-            "34_fit_final_model.py",
-            *config_args,
-            "--encoder",
-            primary,
-            "--device",
-            args.device,
-            "--epochs",
-            final_epochs,
+            "run_mil_pipeline.py", *common_mil, "--encoder", encoder,
+            "--from-stage", mil_stage_name.get(selected_mil_stages[0], selected_mil_stages[0]),
+            "--to-stage", mil_stage_name.get(selected_mil_stages[-1], selected_mil_stages[-1]),
             environment=environment,
         )
-    if stage_selected("evaluation", args.from_stage, args.to_stage):
-        evaluation_dir = path_from(config, "reports_dir") / "evaluations" / f"{primary}_final"
+    finishing_stages = ("final", "evaluation", "statistics", "tables", "figures", "verify")
+    selected_finishing = [
+        stage for stage in finishing_stages
+        if stage_selected(stage, args.from_stage, args.to_stage) and (args.run_mode == "full" or stage in {"final", "evaluation"})
+    ]
+    if selected_finishing:
+        finish_name = {"verify": "verification"}
         run(
-            "50_evaluate.py",
-            *config_args,
-            "--predictions",
-            str(primary_mil_dir / "final_model" / "test_predictions.csv"),
-            "--thresholds",
-            str(primary_mil_dir / "thresholds" / "validation_selected_thresholds.csv"),
-            "--output-dir",
-            str(evaluation_dir),
+            "run_mil_pipeline.py", *common_mil, "--encoder", primary,
+            "--verify-encoders", ",".join(encoders),
+            *(["--strict-locked-comparison"] if args.run_mode == "full" else []),
+            "--from-stage", finish_name.get(selected_finishing[0], selected_finishing[0]),
+            "--to-stage", finish_name.get(selected_finishing[-1], selected_finishing[-1]),
             environment=environment,
         )
-    comparison_encoders = [encoder for encoder in ("siglip2_so400m", "derm_foundation") if encoder in encoders]
-    if not comparison_encoders:
-        comparison_encoders = [primary]
-    if stage_selected("statistics", args.from_stage, args.to_stage):
-        run(
-            "51_compare_grid.py",
-            *config_args,
-            "--mil-encoders",
-            ",".join(comparison_encoders),
-            "--workers",
-            str(workers),
-            environment=environment,
-        )
-    if stage_selected("tables", args.from_stage, args.to_stage):
-        run("60_generate_tables.py", *config_args, environment=environment)
-    if stage_selected("figures", args.from_stage, args.to_stage):
-        run("61_generate_figures.py", *config_args, environment=environment)
     for process in uploads:
         if process.wait() != 0:
             raise RuntimeError("A background Hugging Face upload failed")
-    if stage_selected("verify", args.from_stage, args.to_stage):
-        run(
-            "70_verify_release.py",
-            *config_args,
-            "--encoders",
-            ",".join(encoders),
-            "--primary-encoder",
-            primary,
-            environment=environment,
-        )
 
 
 if __name__ == "__main__":

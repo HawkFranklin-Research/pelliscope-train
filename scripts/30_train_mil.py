@@ -6,6 +6,7 @@ import argparse
 from _common import load_context, load_manifests
 
 from hawk_derm.config import load_yaml, path_from
+from hawk_derm.io import sha256_file
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.models.experiments import run_mil_experiment
 from hawk_derm.provenance import RunRecorder
@@ -41,6 +42,11 @@ def main() -> None:
             seed=args.seed,
             device=args.device,
             max_images=int(config["study"]["max_images_per_case"]),
+            provenance={
+                "feature_bank_sha256": sha256_file(bank_path),
+                "case_manifest_sha256": sha256_file(path_from(config, "case_manifest")),
+                "split_manifest_sha256": sha256_file(path_from(config, "split_manifest")),
+            },
         )
         run.complete([output_dir / "model.pt", output_dir / "test_predictions.csv", output_dir / "overall_metrics.csv"])
 

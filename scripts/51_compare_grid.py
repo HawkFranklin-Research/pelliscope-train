@@ -134,6 +134,7 @@ def main() -> None:
     parser.add_argument("--replicates", type=int, default=None)
     parser.add_argument("--seed", type=int, default=20260918)
     parser.add_argument("--workers", type=int, default=None)
+    parser.add_argument("--strict-locked-split", action="store_true", help="Require source predictions to match the locked test split exactly.")
     parser.add_argument(
         "--comparison-cohort-predictions",
         default=None,
@@ -150,8 +151,13 @@ def main() -> None:
 
     siglip_root = mil_run_root(config, args.encoder, args.run_tag)
     siglip_mil = siglip_root / "ensemble" / "test_predictions.csv"
-    derm_root = artifacts / "models" / "mil" / "derm_foundation"
-    derm_ensemble = path_from(config, "reports_dir") / "statistics" / "derm_foundation_mil_test_ensemble_predictions.csv"
+    derm_root = mil_run_root(config, "derm_foundation", args.run_tag)
+    derm_ensemble = derm_root / "ensemble" / "test_predictions.csv" if args.run_tag else Path()
+    if not args.run_tag or not derm_ensemble.is_file():
+        if args.strict_locked_split:
+            raise FileNotFoundError(f"Current Derm Foundation MIL ensemble is required: {derm_ensemble}")
+        derm_root = artifacts / "models" / "mil" / "derm_foundation"
+        derm_ensemble = path_from(config, "reports_dir") / "statistics" / "derm_foundation_mil_test_ensemble_predictions.csv"
     if not derm_ensemble.is_file():
         derm_ensemble = derm_root / "ensemble" / "test_predictions.csv"
         if not derm_ensemble.is_file():
@@ -184,10 +190,21 @@ def main() -> None:
     reference_path = (
         Path(args.comparison_cohort_predictions)
         if args.comparison_cohort_predictions
+        else siglip_mil if args.strict_locked_split
         else path_from(config, "reports_dir") / "statistics" / "derm_foundation_mil_test_ensemble_predictions.csv"
     )
     if not reference_path.is_file():
         raise FileNotFoundError(f"Comparison-cohort prediction file is missing: {reference_path}")
+    if args.strict_locked_split:
+        split = pd.read_csv(path_from(config, "split_manifest"))
+        locked_ids = set(split.loc[split["split"].eq("test"), "case_id"].astype(str))
+        reference = pd.read_csv(reference_path)
+        if len(reference) != int(config["study"]["canonical_test_case_count"]) or set(reference["case_id"].astype(str)) != locked_ids:
+            raise ValueError("Comparison reference does not match the locked 750-case test split")
+        for name, path in models.items():
+            frame = pd.read_csv(path, usecols=["case_id"])
+            if len(frame) != len(locked_ids) or set(frame["case_id"].astype(str)) != locked_ids:
+                raise ValueError(f"{name} source predictions differ from the locked test split: {path}")
     matched_models, excluded, comparison_case_count = match_prediction_files(
         models,
         reference_path,
@@ -247,7 +264,13 @@ def main() -> None:
     for index, ((first_name, first_path), (second_name, second_path)) in enumerate(comparison_pairs):
         name = f"{first_name}_vs_{second_name}"
         summary_path = output / name / "comparison_summary.json"
-        if summary_path.is_file() and int(read_json(summary_path).get("replicates", 0)) == replicates:
+        first_hash, second_hash = sha256_file(first_path), sha256_file(second_path)
+        cached = read_json(summary_path) if summary_path.is_file() else {}
+        if (
+            int(cached.get("replicates", 0)) == replicates
+            and cached.get("first_prediction_sha256") == first_hash
+            and cached.get("second_prediction_sha256") == second_hash
+        ):
             summary = read_json(summary_path)
         else:
             summary = compare_prediction_files(
@@ -261,6 +284,8 @@ def main() -> None:
                 second_name=second_name,
                 workers=workers,
             )
+            summary.update(first_prediction_sha256=first_hash, second_prediction_sha256=second_hash)
+            write_json(summary_path, summary)
         comparisons.append({"name": name, **summary})
     write_json(
         output / "comparison_grid_manifest.json",
@@ -271,7 +296,7 @@ def main() -> None:
             "comparison_cohort_source_sha256": sha256_file(reference_path),
             "comparison_case_count": comparison_case_count,
             "excluded_rows": excluded,
-            "case_membership": "explicit_common_750_test_cohort",
+            "case_membership": "locked_test_split" if args.strict_locked_split else "explicit_common_750_test_cohort",
             "comparison_scope": "siglip2_mil_against_each_prespecified_comparator",
             "comparisons": comparisons,
             "replicates": replicates,

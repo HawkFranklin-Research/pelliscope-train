@@ -4,6 +4,8 @@ This directory contains independent analyses of the existing locked test cohort.
 
 - `01_photo_count_comparison.py`: paired MIL versus random-forest analysis by photos per case.
 - `ap_diagnostics/`: validation-fitted score calibration and test-set AP error attribution. See its README for commands and interpretation.
+- `02_loss_and_rank_diagnostics.py`: the two pre-declared checks for the revised MIL training (base-rate inflation on validation predictions; effective-rank gate for the manifold-residual projection).
+- `PREREGISTRATION.md`: the revised MIL training changes, declared before the locked-split rerun.
 
 ## Photo-count comparison
 

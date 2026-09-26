@@ -21,6 +21,8 @@ def generate_tables(
     artifacts_dir: str | Path,
     reports_dir: str | Path,
     primary_mil_root: str | Path | None = None,
+    mil_run_tag: str | None = None,
+    selected_encoders: list[str] | None = None,
 ) -> list[Path]:
     artifacts_dir, reports_dir = Path(artifacts_dir), Path(reports_dir)
     table_dir = reports_dir / "tables"
@@ -87,8 +89,16 @@ def generate_tables(
     outputs.append(write_csv(table_dir / "encoder_registry.csv", encoder_table))
 
     metric_files = sorted(artifacts_dir.glob("models/classical/*/*/overall_metrics.csv"))
+    if selected_encoders is not None:
+        classifiers = load_yaml("configs/classifiers.yaml")["classifiers"]
+        metric_files = [artifacts_dir / "models" / "classical" / encoder / classifier / "overall_metrics.csv" for encoder in selected_encoders for classifier in classifiers]
     mil_metric_files = sorted(artifacts_dir.glob("models/mil/*/repeated_metrics_long.csv"))
-    if primary_mil_root:
+    if mil_run_tag and selected_encoders:
+        mil_metric_files = [artifacts_dir / "models" / "mil" / encoder / mil_run_tag / "repeated_metrics_long.csv" for encoder in selected_encoders]
+        missing = [path for path in [*metric_files, *mil_metric_files] if not path.is_file()]
+        if missing:
+            raise FileNotFoundError(f"The tagged grid is incomplete; missing metric files: {missing}")
+    elif primary_mil_root:
         primary_mil_root = Path(primary_mil_root)
         primary_encoder = primary_mil_root.parent.name
         mil_metric_files = [path for path in mil_metric_files if path.parent.name != primary_encoder]
@@ -109,6 +119,8 @@ def generate_tables(
         outputs.append(write_csv(plot_dir / "encoder_classifier_heatmap.csv", heatmap))
 
     threshold_files = (
+        [artifacts_dir / "models" / "mil" / encoder / mil_run_tag / "thresholds" / "test_operating_points.csv" for encoder in selected_encoders]
+        if mil_run_tag and selected_encoders else
         [Path(primary_mil_root) / "thresholds" / "test_operating_points.csv"]
         if primary_mil_root
         else sorted(artifacts_dir.glob("models/mil/*/thresholds/test_operating_points.csv"))
@@ -118,7 +130,7 @@ def generate_tables(
         threshold_tables = []
         for path in threshold_files:
             frame = pd.read_csv(path)
-            encoder = Path(primary_mil_root).parents[0].name if primary_mil_root else path.parents[1].name
+            encoder = path.parents[2].name if mil_run_tag and selected_encoders else Path(primary_mil_root).parents[0].name if primary_mil_root else path.parents[1].name
             frame.insert(0, "encoder", encoder)
             threshold_tables.append(frame)
         operating = pd.concat(threshold_tables, ignore_index=True)
@@ -126,6 +138,8 @@ def generate_tables(
         outputs.append(write_csv(plot_dir / "operating_points.csv", operating))
 
     tuning_files = (
+        [artifacts_dir / "models" / "mil" / encoder / mil_run_tag / "tuning" / "trials.csv" for encoder in selected_encoders]
+        if mil_run_tag and selected_encoders else
         [Path(primary_mil_root) / "tuning" / "trials.csv"]
         if primary_mil_root
         else sorted(artifacts_dir.glob("models/mil/*/tuning/trials.csv"))
@@ -135,7 +149,7 @@ def generate_tables(
         trials = []
         for path in tuning_files:
             frame = pd.read_csv(path)
-            encoder = Path(primary_mil_root).parents[0].name if primary_mil_root else path.parents[1].name
+            encoder = path.parents[2].name if mil_run_tag and selected_encoders else Path(primary_mil_root).parents[0].name if primary_mil_root else path.parents[1].name
             frame.insert(0, "encoder", encoder)
             trials.append(frame)
         outputs.append(write_csv(table_dir / "hyperparameter_trials.csv", pd.concat(trials, ignore_index=True)))

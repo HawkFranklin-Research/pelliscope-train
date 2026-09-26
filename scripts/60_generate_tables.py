@@ -14,6 +14,7 @@ def main() -> None:
     parser.add_argument("--config", default="configs/study_25class.yaml")
     parser.add_argument("--primary-encoder", default="siglip2_so400m")
     parser.add_argument("--mil-run-tag", default=None)
+    parser.add_argument("--encoders", default=None, help="Comma-separated encoders included in a tagged full run.")
     args = parser.parse_args()
     config = load_context(args.config)
     cases, images, splits = load_manifests(config)
@@ -30,6 +31,8 @@ def main() -> None:
         path_from(config, "artifacts_dir"),
         reports_dir,
         primary_mil_root=primary_root,
+        mil_run_tag=args.mil_run_tag if args.encoders else None,
+        selected_encoders=args.encoders.split(",") if args.encoders else None,
     )
 
 

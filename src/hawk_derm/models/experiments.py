@@ -11,6 +11,7 @@ import yaml
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 
 from hawk_derm.constants import slugify
+from hawk_derm.data.splits import split_membership_sha256
 from hawk_derm.evaluation.metrics import multilabel_metrics, per_class_metrics
 from hawk_derm.evaluation.predictions import prediction_frame, save_predictions
 from hawk_derm.features.bank import FeatureBank, build_case_bags
@@ -54,6 +55,63 @@ def selected_config_hash(config: dict[str, Any]) -> str:
     return sha256_text(canonical_json(payload))
 
 
+def mil_experiment_fingerprint(
+    bank: FeatureBank,
+    splits: pd.DataFrame,
+    labels: list[str],
+    mil_config: dict[str, Any],
+    *,
+    seed: int,
+    max_images: int,
+    evaluation_splits: tuple[str, ...],
+    provenance: dict[str, Any] | None,
+) -> str | None:
+    # A source-less call cannot safely reuse a result from a previous process.
+    required = ("feature_bank_sha256", "case_manifest_sha256")
+    if not provenance or any(not provenance.get(key) for key in required):
+        return None
+    identity = {
+        "feature_bank_sha256": provenance["feature_bank_sha256"],
+        "case_manifest_sha256": provenance["case_manifest_sha256"],
+        "split_membership_sha256": split_membership_sha256(splits),
+        "selected_config_sha256": selected_config_hash(mil_config),
+        "encoder": bank.encoder,
+        "model_id": bank.model_id,
+        "revision": bank.revision,
+        "dimension": bank.dimension,
+        "labels": labels,
+        "seed": seed,
+        "max_images": max_images,
+        "evaluation_splits": evaluation_splits,
+    }
+    return sha256_text(canonical_json(identity))
+
+
+def mil_result_artifacts(output_dir: Path, evaluation_splits: tuple[str, ...]) -> list[Path]:
+    paths = [output_dir / name for name in ("model.pt", "history.json", "overall_metrics.csv")]
+    for split in evaluation_splits:
+        paths.extend(
+            [
+                output_dir / f"{split}_predictions.csv",
+                output_dir / f"{split}_predictions.metadata.json",
+                output_dir / f"{split}_per_class_metrics.csv",
+            ]
+        )
+    return paths
+
+
+def reusable_mil_summary(
+    summary: dict[str, Any], output_dir: Path, evaluation_splits: tuple[str, ...], fingerprint: str | None
+) -> bool:
+    if not fingerprint or not summary.get("complete") or summary.get("experiment_fingerprint") != fingerprint:
+        return False
+    recorded = summary.get("artifact_sha256", {})
+    return all(
+        path.is_file() and recorded.get(path.name) == sha256_file(path)
+        for path in mil_result_artifacts(output_dir, evaluation_splits)
+    )
+
+
 def run_mil_experiment(
     bank: FeatureBank,
     cases: pd.DataFrame,
@@ -71,9 +129,19 @@ def run_mil_experiment(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_path = output_dir / "summary.json"
+    fingerprint = mil_experiment_fingerprint(
+        bank,
+        splits,
+        labels,
+        mil_config,
+        seed=seed,
+        max_images=max_images,
+        evaluation_splits=evaluation_splits,
+        provenance=provenance,
+    )
     if summary_path.is_file():
         summary = read_json(summary_path)
-        if summary.get("complete"):
+        if reusable_mil_summary(summary, output_dir, evaluation_splits, fingerprint):
             return summary
     arrays, split_values = prepare_bag_data(bank, cases, splits, labels, max_images)
     datasets = {name: subset_dataset(arrays, split_values == name) for name in ("train", "validation", "test")}
@@ -160,6 +228,10 @@ def run_mil_experiment(
         "selected_config_sha256": config_sha256,
         "implementation": mil_config.get("implementation", "unspecified"),
         "provenance": provenance or {},
+        "experiment_fingerprint": fingerprint,
+        "artifact_sha256": {
+            path.name: sha256_file(path) for path in mil_result_artifacts(output_dir, evaluation_splits)
+        },
         "complete": True,
     }
     write_json(output_dir / "summary.json", summary)
@@ -184,6 +256,13 @@ def sample_search_configs(base: dict[str, Any], search: dict[str, Any], trials: 
             if key in search:
                 value = rng.choice(search[key]).item()
                 trial["training"][key] = str(value) if key == "loss" else value
+        # Revision keys draw only when present, so search spaces without them sample exactly as before.
+        for key in ("instance_projection", "projection_rank"):
+            if key in search:
+                value = rng.choice(search[key]).item()
+                trial["architecture"][key] = str(value) if key == "instance_projection" else int(value)
+        if "positive_weight_power" in search:
+            trial["training"]["positive_weight_power"] = float(rng.choice(search["positive_weight_power"]).item())
         configs.append(trial)
     return configs
 
@@ -208,6 +287,7 @@ def _write_selected_config(
         "architecture": deepcopy(config["architecture"]),
         "training": deepcopy(config["training"]),
         "thresholds": deepcopy(config.get("thresholds", {})),
+        "calibration": deepcopy(config.get("calibration", {"method": "none"})),
         "selection": {
             "winning_trial": winning_trial,
             "winning_score": winning_score,
@@ -251,6 +331,11 @@ def run_mil_search(
     split_manifest_path: Path,
 ) -> pd.DataFrame:
     output_dir = Path(output_dir)
+    provenance = {
+        "feature_bank_sha256": sha256_file(feature_bank_path),
+        "case_manifest_sha256": sha256_file(case_manifest_path),
+        "split_manifest_sha256": sha256_file(split_manifest_path),
+    }
     rows = []
     trial_configs: dict[int, dict[str, Any]] = {}
     for trial_index, config in enumerate(sample_search_configs(mil_config, mil_config["search"], trials, seed), start=1):
@@ -267,6 +352,7 @@ def run_mil_search(
             device=device,
             max_images=max_images,
             evaluation_splits=("train", "validation"),
+            provenance=provenance,
         )
         metrics = pd.read_csv(trial_dir / "overall_metrics.csv")
         validation = metrics.loc[metrics["split"].eq("validation")].iloc[0]

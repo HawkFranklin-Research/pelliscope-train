@@ -31,15 +31,15 @@ python scripts/60_generate_tables.py --config configs/study_25class.yaml
 python scripts/61_generate_figures.py --config configs/study_25class.yaml
 ```
 
-The bounded smoke workflow uses the same paths and filenames as the full workflow:
+The bounded smoke workflow writes into `smoke_runs/`, leaving production manifests and model outputs untouched:
 
 ```bash
 python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode smoke
 ```
 
-### Smoke verification status
+### Historical smoke verification status
 
-The complete smoke run_pipeline.py rerun passed successfully.
+An earlier smoke run passed with the former artifact layout. The current smoke command exercises data, feature, classical, and MIL model stages in an isolated namespace; release statistics and verification require the locked full cohort.
 
 - All seven encoders completed.
 - All classical models and MIL stages completed.
@@ -59,17 +59,17 @@ The full log is saved at /home/prime/Documents/github/derm-paper-codebases/hawk-
 
 The Bit-50 and CLIP “unexpected weights” messages are expected because only their vision backbones are used. Google Derm again ran successfully through its CPU TensorFlow path.
 
-The full workflow intentionally overwrites validated smoke artifacts:
+The full workflow uses the locked 3,529/754/750 case split and the canonical MIL stage sequence:
 
 ```bash
 python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode full
 ```
 
-To download the raw Hugging Face dataset first, add `--download-data`. To omit an encoder, add a comma-separated skip list. For example, this runs the remaining encoders and uses Derm Foundation as the primary model:
+To download the raw Hugging Face dataset first, add `--download-data`. To omit an encoder from a full comparison run, keep both SigLIP2 and Derm Foundation, which are required for the prespecified paired analysis. For example:
 
 ```bash
 python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode full \
-  --download-data --skip-encoders siglip2_so400m --primary-encoder derm_foundation
+  --download-data --skip-encoders inception_v3 --primary-encoder siglip2_so400m
 ```
 
 Run a skipped-encoder experiment in a clean artifact directory or fresh VM so outputs from an earlier run are not mixed into its tables.
@@ -102,7 +102,7 @@ python scripts/90_test_cpu_scaling.py
 
 ### Decoupled heavy encoder vs downstream ML execution
 
-The pipeline supports stage-level decoupling using `--stage-filter`, allowing high-core cloud VMs to process only the compute-heavy foundation models while leaving downstream tabular models to smaller machines:
+The pipeline supports stage-level decoupling with `--from-stage` and `--to-stage`, allowing feature extraction and downstream models to run separately:
 
 #### Stage 1: High-core VM (Compute heavy foundation encoders only)
 Run raw image extraction across all 7 foundation encoders on the high-core VM and store `.npz` feature banks on persistent disk:
@@ -110,7 +110,7 @@ Run raw image extraction across all 7 foundation encoders on the high-core VM an
 python scripts/run_pipeline.py \
   --config configs/study_25class.yaml \
   --run-mode full \
-  --stage-filter features \
+  --from-stage manifest --to-stage features \
   --cpu-workers 32 \
   --download-workers 32 \
   --resume \
@@ -133,7 +133,7 @@ With frozen feature banks present, downstream classical models (Logistic Regress
 python scripts/run_pipeline.py \
   --config configs/study_25class.yaml \
   --run-mode full \
-  --stage-filter classical,mil,tuning,cross_val,eval,stats,tables,figures \
+  --from-stage classical --to-stage verify \
   --cpu-workers 16 \
   --resume \
   2>&1 | tee reports/stage2_models.log
@@ -141,7 +141,7 @@ python scripts/run_pipeline.py \
 
 ## Data and large artifacts
 
-Raw images, feature banks, checkpoints, and bulk predictions are not committed to Git. Their locations, checksums, and Hugging Face revisions are recorded in [ARTIFACT_INDEX.csv](coordination/ARTIFACT_INDEX.csv). Small manifests, split assignments, metrics, plot data, and run metadata remain versioned.
+Raw images, feature banks, and checkpoint binaries are kept outside Git. Prediction CSVs, manifests, split assignments, metrics, plot data, and run metadata may be versioned. Large artifact locations, checksums, and Hugging Face revisions are recorded in [ARTIFACT_INDEX.csv](coordination/ARTIFACT_INDEX.csv).
 
 ## Reproduction documentation
 
@@ -159,7 +159,7 @@ Raw images, feature banks, checkpoints, and bulk predictions are not committed t
 - `00–03`: data acquisition, canonical manifests, audits, and the shared split.
 - `10–12`: feature extraction/import, verified Hugging Face publication, and safe cleanup.
 - `20`: five classical classifier families with separate image- and case-level exports.
-- `30–34`: single MIL runs, tuning, development cross-validation, repeated fixed-split runs, and final frozen fitting.
+- `30–35`: single MIL runs, tuning, development cross-validation, repeated fixed-split runs, ensemble averaging, and final fitting.
 - `40`: validation-only threshold selection and locked-test operating points.
 - `50–53`: evaluation, manual or grid-wide paired statistics, archived closed-model normalization, and inference latency.
 - `60–61`: machine-readable tables and manuscript/appendix figures.

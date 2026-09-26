@@ -22,15 +22,15 @@ docker run --rm -v /absolute/data:/data -v "$PWD/artifacts:/workspace/hawk-derm/
 
 ## Staged workflow
 
-The pipeline order is data manifest, image audit, split freeze, features, classical baselines, MIL, thresholds, evaluation/statistics, tables, figures, and release verification. Every stage can be run independently through `scripts/`.
+The full pipeline order is data manifest, complete image audit, locked split, seven feature banks, classical baselines, then MIL tuning, cross-validation, repeated seeds, ensemble, validation thresholds, final model, evaluation, paired statistics, tables, figures, and release verification. The full command delegates MIL stages to `run_mil_pipeline.py`, which remains available for MIL-only runs.
 
-The bounded run covers all 25 labels and every entry point while using the canonical artifact names:
+The bounded run writes to `smoke_runs/` and exercises model stages without touching production outputs:
 
 ```bash
 python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode smoke
 ```
 
-Do not mix smoke and full outputs. After smoke artifacts and figures have been inspected, run the full workflow; it replaces the canonical files:
+After checking the isolated smoke outputs, run the full workflow. It requires a complete 10,407-row image audit and exactly the locked 3,529 train, 754 validation, and 750 test case IDs before model training:
 
 ```bash
 python scripts/run_pipeline.py --config configs/study_25class.yaml --run-mode full
@@ -62,4 +62,4 @@ Use `scripts/51_compare_models.py` with two case-level test prediction CSVs. The
 
 ## Final gate
 
-`scripts/70_verify_release.py` checks expected manifests, all seven feature metadata files, repeated MIL summaries, core tables, and core figures. Visual inspection remains a separate required review because file existence cannot detect blank or malformed plots.
+`scripts/70_verify_release.py --mil-run-tag canonical --encoders <encoder-list>` checks tagged MIL seeds and ensembles, classical test membership and split provenance, the primary final model, and the paired statistics. Visual inspection remains necessary because file existence cannot detect blank or malformed plots.

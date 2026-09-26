@@ -1,0 +1,10 @@
+{
+  "rank_gate": 0.25,
+  "base_rate": {
+    "predictions": "/home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/models/mil/siglip2_so400m/canonical/ensemble/validation_predictions.csv",
+    "median_ratio": 8.030598217046848,
+    "labels_with_ratio_above_2": 25,
+    "labels": 25
+  },
+  "effective_rank": "skipped: /home/prime/Documents/github/derm-paper-codebases/pelliscope-train/artifacts/features/siglip2_so400m/feature_bank.npz not found"
+}

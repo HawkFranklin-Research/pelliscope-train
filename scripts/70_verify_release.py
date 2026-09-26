@@ -10,7 +10,75 @@ from _common import load_context, mil_run_root
 
 from hawk_derm.config import path_from
 from hawk_derm.features.registry import load_encoder_registry
+from hawk_derm.data.splits import assert_existing_full_split
 from hawk_derm.io import read_json, sha256_file, write_csv, write_json
+
+
+def verify_tagged_grid(config: dict, encoders: list[str], run_tag: str) -> None:
+    split_path = path_from(config, "split_manifest")
+    splits = pd.read_csv(split_path)
+    split_hash = sha256_file(split_path)
+    expected = {name: set(splits.loc[splits["split"].eq(name), "case_id"].astype(str)) for name in ("train", "validation", "test")}
+    artifacts = path_from(config, "artifacts_dir")
+    seeds = [int(seed) for seed in config[config["study"]["run_mode"]]["seeds"]]
+    failures = []
+    for encoder in encoders:
+        root = mil_run_root(config, encoder, run_tag)
+        selected = root / "tuning" / "best_mil_config.yaml"
+        feature_bank = artifacts / "features" / encoder / "feature_bank.npz"
+        required = [feature_bank, selected, root / "cross_validation" / "cross_validation_metrics.csv", root / "repeated_metrics_long.csv", root / "ensemble" / "test_predictions.csv", root / "thresholds" / "validation_selected_thresholds.csv"]
+        for path in required:
+            if not path.is_file() or path.stat().st_size == 0:
+                failures.append(f"missing {path}")
+        selected_hash = sha256_file(selected) if selected.is_file() else None
+        feature_hash = sha256_file(feature_bank) if feature_bank.is_file() else None
+        for seed in seeds:
+            seed_root = root / f"seed_{seed}"
+            summary = seed_root / "summary.json"
+            if not summary.is_file():
+                failures.append(f"missing {summary}")
+            else:
+                provenance = read_json(summary).get("provenance", {})
+                if provenance.get("split_manifest_sha256") != split_hash:
+                    failures.append(f"stale split in {summary}")
+                if selected_hash and provenance.get("selected_mil_config_sha256") != selected_hash:
+                    failures.append(f"stale selected configuration in {summary}")
+                if feature_hash and provenance.get("feature_bank_sha256") != feature_hash:
+                    failures.append(f"stale feature bank in {summary}")
+            for split in expected:
+                path = seed_root / f"{split}_predictions.csv"
+                if not path.is_file():
+                    failures.append(f"missing {path}")
+                    continue
+                frame = pd.read_csv(path, usecols=["case_id"])
+                if len(frame) != len(expected[split]) or set(frame["case_id"].astype(str)) != expected[split]:
+                    failures.append(f"wrong {split} membership in {path}")
+        for split in ("validation", "test"):
+            path = root / "ensemble" / f"{split}_predictions.csv"
+            if not path.is_file():
+                failures.append(f"missing {path}")
+                continue
+            frame = pd.read_csv(path, usecols=["case_id"])
+            if len(frame) != len(expected[split]) or set(frame["case_id"].astype(str)) != expected[split]:
+                failures.append(f"wrong {split} membership in {path}")
+        for classifier in ("gradient_boosting", "knn", "logistic", "random_forest", "svm_linear"):
+            classical_root = artifacts / "models" / "classical" / encoder / classifier
+            path = classical_root / "test_case_predictions.csv"
+            if not path.is_file():
+                failures.append(f"missing {path}")
+                continue
+            frame = pd.read_csv(path, usecols=["case_id"])
+            if len(frame) != len(expected["test"]) or set(frame["case_id"].astype(str)) != expected["test"]:
+                failures.append(f"wrong locked test membership in {path}")
+            run_manifest = classical_root / "run_manifest.json"
+            if not run_manifest.is_file():
+                failures.append(f"missing {run_manifest}")
+            else:
+                inputs = read_json(run_manifest).get("inputs", [])
+                if not any(item.get("sha256") == split_hash and Path(item.get("path", "")).name == split_path.name for item in inputs):
+                    failures.append(f"classical model was not fitted on the locked split: {run_manifest}")
+    if failures:
+        raise RuntimeError("Tagged model grid is incomplete: " + "; ".join(failures[:20]))
 
 
 def verify_tagged_mil_release(config: dict, encoder: str, run_tag: str) -> None:
@@ -151,6 +219,9 @@ def verify_tagged_mil_release(config: dict, encoder: str, run_tag: str) -> None:
             failures.append("seed selected-config hash differs from best_mil_config.yaml")
         if provenance_values[0][2] != sha256_file(split_path):
             failures.append("seed split hash differs from the locked split manifest")
+    final_manifest = root / "final_model" / "final_model_manifest.json"
+    if final_manifest.is_file() and read_json(final_manifest).get("split_manifest_sha256") != sha256_file(split_path):
+        failures.append("final model was fitted on a different split")
 
     records = pd.DataFrame(
         [
@@ -189,6 +260,10 @@ def main() -> None:
     args = parser.parse_args()
     config = load_context(args.config)
     if args.mil_run_tag:
+        if config["study"]["run_mode"] == "full":
+            assert_existing_full_split(config)
+        if args.encoders:
+            verify_tagged_grid(config, [item.strip() for item in args.encoders.split(",") if item.strip()], args.mil_run_tag)
         verify_tagged_mil_release(config, args.primary_encoder, args.mil_run_tag)
         return
     root = Path(config["repository_root"])

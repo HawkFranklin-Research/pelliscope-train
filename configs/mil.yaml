@@ -1,6 +1,9 @@
 implementation: canonical_siglip2_mil
 selected_config_required_for_full_run: true
 
+# Revision (Sept 2026): one imbalance correction, prevalence bias start, AP-based checkpoint,
+# validation-fitted Platt calibration. The original September settings were loss: focal with
+# focal_alpha 0.75 and full negatives/positives weights, and checkpoint_metric: macro_auc_plus_lrap.
 architecture:
   instance_dim: 768
   attention_dim: 256
@@ -8,6 +11,10 @@ architecture:
   instance_layers: 1
   shared_layers: 1
   dropout: 0.25
+  # dense = original Linear; manifold_residual = fixed projection + low-rank residual.
+  # Enable only if revision-experiments/02_loss_and_rank_diagnostics.py passes the rank gate.
+  instance_projection: dense
+  projection_rank: 32
 
 training:
   optimizer: adamw
@@ -17,15 +24,24 @@ training:
   weight_decay: 0.0001
   early_stopping_patience: 8
   gradient_clip_norm: 5.0
-  loss: class_balanced
-  class_balanced_beta: 0.999
+  loss: bce
   use_positive_weights: true
+  positive_weight_power: 0.5
+  prior_bias_init: true
+  class_balanced_beta: 0.999
   focal_gamma: 2.0
   focal_alpha: 0.25
   scheduler: cosine
-  checkpoint_metric: macro_auc_plus_lrap
+  checkpoint_metric: macro_micro_ap
+  checkpoint_macro_ap_weight: 0.5
+  checkpoint_smoothing: 3
+  checkpoint_tie_tolerance: 0.002
   checkpoint_lrap_weight: 0.1
   num_workers: 0
+
+calibration:
+  method: platt
+  l2: 0.001
 
 search:
   trials: 12
@@ -37,10 +53,9 @@ search:
   shared_dim: [256, 384, 512]
   instance_layers: [1, 2]
   shared_layers: [1, 2]
-  loss: [bce, class_balanced, focal, class_balanced_focal]
-  class_balanced_beta: [0.99, 0.999, 0.9999]
-  focal_gamma: [1.0, 2.0]
-  focal_alpha: [0.25, 0.5, 0.75]
+  loss: [bce]
+  # 0 = unweighted BCE, 0.5 = square-root weights. Chosen by the tuning stage, not reported as an ablation.
+  positive_weight_power: [0.0, 0.5]
 
 thresholds:
   rule: balance

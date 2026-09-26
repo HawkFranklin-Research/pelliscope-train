@@ -22,6 +22,13 @@ def load_context(config_path: str, run_mode: str | None = None) -> dict[str, Any
     selected_mode = run_mode or os.getenv("HAWK_DERM_RUN_MODE")
     if selected_mode:
         config["study"]["run_mode"] = selected_mode
+    if selected_mode == "smoke":
+        # Smoke output must never replace production manifests or predictions.
+        smoke_root = REPOSITORY_ROOT / "smoke_runs"
+        for key in ("case_manifest", "image_manifest", "split_manifest"):
+            config["paths"][key] = str(smoke_root / "data" / Path(config["paths"][key]).name)
+        for key in ("audit_dir", "artifacts_dir", "reports_dir"):
+            config["paths"][key] = str(smoke_root / key.removesuffix("_dir"))
     return config
 
 
