@@ -13,7 +13,7 @@ architecture:
   dropout: 0.25
   # dense = original Linear; manifold_residual = fixed projection + low-rank residual.
   # Enable only if revision-experiments/02_loss_and_rank_diagnostics.py passes the rank gate.
-  instance_projection: dense
+  instance_projection: manifold_residual
   projection_rank: 32
 
 training:
