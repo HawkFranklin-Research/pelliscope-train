@@ -89,8 +89,12 @@ def sensitivity(operating_points: Path, per_label: pd.DataFrame, model: str, out
     positions = np.arange(len(external))
     fig, axis = plt.subplots(figsize=(max(8, 0.8 * len(external)), 4.5), constrained_layout=True)
     for offset, frame, name in ((-0.2, internal, "Internal test"), (0.2, external, "External")):
-        values = frame["sensitivity"].to_numpy(dtype=float)
-        errors = np.vstack([values - frame["sensitivity_ci_lower"], frame["sensitivity_ci_upper"] - values])
+        values = np.nan_to_num(frame["sensitivity"].to_numpy(dtype=float), nan=0.0)
+        lower = frame["sensitivity_ci_lower"].to_numpy(dtype=float) if "sensitivity_ci_lower" in frame else values
+        upper = frame["sensitivity_ci_upper"].to_numpy(dtype=float) if "sensitivity_ci_upper" in frame else values
+        lower_err = np.maximum(0.0, np.nan_to_num(values - lower, nan=0.0))
+        upper_err = np.maximum(0.0, np.nan_to_num(upper - values, nan=0.0))
+        errors = np.vstack([lower_err, upper_err])
         axis.bar(positions + offset, values, 0.4, yerr=errors, capsize=3, label=name)
     axis.set_xticks(positions, external.index, rotation=35, ha="right")
     axis.set_ylim(0, 1.05)
