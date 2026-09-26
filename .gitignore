@@ -32,3 +32,5 @@ data/raw/
 !artifacts/**/*.upload-receipt.json
 
 *.zip
+external_runs/
+data/external/

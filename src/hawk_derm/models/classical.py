@@ -18,6 +18,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVC
 
 from hawk_derm.constants import slugify
+from hawk_derm.data.external import ExternalInput
 from hawk_derm.evaluation.metrics import multilabel_metrics, per_class_metrics
 from hawk_derm.evaluation.predictions import prediction_frame, save_predictions
 from hawk_derm.features.bank import FeatureBank
@@ -124,6 +125,7 @@ def run_classical_experiment(
     seed: int = 42,
     aggregation: str = "mean",
     workers: int = 1,
+    external: list[ExternalInput] | None = None,
 ) -> dict[str, Any]:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -208,6 +210,36 @@ def run_classical_experiment(
         overall = multilabel_metrics(truth, probabilities)
         metric_rows.append({"encoder": bank.encoder, "classifier": classifier_name, "split": split_name, **overall})
         write_csv(output_dir / f"{split_name}_per_class_metrics.csv", per_class_metrics(truth, probabilities, labels))
+    for item in external or []:
+        # Same fitted label models, same image-to-case aggregation as the study splits.
+        external_probabilities = np.column_stack([_positive_probability(model, item.bank.embeddings) for model in models])
+        external_truth = item.cases.set_index(item.cases["case_id"].astype(str)).loc[
+            item.bank.case_ids.astype(str), [f"is_{slugify(label)}" for label in labels]
+        ].to_numpy(dtype=np.uint8)
+        image_frame = prediction_frame(
+            [str(value) for value in item.bank.image_ids],
+            external_truth,
+            external_probabilities,
+            labels,
+            split=item.name,
+            seed=seed,
+            model=f"{bank.encoder}+{classifier_name}:image_level",
+        ).rename(columns={"case_id": "image_id"})
+        image_frame.insert(0, "case_id", item.bank.case_ids.astype(str))
+        image_path = output_dir / f"{item.name}_image_predictions.csv"
+        save_predictions(image_path, image_frame, labels, {"evaluation_unit": "image", "external_bank_sha256": item.bank_sha256})
+        case_ids, truth, probabilities = aggregate_case_probabilities(
+            item.bank.case_ids, external_probabilities, item.cases, labels, aggregation
+        )
+        case_path = output_dir / f"{item.name}_case_predictions.csv"
+        save_predictions(
+            case_path,
+            prediction_frame(case_ids, truth, probabilities, labels, split=item.name, seed=seed, model=f"{bank.encoder}+{classifier_name}:case_{aggregation}"),
+            labels,
+            {"evaluation_unit": "external_pseudo_case", "aggregation": aggregation, "external_bank_sha256": item.bank_sha256},
+        )
+        outputs.extend([image_path, case_path])
+        metric_rows.append({"encoder": bank.encoder, "classifier": classifier_name, "split": item.name, **multilabel_metrics(truth, probabilities)})
     write_csv(output_dir / "overall_metrics.csv", pd.DataFrame(metric_rows))
     summary = {
         "encoder": bank.encoder,

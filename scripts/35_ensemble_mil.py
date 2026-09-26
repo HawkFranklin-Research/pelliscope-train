@@ -59,7 +59,11 @@ def main() -> None:
     per_class_rows: list[pd.DataFrame] = []
     source_files: dict[str, list[str]] = {}
     expected_seed_count = len(config[config["study"]["run_mode"]]["seeds"])
-    for split in ("validation", "test"):
+    # External cohorts use the validation-fitted calibration below; they never influence it.
+    external_splits = sorted(
+        {path.name.removesuffix("_predictions.csv") for path in root.glob("seed_*/external_*_predictions.csv")}
+    )
+    for split in ("validation", "test", *external_splits):
         paths = sorted(root.glob(f"seed_*/{split}_predictions.csv"))
         if config["study"]["run_mode"] == "full" and len(paths) != expected_seed_count:
             raise ValueError(f"Expected {expected_seed_count} {split} seed files, found {len(paths)}")

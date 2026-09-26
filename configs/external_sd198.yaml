@@ -1,0 +1,31 @@
+# SD-198 external test cohort (inference only; never used for training, tuning, calibration or thresholds).
+cohort:
+  name: sd198
+  display_name: SD-198 external test
+  description: >-
+    422 SD-198 images mapped to 11 of the 25 study labels. SD-198 has no patient IDs, so each image is a
+    one-image pseudo-case. Evaluates cross-source recognition of single images, not multi-photo aggregation.
+
+paths:
+  # Downloaded, read-only dataset. Override with HAWK_DERM_EXTERNAL_SD198_ROOT.
+  dataset_root: data/external/sd198-top25
+  image_manifest: metadata/image_manifest.csv
+  case_manifest: metadata/case_manifest.csv
+  label_schema: metadata/label_schema_25class.json
+  duplicate_groups: metadata/duplicate_content_groups.csv
+  # All derived outputs: adapter manifests, feature banks, reports.
+  output_root: external_runs/sd198
+
+expected:
+  images: 422
+  unique_images: 420
+  represented_labels: 11
+
+huggingface:
+  dataset_repo: HawkFranklin-Research/SD198-DermoLens-25Class-External-Test
+  repo_type: dataset
+
+evaluation:
+  bootstrap_replicates: 2000
+  seed: 20260926
+  top_k: [1, 3, 5]

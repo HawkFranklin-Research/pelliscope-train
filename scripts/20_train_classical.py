@@ -6,6 +6,7 @@ import argparse
 from _common import load_context, load_manifests
 
 from hawk_derm.config import load_yaml, path_from
+from hawk_derm.data.external import external_inputs, external_paths
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.models.classical import run_classical_experiment
 from hawk_derm.provenance import RunRecorder
@@ -30,7 +31,13 @@ def main() -> None:
     bank_path = path_from(config, "artifacts_dir") / "features" / args.encoder / "feature_bank.npz"
     bank = load_feature_bank(bank_path)
     output_dir = path_from(config, "artifacts_dir") / "models" / "classical" / args.encoder / args.classifier
-    with RunRecorder("train_classical", vars(args), output_dir, inputs=[bank_path, path_from(config, "split_manifest")]) as run:
+    external = external_inputs(config, args.encoder)
+    with RunRecorder(
+        "train_classical",
+        vars(args),
+        output_dir,
+        inputs=[bank_path, path_from(config, "split_manifest"), *external_paths(config, args.encoder)],
+    ) as run:
         run_classical_experiment(
             bank,
             cases,
@@ -42,6 +49,7 @@ def main() -> None:
             seed=args.seed,
             aggregation=args.aggregation,
             workers=workers,
+            external=external,
         )
         run.complete([output_dir / "overall_metrics.csv", output_dir / "test_case_predictions.csv"])
 

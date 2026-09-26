@@ -70,6 +70,26 @@ def main() -> None:
     write_csv(output / "validation_selected_thresholds.csv", selected)
     write_csv(output / "test_operating_points.csv", test_metrics)
     write_csv(output / "test_default_operating_points.csv", per_class_metrics(test_truth, test_probability, config["labels"], 0.5))
+    # External cohorts: validation-selected thresholds applied unchanged, never re-selected.
+    external_outputs = {}
+    for external_path in sorted((root / "ensemble").glob("external_*_predictions.csv")):
+        name = external_path.name.removesuffix("_predictions.csv")
+        truth, probability = arrays_from_prediction_frame(pd.read_csv(external_path), config["labels"])
+        points = per_class_metrics(truth, probability, config["labels"], selected_thresholds)
+        bounds = []
+        for row in points.itertuples(index=False):
+            sensitivity = wilson_interval(int(row.tp), int(row.tp + row.fn)) if row.tp + row.fn else (float("nan"), float("nan"))
+            specificity = wilson_interval(int(row.tn), int(row.tn + row.fp)) if row.tn + row.fp else (float("nan"), float("nan"))
+            bounds.append(
+                {
+                    "sensitivity_ci_lower": sensitivity[0],
+                    "sensitivity_ci_upper": sensitivity[1],
+                    "specificity_ci_lower": specificity[0],
+                    "specificity_ci_upper": specificity[1],
+                }
+            )
+        points = pd.concat([points, pd.DataFrame(bounds)], axis=1)
+        external_outputs[name] = str(write_csv(output / f"{name}_operating_points.csv", points))
     write_json(
         output / "threshold_manifest.json",
         {
@@ -81,6 +101,7 @@ def main() -> None:
             "rule": args.rule or threshold_config["rule"],
             "validation_ensemble_predictions": str(validation_path),
             "test_ensemble_predictions": str(test_path),
+            "external_operating_points": external_outputs,
             "selected_mil_config": str(mil_config_path),
             "selected_mil_config_sha256": sha256_file(mil_config_path),
             "case_manifest_sha256": sha256_file(path_from(config, "case_manifest")),

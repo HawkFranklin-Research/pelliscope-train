@@ -28,6 +28,10 @@ paths:
   artifacts_dir: artifacts
   reports_dir: reports
 
+# Inference-only external cohorts. Skipped automatically until prepared (scripts/80_prepare_external.py).
+external_cohorts:
+  - configs/external_sd198.yaml
+
 labels:
   - Eczema
   - Allergic Contact Dermatitis

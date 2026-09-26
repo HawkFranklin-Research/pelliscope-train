@@ -1,0 +1,20 @@
+# Production models are fixed by rule before any result is seen: the calibrated 10-seed MIL
+# probability ensemble of the named encoder, with its validation-fitted Platt calibration and
+# validation-selected thresholds. Never chosen by test or external performance.
+production_models:
+  pelliscope:
+    display_name: PelliScope
+    description: Full-size model (SigLIP2 SO400M image encoder, 1,152-d).
+    encoder: siglip2_so400m
+    model: mil_ensemble
+    run_tag: canonical
+    hub_repo: HawkFranklin-Research/pelliscope-siglip2-mil
+  pelliscope_scout:
+    display_name: PelliScope Scout
+    description: Lighter model for constrained devices.
+    # TODO(author): choose the lighter encoder (e.g. clip_vitb32 or vit_base) BEFORE the rerun.
+    # Left null on purpose: bundles and releases skip this entry until it is set.
+    encoder: null
+    model: mil_ensemble
+    run_tag: canonical
+    hub_repo: null

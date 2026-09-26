@@ -6,6 +6,7 @@ import argparse
 from _common import load_context, load_manifests, load_selected_mil_config, mil_run_root, parse_seeds
 
 from hawk_derm.config import path_from
+from hawk_derm.data.external import external_inputs, external_paths
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.io import sha256_file
 from hawk_derm.models.experiments import run_repeated_mil
@@ -33,6 +34,7 @@ def main() -> None:
     bank = load_feature_bank(bank_path)
     output_dir = mil_run_root(config, args.encoder, args.run_tag)
     split_path = path_from(config, "split_manifest")
+    external = external_inputs(config, args.encoder)
     provenance = {
         "feature_bank_sha256": sha256_file(bank_path),
         "case_manifest_sha256": sha256_file(path_from(config, "case_manifest")),
@@ -44,7 +46,7 @@ def main() -> None:
         "repeat_mil",
         vars(args),
         output_dir,
-        inputs=[bank_path, path_from(config, "case_manifest"), split_path, mil_config_path],
+        inputs=[bank_path, path_from(config, "case_manifest"), split_path, mil_config_path, *external_paths(config, args.encoder)],
     ) as run:
         run_repeated_mil(
             bank,
@@ -57,6 +59,7 @@ def main() -> None:
             device=args.device,
             max_images=int(config["study"]["max_images_per_case"]),
             provenance=provenance,
+            external=external,
         )
         run.complete([output_dir / "repeated_metrics_long.csv", output_dir / "repeated_metrics_summary.csv"])
 

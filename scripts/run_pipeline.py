@@ -13,6 +13,7 @@ import pandas as pd
 from _common import REPOSITORY_ROOT, load_context
 
 from hawk_derm.config import load_yaml, path_from
+from hawk_derm.data.external import load_external_cohorts
 from hawk_derm.features.registry import load_encoder_registry
 from hawk_derm.data.splits import assert_classical_locked, assert_complete_image_audit, assert_existing_full_split
 from hawk_derm.io import sha256_file
@@ -24,6 +25,8 @@ STAGES = (
     "manifest",
     "audit",
     "split",
+    "external-prepare",
+    "external-features",
     "features",
     "classical",
     "tuning",
@@ -37,6 +40,9 @@ STAGES = (
     "tables",
     "figures",
     "verify",
+    "external-evaluate",
+    "external-figures",
+    "bundle",
 )
 
 
@@ -102,6 +108,11 @@ def main() -> None:
     parser.add_argument("--skip-encoders", default="", help="Comma-separated encoder keys to omit from this run.")
     parser.add_argument("--primary-encoder", default=None, help="Encoder used for tuning, cross-validation, and final fitting.")
     parser.add_argument("--mil-run-tag", default="canonical", help="Shared MIL output namespace for the full run.")
+    parser.add_argument(
+        "--archive-to-hub",
+        action="store_true",
+        help="Upload every trained model and report to the private model repo in the background (scripts/86_archive_run_to_hub.py).",
+    )
     parser.add_argument("--cpu-workers", type=int, default=None, help="CPU budget assigned to each top-level pipeline job.")
     parser.add_argument("--download-workers", type=int, default=None, help="Concurrent Hugging Face file downloads (maximum 32).")
     parser.add_argument("--from-stage", choices=STAGES, default=STAGES[0])
@@ -189,6 +200,25 @@ def main() -> None:
         assert_existing_full_split(config)
     registry = load_encoder_registry()
     skipped = set(comma_values(args.skip_encoders))
+    included = [encoder for encoder in registry if encoder not in skipped]
+    # External cohorts are inference-only. Their features are extracted before any model is
+    # trained so every model scores them while it is still in memory.
+    for cohort in load_external_cohorts(config):
+        if not cohort.source_path("image_manifest").is_file():
+            if stage_selected("external-prepare", args.from_stage, args.to_stage):
+                print(f"[external] {cohort.name}: dataset not found at {cohort.dataset_root}; skipping external stages", flush=True)
+            continue
+        if args.run_mode == "smoke":
+            # Smoke runs reuse external banks if present but never spend time extracting them.
+            continue
+        if stage_selected("external-prepare", args.from_stage, args.to_stage):
+            run("80_prepare_external.py", *config_args, "--cohort", cohort.name, environment=environment)
+        if stage_selected("external-features", args.from_stage, args.to_stage):
+            run(
+                "81_extract_external_features.py", *config_args, "--cohort", cohort.name,
+                "--encoders", ",".join(included), "--device", args.device, "--workers", str(workers),
+                environment=environment,
+            )
     unknown = skipped.difference(registry)
     if unknown:
         raise ValueError(f"Unknown encoder keys in --skip-encoders: {sorted(unknown)}")
@@ -210,6 +240,18 @@ def main() -> None:
             raise ValueError("The prespecified paired comparison requires SigLIP2 as primary and Derm Foundation in this run")
     classifiers = list(load_yaml("configs/classifiers.yaml")["classifiers"])
     uploads: list[subprocess.Popen] = []
+
+    def archive(path: Path) -> None:
+        """Background upload of finished artifacts; failures are reported after compute ends."""
+        if not args.archive_to_hub or args.run_mode != "full" or not path.is_dir():
+            return
+        uploads.append(
+            subprocess.Popen(
+                [sys.executable, str(REPOSITORY_ROOT / "scripts" / "86_archive_run_to_hub.py"), str(path), "--run-tag", args.mil_run_tag],
+                cwd=REPOSITORY_ROOT,
+                env=environment,
+            )
+        )
     for encoder in encoders:
         extraction_arguments = [
             *config_args,
@@ -259,6 +301,7 @@ def main() -> None:
                     outputs=[model_dir / "overall_metrics.csv", model_dir / "test_case_predictions.csv"],
                     manifest=model_dir / "run_manifest.json",
                 )
+            archive(artifacts / "models" / "classical" / encoder)
     if args.run_mode == "full" and STAGES.index(args.to_stage) >= STAGES.index("tuning"):
         assert_classical_locked(config, encoders, classifiers)
     mil_stages = ("tuning", "cross-validation", "mil", "ensemble", "thresholds")
@@ -284,6 +327,7 @@ def main() -> None:
             "--to-stage", mil_stage_name.get(selected_mil_stages[-1], selected_mil_stages[-1]),
             environment=environment,
         )
+        archive(artifacts / "models" / "mil" / encoder / args.mil_run_tag)
     finishing_stages = ("final", "evaluation", "statistics", "tables", "figures", "verify")
     selected_finishing = [
         stage for stage in finishing_stages
@@ -299,6 +343,16 @@ def main() -> None:
             "--to-stage", finish_name.get(selected_finishing[-1], selected_finishing[-1]),
             environment=environment,
         )
+    external_arguments = [*config_args, "--run-tag", args.mil_run_tag]
+    if stage_selected("external-evaluate", args.from_stage, args.to_stage):
+        run("82_evaluate_external.py", *external_arguments, "--workers", str(workers), environment=environment)
+    if stage_selected("external-figures", args.from_stage, args.to_stage):
+        run("83_external_figures.py", *external_arguments, environment=environment)
+    if args.run_mode == "full" and stage_selected("bundle", args.from_stage, args.to_stage):
+        run("84_build_production_bundles.py", *config_args, environment=environment)
+        archive(artifacts / "production")
+    if args.archive_to_hub:
+        archive(path_from(config, "reports_dir"))
     for process in uploads:
         if process.wait() != 0:
             raise RuntimeError("A background Hugging Face upload failed")

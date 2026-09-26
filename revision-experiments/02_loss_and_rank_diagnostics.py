@@ -5,7 +5,8 @@
    focal-plus-positive-weight loss inflated scores for rare labels.
 2. Rank gate for the manifold-residual projection: effective rank of the L2-normalised
    training-split photo embeddings. The projection is enabled only if the ratio
-   effective_rank / dimension is at most RANK_GATE (declared here before running).
+   effective_rank / dimension is at most RANK_GATE (declared in hawk_derm.features.diagnostics;
+   the full MIL run enforces the same gate before tuning).
 
 Usage, from the repository root:
     python revision-experiments/02_loss_and_rank_diagnostics.py \
@@ -28,11 +29,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from hawk_derm.features.bank import load_feature_bank  # noqa: E402
+from hawk_derm.features.diagnostics import RANK_GATE, effective_rank  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "outputs/loss_and_rank"
 DEFAULT_PREDICTIONS = ROOT / "artifacts/models/mil/siglip2_so400m/canonical/ensemble/validation_predictions.csv"
-RANK_GATE = 0.25
-MAX_ROWS = 5000
 
 
 def slug(label: str) -> str:
@@ -56,17 +56,6 @@ def base_rate_report(predictions: Path, labels: list[str]) -> pd.DataFrame:
             }
         )
     return pd.DataFrame(rows)
-
-
-def effective_rank(embeddings: np.ndarray, seed: int = 0) -> float:
-    """exp(entropy of the normalised squared singular values) of row-L2-normalised embeddings."""
-    rng = np.random.default_rng(seed)
-    if len(embeddings) > MAX_ROWS:
-        embeddings = embeddings[rng.choice(len(embeddings), MAX_ROWS, replace=False)]
-    normalised = embeddings / np.clip(np.linalg.norm(embeddings, axis=1, keepdims=True), 1e-12, None)
-    energy = np.linalg.svd(normalised, compute_uv=False) ** 2
-    share = energy[energy > 0] / energy.sum()
-    return float(np.exp(-(share * np.log(share)).sum()))
 
 
 def main() -> None:

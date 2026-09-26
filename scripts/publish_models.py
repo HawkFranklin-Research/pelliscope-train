@@ -47,6 +47,11 @@ Official model checkpoint for the 25-condition case-level teledermatology Multip
 
 
 def main() -> None:
+    raise SystemExit(
+        "publish_models.py is retired: it read the untagged September final_model path. Use "
+        "scripts/84_build_production_bundles.py, then scripts/publish_production_model.py --model <name> --confirm "
+        "for releases, and scripts/86_archive_run_to_hub.py for internal archives."
+    )
     parser = argparse.ArgumentParser(description="Publish internal model checkpoints and public release model.")
     parser.add_argument("--config", default="configs/study_25class.yaml")
     parser.add_argument("--internal-repo", default="HawkFranklin-Research/pelliscope-25class-models-internal")

@@ -11,6 +11,7 @@ import yaml
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 
 from hawk_derm.constants import slugify
+from hawk_derm.data.external import ExternalInput
 from hawk_derm.data.splits import split_membership_sha256
 from hawk_derm.evaluation.metrics import multilabel_metrics, per_class_metrics
 from hawk_derm.evaluation.predictions import prediction_frame, save_predictions
@@ -45,6 +46,15 @@ def prepare_bag_data(
     return arrays, ordered["split"].to_numpy()
 
 
+def external_dataset(item: ExternalInput, labels: list[str], max_images: int) -> BagDataset:
+    """Bags for an external cohort, built exactly like study bags (masked padding to max_images)."""
+    arrays = build_case_bags(item.bank, item.cases, [slugify(label) for label in labels], max_images=max_images)
+    if np.any(~arrays["masks"].any(axis=1)):
+        missing = arrays["case_ids"][~arrays["masks"].any(axis=1)]
+        raise ValueError(f"External cases without embeddings: {missing[:10].tolist()}")
+    return BagDataset(arrays["bags"], arrays["masks"], arrays["labels"], arrays["case_ids"])
+
+
 def subset_dataset(arrays: dict[str, np.ndarray], mask: np.ndarray) -> BagDataset:
     return BagDataset(arrays["bags"][mask], arrays["masks"][mask], arrays["labels"][mask], arrays["case_ids"][mask])
 
@@ -65,6 +75,7 @@ def mil_experiment_fingerprint(
     max_images: int,
     evaluation_splits: tuple[str, ...],
     provenance: dict[str, Any] | None,
+    external: list[ExternalInput] | None = None,
 ) -> str | None:
     # A source-less call cannot safely reuse a result from a previous process.
     required = ("feature_bank_sha256", "case_manifest_sha256")
@@ -84,12 +95,17 @@ def mil_experiment_fingerprint(
         "max_images": max_images,
         "evaluation_splits": evaluation_splits,
     }
+    if external:
+        # Only present when external cohorts are scored, so earlier fingerprints stay valid.
+        identity["external"] = [item.identity() for item in external]
     return sha256_text(canonical_json(identity))
 
 
-def mil_result_artifacts(output_dir: Path, evaluation_splits: tuple[str, ...]) -> list[Path]:
+def mil_result_artifacts(
+    output_dir: Path, evaluation_splits: tuple[str, ...], external_names: tuple[str, ...] = ()
+) -> list[Path]:
     paths = [output_dir / name for name in ("model.pt", "history.json", "overall_metrics.csv")]
-    for split in evaluation_splits:
+    for split in (*evaluation_splits, *external_names):
         paths.extend(
             [
                 output_dir / f"{split}_predictions.csv",
@@ -101,14 +117,18 @@ def mil_result_artifacts(output_dir: Path, evaluation_splits: tuple[str, ...]) -
 
 
 def reusable_mil_summary(
-    summary: dict[str, Any], output_dir: Path, evaluation_splits: tuple[str, ...], fingerprint: str | None
+    summary: dict[str, Any],
+    output_dir: Path,
+    evaluation_splits: tuple[str, ...],
+    fingerprint: str | None,
+    external_names: tuple[str, ...] = (),
 ) -> bool:
     if not fingerprint or not summary.get("complete") or summary.get("experiment_fingerprint") != fingerprint:
         return False
     recorded = summary.get("artifact_sha256", {})
     return all(
         path.is_file() and recorded.get(path.name) == sha256_file(path)
-        for path in mil_result_artifacts(output_dir, evaluation_splits)
+        for path in mil_result_artifacts(output_dir, evaluation_splits, external_names)
     )
 
 
@@ -125,10 +145,14 @@ def run_mil_experiment(
     max_images: int = 3,
     evaluation_splits: tuple[str, ...] = ("train", "validation", "test"),
     provenance: dict[str, Any] | None = None,
+    external: list[ExternalInput] | None = None,
 ) -> dict[str, Any]:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_path = output_dir / "summary.json"
+    # External cohorts are scored only by models that also score the locked test split.
+    external = list(external or []) if "test" in evaluation_splits else []
+    external_names = tuple(item.name for item in external)
     fingerprint = mil_experiment_fingerprint(
         bank,
         splits,
@@ -138,10 +162,11 @@ def run_mil_experiment(
         max_images=max_images,
         evaluation_splits=evaluation_splits,
         provenance=provenance,
+        external=external,
     )
     if summary_path.is_file():
         summary = read_json(summary_path)
-        if reusable_mil_summary(summary, output_dir, evaluation_splits, fingerprint):
+        if reusable_mil_summary(summary, output_dir, evaluation_splits, fingerprint, external_names):
             return summary
     arrays, split_values = prepare_bag_data(bank, cases, splits, labels, max_images)
     datasets = {name: subset_dataset(arrays, split_values == name) for name in ("train", "validation", "test")}
@@ -217,11 +242,25 @@ def run_mil_experiment(
             output_dir / f"{split_name}_per_class_metrics.csv",
             per_class_metrics(dataset.labels.numpy(), probabilities, labels),
         )
+    for item in external:
+        dataset = external_dataset(item, labels, max_images)
+        probabilities, _ = predict_mil(
+            result.model, dataset, device=target_device, batch_size=int(mil_config["training"]["batch_size"])
+        )
+        save_predictions(
+            output_dir / f"{item.name}_predictions.csv",
+            prediction_frame(dataset.case_ids, dataset.labels.numpy(), probabilities, labels, split=item.name, seed=seed, model=f"{bank.encoder}+mil"),
+            labels,
+            {"evaluation_unit": "external_pseudo_case", "external_bank_sha256": item.bank_sha256, "selected_config_sha256": config_sha256},
+        )
+        metric_rows.append({"encoder": bank.encoder, "seed": seed, "split": item.name, **multilabel_metrics(dataset.labels.numpy(), probabilities)})
+        write_csv(output_dir / f"{item.name}_per_class_metrics.csv", per_class_metrics(dataset.labels.numpy(), probabilities, labels))
     write_csv(output_dir / "overall_metrics.csv", pd.DataFrame(metric_rows))
     summary = {
         "encoder": bank.encoder,
         "seed": seed,
         "device": target_device,
+        "external_cohorts": list(external_names),
         "best_epoch": result.best_epoch,
         "best_score": result.best_score,
         "checkpoint_metric": result.checkpoint_metric,
@@ -230,7 +269,7 @@ def run_mil_experiment(
         "provenance": provenance or {},
         "experiment_fingerprint": fingerprint,
         "artifact_sha256": {
-            path.name: sha256_file(path) for path in mil_result_artifacts(output_dir, evaluation_splits)
+            path.name: sha256_file(path) for path in mil_result_artifacts(output_dir, evaluation_splits, external_names)
         },
         "complete": True,
     }
@@ -452,6 +491,7 @@ def run_repeated_mil(
     device: str,
     max_images: int,
     provenance: dict[str, Any] | None = None,
+    external: list[ExternalInput] | None = None,
 ) -> pd.DataFrame:
     output_dir = Path(output_dir)
     metrics = []
@@ -468,6 +508,7 @@ def run_repeated_mil(
             device=device,
             max_images=max_images,
             provenance=provenance,
+            external=external,
         )
         metrics.append(pd.read_csv(seed_dir / "overall_metrics.csv"))
     combined = pd.concat(metrics, ignore_index=True)

@@ -11,11 +11,18 @@ import torch
 from _common import load_context, load_manifests, load_selected_mil_config, mil_run_root
 
 from hawk_derm.config import path_from
+from hawk_derm.data.external import external_inputs, external_paths
 from hawk_derm.evaluation.metrics import multilabel_metrics, per_class_metrics
 from hawk_derm.evaluation.predictions import prediction_frame, save_predictions
 from hawk_derm.features.bank import load_feature_bank
 from hawk_derm.io import sha256_file, write_csv, write_json
-from hawk_derm.models.experiments import choose_device, prepare_bag_data, selected_config_hash, subset_dataset
+from hawk_derm.models.experiments import (
+    choose_device,
+    external_dataset,
+    prepare_bag_data,
+    selected_config_hash,
+    subset_dataset,
+)
 from hawk_derm.models.mil import predict_mil, train_mil_fixed
 from hawk_derm.provenance import RunRecorder
 
@@ -73,7 +80,7 @@ def main() -> None:
         "fit_final_mil",
         {**vars(args), "selected_epochs": epochs},
         output,
-        inputs=[bank_path, path_from(config, "case_manifest"), split_path, mil_config_path],
+        inputs=[bank_path, path_from(config, "case_manifest"), split_path, mil_config_path, *external_paths(config, args.encoder)],
     ) as run:
         result = train_mil_fixed(
             development,
@@ -137,6 +144,21 @@ def main() -> None:
                 output / f"{split_name}_per_class_metrics.csv",
                 per_class_metrics(dataset.labels.numpy(), probabilities, config["labels"]),
             )
+        external_files = []
+        for item in external_inputs(config, args.encoder):
+            dataset = external_dataset(item, config["labels"], int(config["study"]["max_images_per_case"]))
+            probabilities, _ = predict_mil(result.model, dataset, device=device, batch_size=int(mil["training"]["batch_size"]))
+            path = save_predictions(
+                output / f"{item.name}_predictions.csv",
+                prediction_frame(
+                    dataset.case_ids, dataset.labels.numpy(), probabilities, config["labels"],
+                    split=item.name, seed=args.seed, model=f"{args.encoder}+mil:final_model",
+                ),
+                config["labels"],
+                {"evaluation_unit": "external_pseudo_case", "model_role": "final_model_separate_from_ten_seed_ensemble", "external_bank_sha256": item.bank_sha256},
+            )
+            external_files.append(path)
+            metric_rows.append({"split": item.name, **multilabel_metrics(dataset.labels.numpy(), probabilities)})
         write_csv(output / "overall_metrics.csv", pd.DataFrame(metric_rows))
         write_csv(
             output / "test_overall_metrics.csv",
@@ -176,6 +198,7 @@ def main() -> None:
                 output / "test_predictions.csv",
                 output / "overall_metrics.csv",
                 output / "final_model_manifest.json",
+                *external_files,
             ]
         )
 

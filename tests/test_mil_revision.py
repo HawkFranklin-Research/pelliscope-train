@@ -94,3 +94,30 @@ def test_revised_training_runs_and_records_smoothed_score() -> None:
     assert np.isclose(history[2]["checkpoint_score"], np.mean([row["checkpoint_score_raw"] for row in history[:3]]))
     assert "validation_log_loss_unweighted" in history[0]
     assert 1 <= result.best_epoch <= len(history)
+
+
+def test_effective_rank_separates_low_rank_from_isotropic_embeddings() -> None:
+    from hawk_derm.features.diagnostics import effective_rank
+
+    rng = np.random.default_rng(0)
+    low = rng.normal(size=(400, 3)) @ rng.normal(size=(3, 64))
+    assert effective_rank(low) <= 3.01
+    assert effective_rank(rng.normal(size=(400, 64))) > 40
+
+
+def test_rank_gate_stops_when_config_disagrees(tmp_path, monkeypatch) -> None:
+    import pytest
+    import yaml
+
+    from hawk_derm.features import diagnostics
+
+    record = {"effective_rank": 100.0, "dimension": 1152, "ratio": 0.087, "enable_manifold_residual": True}
+    monkeypatch.setattr(diagnostics, "rank_gate", lambda config: record)
+    config = {"paths": {"reports_dir": str(tmp_path)}, "repository_root": str(tmp_path)}
+    dense = tmp_path / "dense.yaml"
+    dense.write_text(yaml.safe_dump({"architecture": {"instance_projection": "dense"}}))
+    with pytest.raises(ValueError, match="manifold_residual"):
+        diagnostics.assert_rank_gate(config, dense)
+    matching = tmp_path / "mr.yaml"
+    matching.write_text(yaml.safe_dump({"architecture": {"instance_projection": "manifold_residual"}}))
+    assert diagnostics.assert_rank_gate(config, matching)["required"] == "manifold_residual"

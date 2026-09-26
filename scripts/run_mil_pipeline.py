@@ -15,6 +15,7 @@ from _common import REPOSITORY_ROOT, load_context, mil_run_root
 from hawk_derm.config import load_yaml, path_from
 from hawk_derm.models.mil import GatedAttentionMIL
 from hawk_derm.data.splits import assert_existing_full_split
+from hawk_derm.features.diagnostics import assert_rank_gate
 from hawk_derm.io import read_json, sha256_file
 from hawk_derm.runtime import cpu_environment, resolve_cpu_workers
 
@@ -162,6 +163,9 @@ def main() -> None:
 
     preflight(config, args.encoder, args.run_mode)
     implementation_check()
+    if args.run_mode == "full" and selected("tuning", args.from_stage, args.to_stage):
+        # Pre-registered: the instance projection is decided from SigLIP2 training photos before tuning.
+        assert_rank_gate(config)
 
     tuning_args = [*common, "--device", args.device]
     if args.trials is not None:
@@ -250,8 +254,9 @@ def main() -> None:
                     args.config,
                     "--predictions",
                     str(predictions),
-                    "--thresholds",
-                    str(thresholds),
+                    # Thresholds were selected on the calibrated ensemble's validation scores, so they
+                    # only apply to the ensemble. The final model is scored at the default 0.5.
+                    *(["--thresholds", str(thresholds)] if role == "ensemble" else []),
                     "--output-dir",
                     str(report_root / "evaluations" / role),
                 ],
